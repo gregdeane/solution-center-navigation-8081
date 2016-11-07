@@ -1,3 +1,4 @@
-var angular = require('angular');
+import angular from 'angular';
+import './assets/styles/main.scss';
 
-angular.module('solution-center-navigation', []);
+const app = angular.module('solution-center-navigation', []);
