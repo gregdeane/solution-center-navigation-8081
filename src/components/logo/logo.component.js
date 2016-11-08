@@ -3,6 +3,9 @@ import controller from './logo.controller';
 import './logo.scss';
 
 const logoComponent = {
+  bindings: {
+    source: '<'
+  },
   template,
   controller
 };
