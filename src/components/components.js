@@ -1,10 +1,10 @@
 import angular from 'angular';
 
-import Navigation from './navigation';
+import AppHeader from './app-header';
 
 const componentsModule =
           angular.module('components', [
-            Navigation
+            AppHeader
           ]);
 
 export default componentsModule.name;
