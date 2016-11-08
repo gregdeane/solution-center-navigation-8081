@@ -12,15 +12,15 @@ module.exports = {
     filename: "solution-center-navigation.js",
   },
   devServer: {
-   contentBase: __dirname + "/src"
- },
- module: {
+    contentBase: __dirname + "/src"
+  },
+  module: {
     rules: [
       {
         test: /\.js$/,
         use: [{
           loader: "babel-loader",
-          options: { presets: ["es2015"] }
+          options: {presets: ["es2015"]}
         }]
       },
       {
@@ -32,11 +32,17 @@ module.exports = {
         ]
       },
       {
-        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-        use: [
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+        use: [
           "file-loader"
         ]
-      }
+      },
+      {
+        test: /\.html$/,
+        use: [
+          'raw-loader'
+        ]
+      }
     ]
   }
 };
