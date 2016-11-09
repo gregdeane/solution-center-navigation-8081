@@ -12,7 +12,7 @@ module.exports = {
     filename: "solution-center-navigation.js",
   },
   devServer: {
-    contentBase: __dirname + "/src"
+    contentBase: __dirname + "/demo"
   },
   module: {
     rules: [

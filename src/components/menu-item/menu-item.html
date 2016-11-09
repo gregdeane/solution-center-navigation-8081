@@ -1,0 +1,11 @@
+<li class="menu__item">
+  <a class="menu__item__link"
+      ng-class="$ctrl.highlightedClass"
+      ng-click=""
+      href>
+        <span class="menu__item__name"
+              ng-class="{'menu__item__name--switcher' : $ctrl.isToggle}">
+          {{$ctrl.item.name}}
+        </span>
+    </a>
+</li>

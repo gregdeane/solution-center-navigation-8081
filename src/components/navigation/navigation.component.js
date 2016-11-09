@@ -4,9 +4,7 @@ import './navigation.scss';
 
 const navigationComponent = {
   bindings: {
-    products: '<',
-    user: '<',
-    userBusinessPartners: '<'
+    products: '<'
   },
   template,
   controller

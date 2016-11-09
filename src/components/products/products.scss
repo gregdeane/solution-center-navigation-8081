@@ -1,0 +1,14 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.navigation__products {
+  //display: none;
+  margin: 0;
+  min-width: 0;
+  overflow: auto;
+
+  @media (min-width: $dc-huge-width) {
+    display: block;
+    margin-left: $dc-space150;
+    margin-right: $dc-space150;
+  }
+}

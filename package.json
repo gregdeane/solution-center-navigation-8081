@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Reusable navigation header for software connecting to the Zalando Solution Center",
   "scripts": {
-    "start": "node node_modules/.bin/webpack-dev-server --content-base src"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",

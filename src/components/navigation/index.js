@@ -1,9 +1,9 @@
 import angular from 'angular';
 
-import navigationComponent from './navigation.component';
+import NavigationComponent from './navigation.component';
 
 const navigationModule =
           angular.module('components.navigation', [])
-              .component('scNavigation', navigationComponent);
+              .component('navigation', NavigationComponent);
 
 export default navigationModule.name;
