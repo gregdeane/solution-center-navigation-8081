@@ -1,0 +1,9 @@
+.intro {
+    padding: 2.4rem;
+}
+
+.usage {
+    padding: 2.4rem;
+    border: 1px solid rgba(0,0,0,0.09);
+    border-radius: 5px;
+}

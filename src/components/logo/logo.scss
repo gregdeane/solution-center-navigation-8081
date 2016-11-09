@@ -1,0 +1,10 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.logo {
+  cursor: pointer;
+
+  img {
+    max-height: $dc-touch-size - $dc-space150;
+    max-width: 90px;
+  }
+}

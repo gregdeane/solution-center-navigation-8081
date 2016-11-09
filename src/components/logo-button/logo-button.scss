@@ -1,0 +1,33 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.logo-button {
+  display: flex;
+  max-height: 2rem;
+
+  &--desktop {
+    display: none;
+
+    @media (min-width: $dc-huge-width) {
+      display: block;
+    }
+  }
+
+  &--mobile {
+    margin-left: 0;
+
+    @media (min-width: $dc-huge-width) {
+      display: none;
+    }
+  }
+
+  .menu-toggle {
+    @media (min-width: $dc-huge-width) {
+      display: none;
+    }
+
+    .dc-icon {
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+  }
+}
