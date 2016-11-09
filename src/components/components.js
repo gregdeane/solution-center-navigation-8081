@@ -6,6 +6,8 @@ import LogoButton from './logo-button';
 import Logo from './logo';
 import Products from './products';
 import Applications from './applications';
+import Menu from './menu';
+import MenuItem from './menu-item';
 
 const componentsModule =
           angular.module('components', [
@@ -14,7 +16,9 @@ const componentsModule =
             LogoButton,
             Logo,
             Products,
-            Applications
+            Applications,
+            Menu,
+            MenuItem
           ]);
 
 export default componentsModule.name;
