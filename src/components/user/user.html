@@ -1,0 +1,10 @@
+<section class="dc-column dc-column--shrink">
+    <div class="toggle"
+         title="User Account"
+         ng-click="$ctrl.toggleUserMenu()">
+            <span class="user-name">
+              {{$ctrl.user ? $ctrl.user.firstName + ' ' + $ctrl.user.lastName : ''}}
+            </span>
+        <i class="dc-icon dc-icon--user dc-icon--interactive"></i>
+    </div>
+</section>
