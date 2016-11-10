@@ -1,0 +1,27 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.app-header {
+
+  .dc-icon {
+    font-size: 2.4rem;
+    /* Since we are specifying font-size, we need the line-height as well.
+       As the line-height of the text in the header is smaller (Icons are bigger than the text)
+     */
+    line-height: 2.4rem;
+    width: 36px;
+    color: $dc-gray40;
+
+    &--interactive:hover {
+      color: $dc-orange40;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $dc-link-color-hover;
+      outline: none;
+    }
+  }
+}

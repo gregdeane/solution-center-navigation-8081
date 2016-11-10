@@ -8,6 +8,7 @@ import Products from './products';
 import Applications from './applications';
 import Menu from './menu';
 import MenuItem from './menu-item';
+import Help from './help';
 
 const componentsModule =
           angular.module('components', [
@@ -18,7 +19,8 @@ const componentsModule =
             Products,
             Applications,
             Menu,
-            MenuItem
+            MenuItem,
+            Help
           ]);
 
 export default componentsModule.name;
