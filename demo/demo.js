@@ -11,11 +11,13 @@ angular.module('demo', ['solution-center-navigation'])
           applications: [{
             id: 1,
             name: 'CMS',
-            url: '/cms'
+            url: '/cms',
+            businessPartnerTypes: ['BRAND', 'SUPPLIER']
           }, {
             id: 2,
             name: 'Analytics',
-            url: '/analytics'
+            url: '/analytics',
+            businessPartnerTypes: ['BRAND']
           }]
         },
         {
@@ -24,7 +26,8 @@ angular.module('demo', ['solution-center-navigation'])
           applications: [{
             id: 3,
             name: 'Coplanner',
-            url: '/coplanner'
+            url: '/coplanner',
+            businessPartnerTypes: ['SUPPLIER']
           }]
         },
         {
@@ -33,14 +36,74 @@ angular.module('demo', ['solution-center-navigation'])
           applications: [{
             id: 4,
             name: 'Articles',
-            url: '/articles'
+            url: '/articles',
+            businessPartnerTypes: ['MERCHANT']
           }, {
             id: 5,
             name: 'Orders',
-            url: '/orders'
+            url: '/orders',
+            businessPartnerTypes: ['MERCHANT']
           }]
         }
       ];
+
+      vm.userBusinessPartners = [{
+        id: 1,
+        name: 'Adidas',
+        types: ['BRAND', 'MERCHANT', 'SUPPLIER']
+      }, {
+        id: 2,
+        name: 'Nike',
+        types: ['BRAND', 'SUPPLIER']
+      }, {
+        id: 3,
+        name: 'FourFlavor',
+        types: ['MERCHANT']
+      }, {
+        id: 4,
+        name: 'WarehouseOne',
+        types: ['MERCHANT']
+      }, {
+        id: 5,
+        name: 'GREENALITY',
+        types: ['MERCHANT']
+      }, {
+        id: 6,
+        name: 'Lea Trade Srl',
+        types: ['SUPPLIER']
+      }, {
+        id: 7,
+        name: 'Hirsch Fashion GmbH',
+        types: ['SUPPLIER']
+      }, {
+        id: 8,
+        name: 'Reebok',
+        types: ['BRAND']
+      }, {
+        id: 9,
+        name: 'Vans',
+        types: ['BRAND']
+      }, {
+        id: 10,
+        name: 'Ray-Ban',
+        types: ['BRAND']
+      }, {
+        id: 11,
+        name: 'Tommy Hilfiger',
+        types: ['BRAND']
+      }, {
+        id: 12,
+        name: 'Eterna',
+        types: ['MERCHANT']
+      }, {
+        id: 13,
+        name: 'Roberto Collina SRL',
+        types: ['SUPPLIER']
+      }, {
+        id: 14,
+        name: 'fashion4home GmbH',
+        types: ['SUPPLIER']
+      }];
 
       vm.user = {
         id: 1,

@@ -4,7 +4,8 @@ import './menu.scss';
 
 const menuComponent = {
   bindings: {
-    items: '<'
+    items: '<',
+    onClickAction: '&'
   },
   template,
   controller
