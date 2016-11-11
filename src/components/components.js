@@ -9,6 +9,7 @@ import Applications from './applications';
 import Menu from './menu';
 import MenuItem from './menu-item';
 import User from './user';
+import UserMenu from './user-menu';
 import Help from './help';
 
 const componentsModule =
@@ -22,6 +23,7 @@ const componentsModule =
             Menu,
             MenuItem,
             User,
+            UserMenu,
             Help
           ]);
 
