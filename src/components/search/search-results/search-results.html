@@ -1,0 +1,8 @@
+<ul class="dc-list dc-suggest"
+    ng-class="{'visible': $ctrl.searchResults.length > 0}">
+    <li ng-repeat="item in $ctrl.searchResults track by item.id"
+        class="dc-suggest__item dc-link"
+        ng-click="">
+        {{result.name}}
+    </li>
+</ul>

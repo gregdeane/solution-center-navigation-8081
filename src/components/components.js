@@ -9,8 +9,10 @@ import Applications from './applications';
 import Menu from './menu';
 import MenuItem from './menu-item';
 import BusinessPartner from './business-partner';
+import BusinessPartnerMenu from './business-partner-menu';
 import User from './user';
 import Help from './help';
+import Search from './search';
 
 const componentsModule =
           angular.module('components', [
@@ -23,8 +25,10 @@ const componentsModule =
             Menu,
             MenuItem,
             BusinessPartner,
+            BusinessPartnerMenu,
             User,
-            Help
+            Help,
+            Search
           ]);
 
 export default componentsModule.name;

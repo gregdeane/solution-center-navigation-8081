@@ -1,0 +1,19 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.dc-search-form {
+  width: 100%;
+
+  &__input {
+    box-sizing: border-box;
+    color: $dc-black;
+    width: 100%;
+  }
+}
+
+.dc-suggest {
+  pointer-events: auto;
+
+  &.visible {
+    opacity: 1;
+  }
+}
