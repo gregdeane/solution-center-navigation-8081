@@ -4,7 +4,8 @@ import './applications.scss';
 
 const applicationsComponent = {
   bindings: {
-    products: '<'
+    products: '<',
+    userBusinessPartners: '<'
   },
   template,
   controller
