@@ -8,6 +8,7 @@ import Products from './products';
 import Applications from './applications';
 import Menu from './menu';
 import MenuItem from './menu-item';
+import BusinessPartner from './business-partner';
 import User from './user';
 import Help from './help';
 
@@ -21,6 +22,7 @@ const componentsModule =
             Applications,
             Menu,
             MenuItem,
+            BusinessPartner,
             User,
             Help
           ]);
