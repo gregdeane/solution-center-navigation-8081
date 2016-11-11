@@ -2,32 +2,4 @@
 
 .navigation {
   align-items: center;
-  height: $dc-touch-size;
-  padding: 0 $dc-space100;
-  border-bottom: 1px solid $dc-gray60;
-  background: $dc-white;
-  position: relative;
-  line-height: 10px;
-
-  &--menu {
-    background: $dc-white;
-    border-top: 1px solid $dc-gray60;
-    border-bottom: 1px solid $dc-gray60;
-    //display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    width: 100%;
-    z-index: 998;
-
-    @media (min-width: $dc-huge-width) {
-      border: none;
-      display: block;
-      position: static;
-    }
-  }
-
-  &--right {
-    justify-content: flex-end;
-  }
 }

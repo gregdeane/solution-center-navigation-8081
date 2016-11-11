@@ -1,0 +1,55 @@
+@import "../../../node_modules/dress-code/dist/sass/dress-code";
+
+.app-header {
+  align-items: center;
+  height: $dc-touch-size;
+  padding: 0 $dc-space100;
+  border-bottom: 1px solid $dc-gray60;
+  background: $dc-white;
+  line-height: 10px;
+
+  .sub-menu {
+    background: $dc-white;
+    border-top: 1px solid $dc-gray60;
+    border-bottom: 1px solid $dc-gray60;
+    //display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    z-index: 998;
+
+    @media (min-width: $dc-huge-width) {
+      border: none;
+      display: block;
+      position: static;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  .dc-icon {
+    font-size: 2.4rem;
+    /* Since we are specifying font-size, we need the line-height as well.
+       As the line-height of the text in the header is smaller (Icons are bigger than the text)
+     */
+    line-height: 2.4rem;
+    width: 36px;
+    color: $dc-gray40;
+
+    &--interactive:hover {
+      color: $dc-orange40;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: $dc-link-color-hover;
+      outline: none;
+    }
+  }
+}

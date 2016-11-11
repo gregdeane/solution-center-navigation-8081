@@ -1,6 +1,14 @@
-<header class="app-header">
-    <navigation
-            products="$ctrl.products"
-            user-business-partners="$ctrl.userBusinessPartners">
+<header class="app-header dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
+    <navigation class="dc-column dc-column--shrink"
+                products="$ctrl.products"
+                user-business-partners="$ctrl.userBusinessPartners">
     </navigation>
+
+    <user class="dc-column dc-column--shrink"
+          user="$ctrl.user">
+    </user>
+
+    <help class="dc-column dc-column--shrink"
+          products="$ctrl.products">
+    </help>
 </header>
