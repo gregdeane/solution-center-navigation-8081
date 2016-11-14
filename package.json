@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Reusable navigation header for software connecting to the Zalando Solution Center",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "karma start config/karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -35,11 +36,15 @@
     "jasmine-core": "^2.4.1",
     "jquery": "^3.0.0",
     "karma": "^1.1.1",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-firefox-launcher": "^1.0.0",
+    "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-remap-coverage": "^0.1.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.8.0",
     "ng-redux": "^3.3.0",
     "node-sass": "^3.11.2",
+    "phantomjs": "^2.1.7+deprecated",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
