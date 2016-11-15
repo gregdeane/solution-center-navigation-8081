@@ -11,6 +11,7 @@ import MenuItem from './menu-item';
 import BusinessPartner from './business-partner';
 import BusinessPartnerMenu from './business-partner-menu';
 import User from './user';
+import UserMenu from './user-menu';
 import Help from './help';
 import Search from './search';
 
@@ -27,6 +28,7 @@ const componentsModule =
             BusinessPartner,
             BusinessPartnerMenu,
             User,
+            UserMenu,
             Help,
             Search
           ]);
