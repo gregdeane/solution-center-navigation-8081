@@ -1,9 +1,13 @@
 <ul class="menu--sub">
-  <li class="menu--sub__item" ng-repeat="application in $ctrl.applications track by application.id">
-    <a class="menu--sub__link" ng-class="$ctrl.highlightedClass" ng-click="" href>
-      <span class="">
-            {{application.name}}
-          </span>
-    </a>
-  </li>
+    <li ng-repeat="application in $ctrl.applications track by application.id"
+        class="menu--sub__item">
+        <a class="menu--sub__link"
+           ng-class="{'highlighted' : $ctrl.isCurrentApplication(application.id)}"
+           ng-click="$ctrl.navigateToApplication(application)"
+           href>
+            <span class="">
+                {{application.name}}
+            </span>
+        </a>
+    </li>
 </ul>

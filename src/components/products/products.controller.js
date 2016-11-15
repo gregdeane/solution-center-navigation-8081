@@ -1,6 +1,14 @@
 class ProductsController {
-  constructor() {
-      console.log(this.products)
+  constructor(productsService) {
+      this.productsService = productsService;
+  }
+
+  switchMenu(clickedProduct) {
+    this.productsService.switchMenu(clickedProduct);
+  }
+
+  showApplicationsMenu() {
+    return this.productsService.showApplicationsMenu();
   }
 }
 

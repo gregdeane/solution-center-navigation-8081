@@ -1,13 +1,14 @@
 <div class="business-partner-menu">
     <h2 class="dc-h2">Select Business Partner</h2>
 
-    <search searchable-items="$ctrl.accessibleBusinessPartners"
+    <search
+            searchable-items="$ctrl.accessibleBusinessPartners"
             on-click-action="">
     </search>
 
     <p>Last used:</p>
     <ul class="business-partner-menu__last-accessed">
-        <li ng-repeat="businessPartner in $ctrl.lastAccessedBusinessPartners track by item.id"
+        <li ng-repeat="businessPartner in $ctrl.lastAccessedBusinessPartners track by businessPartner.id"
             class="business-partner-menu__last-accessed__item"
             ng-click="$ctrl.selectBusinessPartner(businessPartner)">
             {{businessPartner.name}}
