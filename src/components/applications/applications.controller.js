@@ -2,11 +2,13 @@ import * as Actions from '../../actions';
 
 class ApplicationsController {
   constructor($ngRedux, applicationsService) {
+
+    console.log(this.applications);
     this.applicationsService = applicationsService;
 
     $ngRedux.connect(this.mapStateToParams, Actions)(this);
 
-    this.applications = this.applicationsService.getCurrentProductApplications(this.products, this.selectedProductId);
+    //this.applications = this.applicationsService.getCurrentProductApplications(this.products, this.selectedProductId);
   }
 
   mapStateToParams(state) {

@@ -1,10 +1,9 @@
-<div class="navigation dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
-    <div class="dc-column dc-column--shrink navigation__applications">
-        <nav class="navigation--menu">
-            <menu
-                    items="$ctrl.applications"
-                    on-click-action="$ctrl.navigateToApplication">
-            </menu>
-        </nav>
-    </div>
-</div>
+<ul class="menu--sub">
+  <li class="menu--sub__item" ng-repeat="application in $ctrl.applications track by application.id">
+    <a class="menu--sub__link" ng-class="$ctrl.highlightedClass" ng-click="" href>
+      <span class="">
+            {{application.name}}
+          </span>
+    </a>
+  </li>
+</ul>
