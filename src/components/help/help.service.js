@@ -1,4 +1,17 @@
+import * as Actions from '../../actions';
+
 class HelpService {
+  constructor($ngRedux) {
+    $ngRedux.connect(this.mapStateToParams, Actions)(this);
+  }
+
+  mapStateToParams(state) {
+    return {
+      isHelpWidgetLoaded: state.visibility.helpWidgetLoaded,
+      isHelpWidgetShown: state.visibility.helpWidgetShown
+    };
+  }
+
   loadHelpWidget(products) {
     // NANOREP EMBEDDED WIDGET
     // Generated at my.nanorep.com > Guided Journeys > Touchpoints > Embedded Widget > get the code
@@ -48,6 +61,8 @@ class HelpService {
 
     // added this to generate code so we can run this outside the global scope
     window._nRepData = _nRepData;
+
+    this.setHelpWidgetAsLoaded();
   }
 
   getHelpSections(products) {

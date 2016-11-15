@@ -1,6 +1,10 @@
 class AppHeaderController {
-  constructor() {
+  constructor(appHeaderService) {
+    this.appHeaderService = appHeaderService;
+  }
 
+  showBusinessPartnerMenu() {
+    return this.appHeaderService.showBusinessPartnerMenu();
   }
 }
 

@@ -1,4 +1,4 @@
-<div ng-if="$ctrl.isHelpWidgetLoaded"
+<div ng-if="$ctrl.isHelpWidgetLoaded()"
      class="dc-btn-dropdown">
     <div class="toggle"
          ng-click="$ctrl.toggleHelpWidget()"
@@ -8,7 +8,7 @@
     <div aria-live="polite"
          id="nanoRepEmbedContainer"
          class="dc-btn-dropdown__list dc-btn-dropdown__list--down help__widget"
-         ng-class="{'visible': $ctrl.isHelpWidgetShown}">
+         ng-class="{'visible': $ctrl.isHelpWidgetShown()}">
         <i class="dc-icon dc-icon--close dc-icon--interactive"
            ng-click="$ctrl.hideHelpWidget()">
         </i>
