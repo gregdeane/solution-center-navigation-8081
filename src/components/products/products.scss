@@ -1,14 +1,46 @@
 @import "../../../node_modules/dress-code/dist/sass/dress-code";
-
 .navigation__products {
-  //display: none;
-  margin: 0;
-  min-width: 0;
-  overflow: auto;
+    position: absolute;
+    top: 4.4rem;
+    left: 0;
+    width: 100%;
+    background: #fff;
 
-  @media (min-width: $dc-huge-width) {
-    display: block;
-    margin-left: $dc-space150;
-    margin-right: $dc-space150;
-  }
+    .menu {
+        box-shadow: 0 2px 8px rgba(0,0,0,.25);
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .menu--sub {
+        list-style: none;
+        padding-left: 4.2rem;
+    }
+    .menu--sub__link {
+      font-weight: 300;
+      font-size: 1.4rem;
+      color: #4a4a4a;
+    }
+    .menu--sub__item {
+        border-bottom: 1px solid #ededed;
+        padding: 2.4rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .menu__item {
+        border-bottom: 1px solid #ededed;
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .menu__link {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 2.5rem 1.2rem 1.2rem 5.2rem;
+        border-bottom: 1px solid #ededed;
+        color: #4a4a4a;
+    }
+    @media (min-width: $dc-huge-width) {}
 }
