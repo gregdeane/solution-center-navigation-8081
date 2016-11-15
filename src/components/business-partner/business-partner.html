@@ -1,0 +1,10 @@
+<!-- The user must be in an application and there should be a selected business partner in order to
+     show the menu to change it -->
+<nav ng-if="$ctrl.currentApplication && $ctrl.currentBusinessPartner"
+     class="sub-menu">
+    <menu
+            items="{{[$ctrl.currentBusinessPartner]}}"
+            on-click-action="{{$ctrl.toggleBusinessPartnerMenu}}"
+            is-toogle="{{true}}">
+    </menu>
+</nav>

@@ -1,0 +1,14 @@
+<div class="dc-search-form">
+    <search-box
+            on-change-action="$ctrl.updateResults.bind(this)">
+    </search-box>
+
+    <button class="dc-btn dc-search-form__btn">
+        <i class="dc-icon dc-icon--search dc-icon--interactive"></i>
+    </button>
+
+    <search-results ng-if="$ctrl.searchResults && $ctrl.searchResults.length > 0"
+                    search-results={this.props.searchResults}
+                    on-click-action={this.props.onClickAction}>
+    </search-results>
+</div>
