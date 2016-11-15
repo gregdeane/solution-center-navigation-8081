@@ -1,13 +1,11 @@
 import angular from 'angular';
 
 import SearchComponent from './search.component';
-import SearchBoxComponent from './search-box/search-box.component';
-import SearchResultsComponent from './search-results/search-results.component';
+import SearchService from './search.service';
 
 const searchModule =
           angular.module('components.search', [])
               .component('search', SearchComponent)
-              .component('searchBox', SearchBoxComponent)
-              .component('searchResults', SearchResultsComponent);
+              .service('searchService', SearchService);
 
 export default searchModule.name;

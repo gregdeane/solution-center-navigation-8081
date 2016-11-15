@@ -2,8 +2,7 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   accessibleBusinessPartners: [],
-  lastAccessedBusinessPartners: [],
-  businessPartnerSearchResults: []
+  lastAccessedBusinessPartners: []
 };
 
 const businessPartners = (state = initialState, action) => {
@@ -18,12 +17,6 @@ const businessPartners = (state = initialState, action) => {
       return {
         ...state,
         lastAccessedBusinessPartners: action.lastAccessedBusinessPartners
-      };
-
-    case types.UPDATE_BUSINESS_PARTNER_SEARCH_RESULTS:
-      return {
-        ...state,
-        businessPartnerSearchResults: action.businessPartnerSearchResults
       };
 
     default:

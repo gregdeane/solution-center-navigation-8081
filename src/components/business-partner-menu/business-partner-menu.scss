@@ -12,11 +12,13 @@
   width: 400px;
   z-index: 500;
 
-  &__last-accessed {
-    list-style: none;
-    overflow: hidden;
-    padding: 0;
-    width: 100%;
+  &__last {
+    &__list {
+      list-style: none;
+      overflow: hidden;
+      padding: 0;
+      width: 100%;
+    }
 
     &__item {
       cursor: pointer;

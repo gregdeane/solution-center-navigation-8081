@@ -10,10 +10,6 @@ class AppHeaderService {
       businessPartnerMenuShown: state.visibility.businessPartnerMenuShown,
     };
   }
-
-  showBusinessPartnerMenu() {
-    return this.businessPartnerMenuShown;
-  }
 }
 
 export default AppHeaderService;

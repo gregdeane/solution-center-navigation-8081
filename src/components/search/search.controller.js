@@ -1,6 +1,11 @@
 class SearchController {
-  constructor() {
+  constructor(searchService) {
+    this.searchService = searchService;
+    this.searchResults = [];
+  }
 
+  updateResults (search) {
+    this.searchResults = this.searchService.updateResults(search, this.searchableItems);
   }
 }
 

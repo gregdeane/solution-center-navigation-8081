@@ -19,8 +19,7 @@ import {
     resetCurrentApplication,
     resetCurrentBusinessPartner,
     updateAccessibleBusinessPartners,
-    updateLastAccessedBusinessPartners,
-    updateBusinessPartnerSearchResults
+    updateLastAccessedBusinessPartners
 } from '../actions';
 
 describe('actions', () => {
@@ -165,17 +164,6 @@ describe('actions', () => {
     it('should pass on the last accessed business partners passed in', () => {
       let lastAccessedBusinessPartners = [{id: 1, name: 'BUSINESS_PARTNER_1'}, {id: 2, name: 'BUSINESS_PARTNER_2'}];
       expect(updateLastAccessedBusinessPartners(lastAccessedBusinessPartners).lastAccessedBusinessPartners);
-    });
-  });
-
-  describe('updateBusinessPartnerSearchResults', () => {
-    it('should have a type of \"' + types.UPDATE_BUSINESS_PARTNER_SEARCH_RESULTS + '\"', () =>
-        expect(updateBusinessPartnerSearchResults().type).toEqual(types.UPDATE_BUSINESS_PARTNER_SEARCH_RESULTS)
-    );
-
-    it('should pass on the business partner search results passed in', () => {
-      let businessPartnerSearchResults = [{id: 1, name: 'BUSINESS_PARTNER_1'}, {id: 2, name: 'BUSINESS_PARTNER_2'}];
-      expect(updateBusinessPartnerSearchResults(businessPartnerSearchResults).businessPartnerSearchResults);
     });
   });
 });
