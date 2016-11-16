@@ -1,14 +1,14 @@
-import * as Actions from '../../actions';
-
 class UserController {
-  constructor($ngRedux) {
-    $ngRedux.connect(this.mapStateToParams, Actions)(this);
+  constructor(userService) {
+    this.userService = userService;
   }
 
-  mapStateToParams(state) {
-    return {
-      state: state
-    };
+  toggleUserMenu() {
+    this.userService.toggleUserMenu();
+  }
+
+  showUserMenu() {
+    this.userService.showUserMenu();
   }
 }
 
