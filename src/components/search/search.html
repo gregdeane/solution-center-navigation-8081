@@ -1,14 +1,19 @@
 <div class="dc-search-form">
-    <search-box
-            on-change-action="$ctrl.updateResults.bind(this)">
-    </search-box>
+    <input class="dc-input dc-search-form__input"
+           ng-model="search"
+           ng-change="$ctrl.updateResults(search)"
+           placeholder="Search..."/>
 
     <button class="dc-btn dc-search-form__btn">
         <i class="dc-icon dc-icon--search dc-icon--interactive"></i>
     </button>
 
-    <search-results ng-if="$ctrl.searchResults && $ctrl.searchResults.length > 0"
-                    search-results={this.props.searchResults}
-                    on-click-action={this.props.onClickAction}>
-    </search-results>
+    <ul ng-if="$ctrl.searchResults && $ctrl.searchResults.length > 0"
+        class="dc-list dc-suggest">
+        <li ng-repeat="result in $ctrl.searchResults track by result.id"
+            class="dc-suggest__item dc-link"
+            ng-click="$ctrl.clickAction(result)">
+            {{result.name}}
+        </li>
+    </ul>
 </div>

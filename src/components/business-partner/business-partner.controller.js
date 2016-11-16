@@ -1,15 +1,23 @@
-import * as Actions from '../../actions';
-
 class BusinessPartnerController {
-  constructor($ngRedux) {
-    $ngRedux.connect(this.mapStateToParams, Actions)(this);
+  constructor(businessPartnerService) {
+    this.businessPartnerService = businessPartnerService;
   }
 
-  mapStateToParams(state) {
-    return {
-      currentBusinessPartner: state.navigation.currentBusinessPartner,
-      currentApplication: state.navigation.currentApplication
-    };
+  isApplicationSelected() {
+    return this.businessPartnerService.currentApplication;
+  }
+
+  hasCurrentBusinessPartner() {
+    return this.businessPartnerService.currentBusinessPartner;
+  }
+
+  getCurrentBusinessPartnerName() {
+    return this.businessPartnerService.currentBusinessPartner
+        ? this.businessPartnerService.currentBusinessPartner.name : '';
+  }
+
+  toggleBusinessPartnerMenu() {
+    this.businessPartnerService.toggleBusinessPartnerMenu();
   }
 }
 

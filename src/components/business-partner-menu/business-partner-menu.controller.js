@@ -1,23 +1,18 @@
-import * as Actions from '../../actions';
-
 class BusinessPartnerMenuController {
-  constructor($ngRedux) {
-    $ngRedux.connect(this.mapStateToParams, Actions)(this);
-  }
-
-  mapStateToParams(state) {
-    return {
-      currentApplication: state.navigation.currentApplication,
-      currentBusinessPartner: state.navigation.currentBusinessPartner,
-      accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners,
-      lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners
-    };
+  constructor(businessPartnerMenuService) {
+    this.businessPartnerMenuService = businessPartnerMenuService;
   }
 
   selectBusinessPartner(businessPartner) {
-    this.changeCurrentBusinessPartner(businessPartner);
-    this.hideBusinessPartnerMenu();
-    this.updateBusinessPartnerSearchResults([]);
+    this.businessPartnerMenuService.selectBusinessPartner(businessPartner);
+  }
+
+  getAccessibleBusinessPartners() {
+    return this.businessPartnerMenuService.accessibleBusinessPartners;
+  }
+
+  getLastAccessedBusinessPartners() {
+    return this.businessPartnerMenuService.lastAccessedBusinessPartners;
   }
 }
 

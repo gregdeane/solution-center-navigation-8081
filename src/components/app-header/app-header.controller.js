@@ -3,8 +3,8 @@ class AppHeaderController {
     this.appHeaderService = appHeaderService;
   }
 
-  showBusinessPartnerMenu() {
-    return this.appHeaderService.showBusinessPartnerMenu();
+  isBusinessPartnerMenuShown() {
+    return this.appHeaderService.businessPartnerMenuShown;
   }
 }
 
