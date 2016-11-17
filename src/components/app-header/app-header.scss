@@ -1,5 +1,5 @@
-@import "~breakpoint-sass/stylesheets/breakpoint";
-@import "~dress-code/dist/sass/dress-code";
+@import "~breakpoint-sass";
+@import "~dress-code";
 
 @mixin row {
   @include dc-row;
