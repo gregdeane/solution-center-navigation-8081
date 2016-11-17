@@ -1,12 +1,47 @@
-@import "../../../node_modules/dress-code/dist/sass/dress-code";
+@import "~breakpoint-sass/stylesheets/breakpoint";
+@import "~dress-code/dist/sass/dress-code";
+
+@mixin row {
+  @include dc-row;
+  @include dc-row--collapse;
+  @include dc-row--align--middle;
+  @include dc-row--align--spaced;
+}
+
+@mixin column {
+  @include dc-column;
+  @include dc-column--shrink;
+}
 
 .app-header {
+  @include column;
   align-items: center;
-  height: $dc-touch-size;
-  padding: 0 $dc-space100;
-  border-bottom: 1px solid $dc-gray60;
   background: $dc-white;
+  border-bottom: 1px solid $dc-gray60;
+  height: $dc-touch-size;
   line-height: 10px;
+  padding: 0 $dc-space100;
+
+  @media (min-width: $dc-huge-width) {
+    @include row;
+  }
+
+  &__section {
+    @include row;
+    display: inline;
+    justify-content: flex-start;
+
+    @media (min-width: $dc-huge-width) {
+      @include column;
+    }
+
+    &--business-partner {
+      @media (min-width: $dc-huge-width) {
+        text-align: right;
+        margin: 0 $dc-space150 0 auto;
+      }
+    }
+  }
 
   .sub-menu {
     background: $dc-white;
@@ -53,8 +88,4 @@
     }
   }
 
-  .business-partner {
-    text-align: right;
-    margin: 0 $dc-space150 0 auto;
-  }
 }

@@ -14,6 +14,7 @@ module.exports = {
   devServer: {
     contentBase: __dirname + "/demo"
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -27,7 +28,7 @@ module.exports = {
         test: /\.(sass|scss)$/,
         use: [
           "style-loader",
-          "css-loader",
+          "css-loader?sourceMap",
           "sass-loader",
         ]
       },

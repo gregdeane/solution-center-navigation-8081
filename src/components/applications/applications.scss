@@ -1,7 +1,23 @@
-@import "../../../node_modules/dress-code/dist/sass/dress-code";
+@import "~dress-code/dist/sass/dress-code";
 
 .navigation__applications {
   padding-left: 114px !important;
+
+  .menu--sub {
+    list-style: none;
+    padding-left: 4.2rem;
+  }
+  .menu--sub__link {
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: #4a4a4a;
+  }
+  .menu--sub__item {
+    border-bottom: 1px solid #ededed;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+  }
 
   .highlighted {
     border-bottom: solid 3px $dc-orange40;
