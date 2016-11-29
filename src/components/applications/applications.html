@@ -5,9 +5,10 @@
            ng-class="{'highlighted' : $ctrl.isCurrentApplication(application.id)}"
            ng-click="$ctrl.navigateToApplication(application)"
            href>
-            <span class="">
+            <span class="menu--sub__link-name">
                 {{application.name}}
             </span>
+            
         </a>
     </li>
 </ul>

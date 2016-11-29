@@ -15,6 +15,7 @@
 
 .app-header {
   @include column;
+  display: flex;
   align-items: center;
   background: $dc-white;
   border-bottom: 1px solid $dc-gray60;
@@ -23,31 +24,33 @@
   padding: 0 $dc-space100;
 
   @media (min-width: $dc-huge-width) {
-    @include row;
+    //@include row;
   }
 
   &__section {
-    @include row;
-    display: inline;
-    justify-content: flex-start;
-
     @media (min-width: $dc-huge-width) {
       @include column;
     }
-
+    &--navigation {
+      flex-grow: 1;
+      @media (min-width: $dc-huge-width) {
+        display: flex;
+        align-items: center;
+      }
+    }
     &--business-partner {
       @media (min-width: $dc-huge-width) {
         text-align: right;
         margin: 0 $dc-space150 0 auto;
       }
     }
+
   }
 
   .sub-menu {
     background: $dc-white;
     border-top: 1px solid $dc-gray60;
     border-bottom: 1px solid $dc-gray60;
-    //display: none;
     position: absolute;
     right: 0;
     top: 100%;
@@ -78,14 +81,4 @@
       color: $dc-orange40;
     }
   }
-
-  a {
-    text-decoration: none;
-    &:hover,
-    &:focus {
-      color: $dc-link-color-hover;
-      outline: none;
-    }
-  }
-
 }
