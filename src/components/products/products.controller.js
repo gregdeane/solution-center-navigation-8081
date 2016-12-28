@@ -1,6 +1,6 @@
 class ProductsController {
   constructor(productsService) {
-      this.productsService = productsService;
+    this.productsService = productsService;
   }
 
   switchMenu(clickedProduct) {
