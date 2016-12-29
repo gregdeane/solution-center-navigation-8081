@@ -1,18 +1,18 @@
-<header class="app-header dc-row dc-row--collapse dc-row--align-middle dc-row--align-spaced">
-    <navigation class="dc-column"
+<header class="app-header">
+    <navigation class="app-header__section app-header__section--navigation"
                 products="$ctrl.products"
                 user-business-partners="$ctrl.userBusinessPartners">
     </navigation>
 
-    <business-partner class="dc-column dc-column--shrink business-partner"></business-partner>
+    <business-partner class="app-header__section app-header__section--business-partner"></business-partner>
 
-    <user class="dc-column dc-column--shrink"
+    <user class="app-header__section app-header__section--user"
           user="$ctrl.user">
     </user>
 
-    <help class="dc-column dc-column--shrink"
+    <help class="app-header__section app-header__section--help"
           products="$ctrl.products">
     </help>
 
-    <business-partner-menu ng-if="$ctrl.isBusinessPartnerMenuShown()"></business-partner-menu>
+    <!--<business-partner-menu></business-partner-menu>-->
 </header>

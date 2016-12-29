@@ -1,22 +1,55 @@
-@import "../../../node_modules/dress-code/dist/sass/dress-code";
+@import "~breakpoint-sass";
+@import "~dress-code";
+
+@mixin row {
+  @include dc-row;
+  @include dc-row--collapse;
+  @include dc-row--align--middle;
+  @include dc-row--align--spaced;
+}
+
+@mixin column {
+  @include dc-column;
+  @include dc-column--shrink;
+}
 
 .app-header {
+  @include column;
+  display: flex;
   align-items: center;
-  height: $dc-touch-size;
-  padding: 0 $dc-space100;
-  border-bottom: 1px solid $dc-gray60;
   background: $dc-white;
+  border-bottom: 1px solid $dc-gray60;
+  height: $dc-touch-size;
   line-height: 10px;
+  padding: 0 $dc-space100;
+
+  &__section {
+    @media (min-width: $dc-huge-width) {
+      @include column;
+    }
+    &--navigation {
+      flex-grow: 1;
+      @media (min-width: $dc-huge-width) {
+        display: flex;
+        align-items: center;
+      }
+    }
+    &--business-partner {
+      @media (min-width: $dc-huge-width) {
+        position: relative;
+      }
+    }
+
+  }
 
   .sub-menu {
-    background: $dc-white;
-    border-top: 1px solid $dc-gray60;
-    border-bottom: 1px solid $dc-gray60;
-    //display: none;
     position: absolute;
     right: 0;
     top: 100%;
     width: 100%;
+    background: $dc-white;
+    border-top: 1px solid $dc-gray60;
+    border-bottom: 1px solid $dc-gray60;
     z-index: 998;
 
     @media (min-width: $dc-huge-width) {
@@ -24,7 +57,6 @@
       display: block;
       position: static;
     }
-
     &--right {
       justify-content: flex-end;
     }
@@ -42,19 +74,5 @@
     &--interactive:hover {
       color: $dc-orange40;
     }
-  }
-
-  a {
-    text-decoration: none;
-    &:hover,
-    &:focus {
-      color: $dc-link-color-hover;
-      outline: none;
-    }
-  }
-
-  .business-partner {
-    text-align: right;
-    margin: 0 $dc-space150 0 auto;
   }
 }

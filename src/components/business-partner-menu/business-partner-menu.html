@@ -1,5 +1,5 @@
 <div class="business-partner-menu">
-    <h2 class="dc-h2">Select Business Partner</h2>
+    <h2 class="dc-h3">Select Business Partner</h2>
 
     <search class="business-partner-menu__search"
             searchable-items="$ctrl.getAccessibleBusinessPartners()"
@@ -7,13 +7,26 @@
     </search>
 
     <div class="business-partner-menu__last">
-        <p>Last used:</p>
+        <!--Show if no recent business partner-->
+        <h3 class="intro-text hidden">Use the search field above to find business partners. Your most recent ones will be shown here.</h3>
+        <!--Show if recent business partner-->
+        <h3 class="business-partner-menu__last__heading">Last business partner</h3>
         <ul class="business-partner-menu__last__list">
             <li ng-repeat="businessPartner in $ctrl.getLastAccessedBusinessPartners() track by businessPartner.id"
                 class="business-partner-menu__last__item"
                 ng-click="$ctrl.selectBusinessPartner(businessPartner)">
                 {{businessPartner.name}}
             </li>
+            <li class="business-partner-menu__last__item">TO BE G s.r.l. (Esperienza s.r.l.)</li>
+            <li class="business-partner-menu__last__item">Cofemel - Sociedade de Vestuario SA</li>
+            <li class="business-partner-menu__last__item">SSL Healthcare Italia Spa</li>
+            <li class="business-partner-menu__last__item">TWC SAS</li>
+            <li class="business-partner-menu__last__item">Maerz</li>
+            <li class="business-partner-menu__last__item">BestFashion4Kids</li>
+            <li class="business-partner-menu__last__item">Black-i</li>
+            <li class="business-partner-menu__last__item">Licht-Design Skapetze</li>
+            <li class="business-partner-menu__last__item">Carl Gross</li>
+            <li class="business-partner-menu__last__item">Cartoon</li>
         </ul>
     </div>
 </div>
