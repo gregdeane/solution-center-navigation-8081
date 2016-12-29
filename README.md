@@ -27,7 +27,11 @@ yarn add solution-center-navigation
 3. Insert the component at the top of your application:
 
     ```html
-    <sc-navigation></sc-navigation>
+    <sc-navigation
+        user="user"
+        products="products"
+        current-app-id="currentAppId">
+    </sc-navigation>
     ```
 
 ### Style
