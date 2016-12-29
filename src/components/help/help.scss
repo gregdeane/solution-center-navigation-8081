@@ -1,32 +1,29 @@
-@import "../../../node_modules/dress-code/dist/sass/dress-code";
+@import "~dress-code";
 
-.help {
+.help__widget {
+  display: none;
+  margin-top: 2px;
+  padding: 0;
+  right: -9px;
 
-  &__widget {
-    display: none;
-    margin-top: 2px;
-    padding: 0;
-    right: -9px;
+  &::after {
+    border: 6px solid transparent;
+    border-bottom-color: $dc-gray10;
+    left: initial;
+    margin-bottom: -1px;
+    right: 21px;
+  }
 
-    &::after {
-      border: 6px solid transparent;
-      border-bottom-color: $dc-gray10;
-      left: initial;
-      margin-bottom: -1px;
-      right: 21px;
-    }
+  &.visible {
+    display: block;
+  }
 
-    &.visible {
-      display: block;
-    }
-
-    .dc-icon--close {
-      color: $dc-gray40;
-      font-size: 1.4rem;
-      position: absolute;
-      right: 9px;
-      top: 5px;
-      width: inherit;
-    }
+  .dc-icon--close {
+    color: $dc-gray40;
+    font-size: 1.4rem;
+    position: absolute;
+    right: 9px;
+    top: 5px;
+    width: inherit;
   }
 }

@@ -949,7 +949,7 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
-breakpoint-sass@^2.6.1:
+breakpoint-sass, breakpoint-sass@^2.6.1:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/breakpoint-sass/-/breakpoint-sass-2.7.0.tgz#50a65af35d84fb0630432216f3f073035ccba50d"
 

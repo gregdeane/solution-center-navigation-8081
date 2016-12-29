@@ -1,3 +1,10 @@
+@import "~dress-code";
 .navigation__applications {
-  padding-left: 114px !important;
+    @media (min-width: $dc-huge-width) {
+        position: absolute;
+        top: 4.4rem;
+        background: #fff;
+        width: 100%;
+        left: 0;
+    }
 }

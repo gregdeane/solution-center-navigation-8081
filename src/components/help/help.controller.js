@@ -1,21 +1,24 @@
-import * as Actions from '../../actions';
-
 class HelpController {
-  constructor($ngRedux, helpService) {
+  constructor(helpService) {
     this.helpService = helpService;
 
-    $ngRedux.connect(this.mapStateToParams, Actions)(this);
-
     this.helpService.loadHelpWidget(this.products);
-
-    this.setHelpWidgetAsLoaded();
   }
 
-  mapStateToParams(state) {
-    return {
-      isHelpWidgetLoaded: state.visibility.helpWidgetLoaded,
-      isHelpWidgetShown: state.visibility.helpWidgetShown
-    };
+  isHelpWidgetLoaded() {
+    return this.helpService.isHelpWidgetLoaded;
+  }
+
+  isHelpWidgetShown() {
+    return this.helpService.isHelpWidgetShown;
+  }
+
+  toggleHelpWidget() {
+    this.helpService.toggleHelpWidget();
+  }
+
+  hideHelpWidget() {
+    this.helpService.hideHelpWidget();
   }
 }
 

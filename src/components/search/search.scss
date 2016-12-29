@@ -1,0 +1,19 @@
+@import "~dress-code";
+
+.dc-search-form {
+  width: 100%;
+
+  &__input {
+    box-sizing: border-box;
+    color: $dc-black;
+    width: 100%;
+  }
+}
+
+.dc-icon--search.small {
+  font-size: 1.8rem;
+}
+
+.dc-suggest {
+  pointer-events: auto;
+}

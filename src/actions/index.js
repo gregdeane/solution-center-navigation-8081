@@ -131,10 +131,3 @@ export const updateLastAccessedBusinessPartners = (lastAccessedBusinessPartners)
     lastAccessedBusinessPartners
   };
 };
-
-export const updateBusinessPartnerSearchResults = (businessPartnerSearchResults) => {
-  return {
-    type: types.UPDATE_BUSINESS_PARTNER_SEARCH_RESULTS,
-    businessPartnerSearchResults
-  };
-};

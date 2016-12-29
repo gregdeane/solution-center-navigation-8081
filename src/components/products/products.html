@@ -1,5 +1,22 @@
-<div class="dc-column dc-column--shrink navigation__products">
-  <nav class="navigation--menu">
-    <menu items="$ctrl.products"></menu>
-  </nav>
-</div>
+<nav class="navigation__products">
+    <ul class="menu">
+        <li ng-repeat="product in $ctrl.products track by product.id"
+            class="menu__item">
+            <a class="menu__link"
+               ng-class="$ctrl.highlightedClass"
+               ng-click="$ctrl.switchMenu(product)"
+               href>
+        <span class="">
+            {{product.name}}
+          </span>
+            </a>
+            <applications
+                    ng-if="$ctrl.showApplicationsMenu()"
+                    class="navigation__applications"
+                    products="$ctrl.products"
+                    applications="product.applications"
+                    user-business-partners="$ctrl.userBusinessPartners">
+            </applications>
+        </li>
+    </ul>
+</nav>

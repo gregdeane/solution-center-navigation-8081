@@ -1,0 +1,48 @@
+@import "~dress-code";
+.business-partner-menu {
+  position: fixed;
+  top: 4.3rem;
+  right: 0;
+  background: $dc-white;
+  width: 345px;
+  padding: 2.0rem;
+  border: 1px solid $dc-gray60;
+  z-index: 500;
+  @media (min-width: $dc-huge-width) {
+    position: absolute;
+    top: 2.1rem;
+  }
+  .business-partner-menu__last__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 -2rem;
+  } 
+  .business-partner-menu__last__item {
+    cursor: pointer;
+    line-height: 1.8em;
+    padding: .8rem 2rem;
+    &:hover {
+      background: $dc-blue80;
+    }
+  }
+  .intro-text {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: $dc-gray40;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .business-partner-menu__last__heading {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $dc-gray30;
+  }
+}
+
+
+/* REMOVE BEFORE COMMIT */
+
+.hidden {
+  display: none;
+}
