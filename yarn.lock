@@ -67,6 +67,14 @@ amdefine@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.0.tgz#fd17474700cb5cc9c2b709f0be9d23ce3c198c33"
 
+angular-cookies@~1.5.0:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.5.10.tgz#3bd1f137c04f86d27d88c02b6352752354787b6c"
+
+angular-jwt@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/angular-jwt/-/angular-jwt-0.0.9.tgz#912587b520189d28d089446c7faaf30ef7534313"
+
 angular-mocks@^1.5.7:
   version "1.5.8"
   resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.5.8.tgz#2e9399056669f286a681396bc35ae0d7c5c70d16"
@@ -74,6 +82,10 @@ angular-mocks@^1.5.7:
 angular@^1.5.0:
   version "1.5.8"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.5.8.tgz#925a5392b8c212d09572dc446db7e01264e094cb"
+
+angular@~1.5.0:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.5.10.tgz#e87fd35b2ed2fea3723de958e9ccf0a4b9125ef0"
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
@@ -3424,6 +3436,10 @@ ng-redux:
     lodash.map "^4.4.0"
     redux "^3.0.0"
 
+ngstorage, ngstorage@^0.3.10:
+  version "0.3.11"
+  resolved "https://registry.yarnpkg.com/ngstorage/-/ngstorage-0.3.11.tgz#1637c45b872d909d9cc7e18b374898d50b2e844f"
+
 node-gyp@^3.3.1:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-3.4.0.tgz#dda558393b3ecbbe24c9e6b8703c71194c63fa36"
@@ -4741,6 +4757,22 @@ sockjs@0.3.18:
   dependencies:
     faye-websocket "^0.10.0"
     uuid "^2.0.2"
+
+solution-center-communicator@^2.0.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/solution-center-communicator/-/solution-center-communicator-2.3.0.tgz#e46959ec103678d6baed9f630fbd4a4a9f401be0"
+  dependencies:
+    angular "^1.5.0"
+
+solution-center-login:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/solution-center-login/-/solution-center-login-2.1.1.tgz#83638f4a958bd5dd0e533cb1739fc4e80679a102"
+  dependencies:
+    angular "~1.5.0"
+    angular-cookies "~1.5.0"
+    angular-jwt "^0.0.9"
+    ngstorage "^0.3.10"
+    solution-center-communicator "^2.0.0"
 
 sort-keys@^1.0.0:
   version "1.1.2"
