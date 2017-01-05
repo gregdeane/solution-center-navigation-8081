@@ -5,7 +5,6 @@ class BusinessPartnerMenuController {
 
   selectBusinessPartner(businessPartner) {
     this.businessPartnerMenuService.selectBusinessPartner(businessPartner);
-    this.businessPartnerMenuService.toggleBusinessPartnerMenu();
   }
 
   getAccessibleBusinessPartners() {

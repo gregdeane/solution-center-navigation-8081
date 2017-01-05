@@ -1,11 +1,9 @@
 class AppHeaderController {
-  constructor(appHeaderService,
-              backendConnectorService,
+  constructor(backendConnectorService,
               moduleConnectorService,
               userConnectorService,
               ScAuthenticationService) {
 
-    this.appHeaderService = appHeaderService;
     this.backendConnectorService = backendConnectorService;
     this.moduleConnectorService = moduleConnectorService;
     this.userConnectorService = userConnectorService;
@@ -19,10 +17,6 @@ class AppHeaderController {
       this.getProducts();
       this.getUserBusinessPartners(this.user && this.user.id);
     }
-  }
-
-  isBusinessPartnerMenuShown() {
-    return this.appHeaderService.businessPartnerMenuShown;
   }
 
   getProducts() {
