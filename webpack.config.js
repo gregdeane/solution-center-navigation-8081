@@ -19,10 +19,11 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: [{
-          loader: "babel-loader",
-          options: {presets: ["es2015", "stage-2"]}
-        }]
+        loader: "babel-loader",
+        options: {
+          presets: ["es2015", "stage-2"],
+          sourceMaps: "inline"
+        }
       },
       {
         test: /\.(sass|scss)$/,
@@ -42,6 +43,17 @@ module.exports = {
         test: /\.html$/,
         use: [
           'raw-loader'
+        ]
+      },
+      {
+        enforce: 'post',
+        test: /\.js$/,
+        loader: 'istanbul-instrumenter-loader',
+        include: __dirname + "/src",
+        exclude: [
+          /\.(e2e|spec)\.js$/,
+          /node_modules/,
+          /vendor/
         ]
       }
     ]
