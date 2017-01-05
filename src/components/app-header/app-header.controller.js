@@ -1,23 +1,25 @@
 class AppHeaderController {
-  constructor(appHeaderService,
+  constructor($q,
+              appHeaderService,
               backendConnectorService,
               moduleConnectorService,
               userConnectorService,
               ScAuthenticationService) {
 
+    this.$q = $q;
     this.appHeaderService = appHeaderService;
     this.backendConnectorService = backendConnectorService;
     this.moduleConnectorService = moduleConnectorService;
     this.userConnectorService = userConnectorService;
     this.scAuthenticationService = ScAuthenticationService;
 
-    // We allow clients to skip the calls to our backend endpoints only in Integration environments and if all the
-    // component parameters (products, user and business partners) are set
-    if (!this.backendConnectorService.isIntegrationEnvironment()
-        || !this.products || !this.user || !this.userBusinessPartners) {
+    // Perform the backend endpoints calls if the current environment does not allow override or
+    // if any of the required parameters is not set.
+    // Otherwise use the values provided by the client application instead.
+    if (!this.backendConnectorService.isOverridePossible() && !this.areAllRequiredParametersSet()) {
       this.user = this.scAuthenticationService.getUser();
-      this.products = this.getProducts();
-      this.userBusinessPartners = this.getUserBusinessPartners(this.user && this.user.id);
+      this.getProducts();
+      this.getUserBusinessPartners(this.user && this.user.id);
     }
   }
 
@@ -26,31 +28,32 @@ class AppHeaderController {
   }
 
   getProducts() {
-    let products = [];
-
     this.moduleConnectorService.getProducts()
         .then((response) => {
-          products = response.products;
-        }, () => {
+          this.products = response.products;
+        })
+        .catch(() => {
           // TODO Log error
-          products = [];
+          this.products = [];
         });
-
-    return products;
   }
 
   getUserBusinessPartners(userId) {
-    let userBusinessPartners = [];
-
     this.userConnectorService.getUserBusinessPartners(userId)
         .then((response) => {
-          userBusinessPartners = response.businessPartners;
-        }, () => {
+          this.userBusinessPartners = response.businessPartners;
+        })
+        .catch(() => {
           // TODO Log error
-          userBusinessPartners = [];
+          this.userBusinessPartners = [];
         });
+  }
 
-    return userBusinessPartners;
+  /*
+   Products, user and business partners must be provided in order to allow skipping backend calls
+   */
+  areAllRequiredParametersSet() {
+    return this.products && this.user && this.userBusinessPartners;
   }
 }
 

@@ -17,9 +17,13 @@ class BackendConnectorService {
     return angular.isObject(this.$window['jasmine']);
   }
 
-  isIntegrationEnvironment() {
+  /*
+    Backend calls override is only possible in LOCAL and INTEGRATION environments
+   */
+  isOverridePossible() {
     return this.ScEnvironments.getCurrentEnvironment()
-        && this.ScEnvironments.getCurrentEnvironment().NAME === 'INTEGRATION';
+        && (this.ScEnvironments.getCurrentEnvironment().NAME === 'LOCAL' ||
+        this.ScEnvironments.getCurrentEnvironment().NAME === 'INTEGRATION');
   }
 
   getModuleServiceUrl() {

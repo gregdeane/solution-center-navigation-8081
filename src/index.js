@@ -15,7 +15,6 @@ const solutionCenterNavigation =
           angular.module('solution-center-navigation', [
             ngRedux,
             'solutioncenter.login',
-            'solutioncenter.communicator',
             Components,
             Common
           ]);
