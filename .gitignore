@@ -1,7 +1,9 @@
 # Covers build environment for web application
-node_modules/
-npm-debug.log
-coverage/
+node_modules
+coverage
+npm-debug.*
+yarn-error.*
+.DS_Store
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
