@@ -1,4 +1,4 @@
-const webpackConfig = require('../webpack.config.js');
+const webpackConfig = require('../webpack.test.js');
 
 module.exports = function (config) {
   const context = './karma.context.js';
