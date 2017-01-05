@@ -1,12 +1,10 @@
 class AppHeaderController {
-  constructor($q,
-              appHeaderService,
+  constructor(appHeaderService,
               backendConnectorService,
               moduleConnectorService,
               userConnectorService,
               ScAuthenticationService) {
 
-    this.$q = $q;
     this.appHeaderService = appHeaderService;
     this.backendConnectorService = backendConnectorService;
     this.moduleConnectorService = moduleConnectorService;

@@ -6,12 +6,12 @@
                ng-class="$ctrl.highlightedClass"
                ng-click="$ctrl.switchMenu(product)"
                href>
-        <span class="">
-            {{product.name}}
-          </span>
+                <span class="">
+                    {{product.name}}
+                </span>
             </a>
             <applications
-                    ng-if="$ctrl.showApplicationsMenu()"
+                    ng-if="$ctrl.showApplicationsMenu() && $ctrl.isProductSelected(product)"
                     class="navigation__applications"
                     products="$ctrl.products"
                     applications="product.applications"

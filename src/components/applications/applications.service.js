@@ -29,6 +29,7 @@ class ApplicationsService {
     const accessibleBusinessPartnersInApplication =
               this.getAccessibleBusinessPartnersInApplication(nextApplication, userBusinessPartners);
     this.updateAccessibleBusinessPartners(accessibleBusinessPartnersInApplication);
+    // TODO Change this when BE endpoint is ready
     this.updateLastAccessedBusinessPartners(
         this.getLastAccessedBusinessPartnersInApplication(accessibleBusinessPartnersInApplication));
 

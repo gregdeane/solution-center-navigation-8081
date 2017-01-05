@@ -5,6 +5,7 @@ class BusinessPartnerMenuController {
 
   selectBusinessPartner(businessPartner) {
     this.businessPartnerMenuService.selectBusinessPartner(businessPartner);
+    this.businessPartnerMenuService.toggleBusinessPartnerMenu();
   }
 
   getAccessibleBusinessPartners() {
@@ -13,6 +14,10 @@ class BusinessPartnerMenuController {
 
   getLastAccessedBusinessPartners() {
     return this.businessPartnerMenuService.lastAccessedBusinessPartners;
+  }
+
+  isBusinessPartnerMenuShown() {
+    return this.businessPartnerMenuService.businessPartnerMenuShown;
   }
 }
 

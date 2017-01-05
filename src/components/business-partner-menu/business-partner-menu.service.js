@@ -10,7 +10,8 @@ class BusinessPartnerMenuService {
       currentApplication: state.navigation.currentApplication,
       currentBusinessPartner: state.navigation.currentBusinessPartner,
       accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners,
-      lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners
+      lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners,
+      businessPartnerMenuShown: state.visibility.businessPartnerMenuShown
     };
   }
 
