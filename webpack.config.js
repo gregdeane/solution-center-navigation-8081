@@ -52,8 +52,7 @@ module.exports = {
         include: __dirname + "/src",
         exclude: [
           /\.(e2e|spec)\.js$/,
-          /node_modules/,
-          /vendor/
+          /node_modules/
         ]
       }
     ]
