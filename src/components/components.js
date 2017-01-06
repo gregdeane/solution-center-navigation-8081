@@ -1,6 +1,5 @@
 import angular from 'angular';
 
-import AppHeader from './app-header';
 import Navigation from './navigation';
 import LogoButton from './logo-button';
 import Logo from './logo';
@@ -10,14 +9,15 @@ import Menu from './menu';
 import MenuItem from './menu-item';
 import BusinessPartner from './business-partner';
 import BusinessPartnerMenu from './business-partner-menu';
+import Shortcuts from './shortcuts';
 import User from './user';
 import UserMenu from './user-menu';
+import Users from './users';
 import Help from './help';
 import Search from './search';
 
 const componentsModule =
           angular.module('components', [
-            AppHeader,
             Navigation,
             LogoButton,
             Logo,
@@ -27,7 +27,9 @@ const componentsModule =
             MenuItem,
             BusinessPartner,
             BusinessPartnerMenu,
+            Shortcuts,
             User,
+            Users,
             UserMenu,
             Help,
             Search

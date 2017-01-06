@@ -5,6 +5,7 @@ import './navigation.scss';
 const navigationComponent = {
   bindings: {
     products: '<',
+    user: '<',
     userBusinessPartners: '<'
   },
   template,

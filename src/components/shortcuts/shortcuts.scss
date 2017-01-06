@@ -1,0 +1,26 @@
+@import "~breakpoint-sass";
+@import "~dress-code";
+
+.shortcut {
+  @include dc-column;
+
+  &__button {
+    align-items: center;
+    border-bottom: 1px solid #ededed;
+    color: $dc-text-color;
+    display: flex;
+    text-align: center;
+
+    @media (min-width: $dc-huge-width) {
+      border: none;
+    }
+
+    :hover, &:hover .dc-icon {
+      color: $dc-secondary-accent;
+      cursor: pointer;
+      [stroke^='#'] {
+        stroke: $dc-secondary-accent;
+      }
+    }
+  }
+}

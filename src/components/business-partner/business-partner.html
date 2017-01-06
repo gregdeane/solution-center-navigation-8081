@@ -2,8 +2,8 @@
      show the menu to change it -->
 <div ng-if="$ctrl.isApplicationSelected()">
     <nav ng-if="$ctrl.hasCurrentBusinessPartner()">
-        <a class="menu__item__link" ng-click="$ctrl.toggleBusinessPartnerMenu()" href>
-            <span class="menu__item__name toggle">
+        <a class="business-partner__toggle" ng-click="$ctrl.toggleBusinessPartnerMenu()" href>
+            <span class="business-partner__name">
             {{$ctrl.getCurrentBusinessPartnerName()}}
             </span>
         </a>
