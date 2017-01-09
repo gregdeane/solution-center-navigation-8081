@@ -87,13 +87,10 @@
 
       @media (min-width: $dc-huge-width) {
         border: none;
-        & .menu--sub__link-name {
+
+        .menu--sub__link-name {
           border-bottom: 2px solid $dc-orange40;
         }
-      }
-
-      & .menu--sub__link-name {
-        margin-left: 3.4rem;
       }
     }
   }

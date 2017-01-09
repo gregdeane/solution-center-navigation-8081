@@ -61,6 +61,11 @@
     color: $dc-gray40;
     line-height: 1.4;
     text-align: center;
+
+    /* REMOVE BEFORE COMMIT */
+    .hidden {
+      display: none;
+    }
   }
 
   &__last__heading {
@@ -69,12 +74,4 @@
     text-transform: uppercase;
     color: $dc-gray30;
   }
-}
-
-
-
-/* REMOVE BEFORE COMMIT */
-
-.hidden {
-  display: none;
 }

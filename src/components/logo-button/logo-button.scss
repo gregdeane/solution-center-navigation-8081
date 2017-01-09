@@ -3,6 +3,12 @@
 .logo-button {
   display: flex;
   max-height: 2rem;
+  cursor: pointer;
+
+  .logo {
+    max-height: $dc-touch-size - $dc-space150;
+    max-width: 90px;
+  }
 
   &--desktop {
     display: none;

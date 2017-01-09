@@ -2,7 +2,6 @@ import angular from 'angular';
 
 import Navigation from './navigation';
 import LogoButton from './logo-button';
-import Logo from './logo';
 import Products from './products';
 import Applications from './applications';
 import Menu from './menu';
@@ -20,7 +19,6 @@ const componentsModule =
           angular.module('components', [
             Navigation,
             LogoButton,
-            Logo,
             Products,
             Applications,
             Menu,

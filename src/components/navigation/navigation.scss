@@ -38,11 +38,26 @@
       justify-content: normal;
       width: 100%;
     }
+
+    @media (max-width: $dc-huge-width) {
+      &.hidden {
+        display: none;
+      }
+    }
   }
 
   &__section {
     @media (min-width: $dc-huge-width) {
       @include column;
+    }
+
+    &__application-name {
+      margin-left: 15px;
+      font-size: 18px;
+
+      @media (min-width: $dc-huge-width) {
+        display: none;
+      }
     }
 
     &--products {

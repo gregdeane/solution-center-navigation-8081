@@ -71,6 +71,12 @@ export const hideAllMenus = () => {
   }
 };
 
+export const toggleMobileMenu = () => {
+  return {
+    type: types.TOGGLE_MOBILE_MENU
+  }
+};
+
 /*
   NAVIGATION
  */

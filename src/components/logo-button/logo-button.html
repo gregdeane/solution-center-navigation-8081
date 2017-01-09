@@ -1,11 +1,13 @@
-<div class="logo-button logo-button--mobile">
-  <logo source="$ctrl.smallLogo" />
+<div class="logo-button logo-button--mobile"
+     ng-click="$ctrl.toggleMobileMenu()">
+  <img class="logo" ng-src="{{$ctrl.smallLogo}}" alt="Logo"/>
 
   <div class="menu-toggle">
-    <i class="dc-icon dc-icon--interactive dc-icon--menu"></i>
+    <i class="dc-icon dc-icon--interactive dc-icon--menu"
+       ng-class="{'dc-icon--menu': !$ctrl.mobileMenuShown, 'dc-icon--close': $ctrl.mobileMenuShown}"></i>
   </div>
 </div>
 
 <div class="logo-button logo-button--desktop">
-  <logo class="logo" source="$ctrl.logo" />
+  <img class="logo" ng-src="{{$ctrl.logo}}" alt="Logo"/>
 </div>
