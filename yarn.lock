@@ -1598,9 +1598,9 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-dress-code@^2.0.0-alpha:
-  version "2.0.0-beta"
-  resolved "https://registry.yarnpkg.com/dress-code/-/dress-code-2.0.0-beta.tgz#5bfd8a91e5c3b98e0fb4a70949d91301a7e46442"
+dress-code@^2.0.0-beta.1:
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/dress-code/-/dress-code-2.0.0-beta.1.tgz#fa74d9ae84d92c30a1add61db732803164ed5209"
   dependencies:
     breakpoint-sass "^2.6.1"
 
