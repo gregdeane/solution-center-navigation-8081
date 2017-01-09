@@ -2,18 +2,18 @@
 @import "~dress-code";
 
 .shortcut {
-  @include dc-column;
-
   &__button {
     align-items: center;
     border-top: 1px solid $dc-gray60;
     color: $dc-text-color;
     display: flex;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     text-align: center;
 
     @media (min-width: $dc-huge-width) {
-      border: none;
+      border-top: none;
+      border-left: 1px solid $dc-gray60;
+      padding: 0 1rem;
     }
 
     :hover, &:hover .dc-icon {
