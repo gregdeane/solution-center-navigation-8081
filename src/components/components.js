@@ -4,8 +4,6 @@ import Navigation from './navigation';
 import LogoButton from './logo-button';
 import Products from './products';
 import Applications from './applications';
-import Menu from './menu';
-import MenuItem from './menu-item';
 import BusinessPartner from './business-partner';
 import BusinessPartnerMenu from './business-partner-menu';
 import Shortcuts from './shortcuts';
@@ -21,8 +19,6 @@ const componentsModule =
             LogoButton,
             Products,
             Applications,
-            Menu,
-            MenuItem,
             BusinessPartner,
             BusinessPartnerMenu,
             Shortcuts,

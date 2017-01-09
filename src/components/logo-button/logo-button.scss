@@ -3,7 +3,6 @@
 .logo-button {
   display: flex;
   max-height: 2rem;
-  cursor: pointer;
 
   .logo {
     max-height: $dc-touch-size - $dc-space150;
@@ -19,6 +18,7 @@
   }
 
   &--mobile {
+    cursor: pointer;
     margin-left: 0;
 
     @media (min-width: $dc-huge-width) {

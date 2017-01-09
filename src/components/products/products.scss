@@ -4,7 +4,7 @@
   .menu {
     display: block;
     margin: 0;
-    padding-top: $dc-space100;
+    padding: $dc-space100 0 0;
     list-style: none;
 
     @media (min-width: $dc-huge-width) {

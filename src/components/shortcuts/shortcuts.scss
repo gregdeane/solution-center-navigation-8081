@@ -24,4 +24,12 @@
       }
     }
   }
+
+  &--help {
+    display: none;
+
+    @media (min-width: $dc-huge-width) {
+      display: block;
+    }
+  }
 }
