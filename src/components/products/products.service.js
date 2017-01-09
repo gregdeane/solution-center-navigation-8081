@@ -8,8 +8,7 @@ class ProductsService {
   mapStateToParams(state) {
     return {
       selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
-      applicationsMenuShown: state.visibility.applicationsMenuShown,
-      currentProductId: state.navigation.currentProduct && state.navigation.currentProduct.id
+      applicationsMenuShown: state.visibility.applicationsMenuShown
     };
   }
 
@@ -32,10 +31,6 @@ class ProductsService {
       this.toggleApplicationsMenu();
       this.changeSelectedProduct(clickedProduct);
     }
-  }
-
-  showApplicationsMenu() {
-    return this.applicationsMenuShown;
   }
 }
 

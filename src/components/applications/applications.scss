@@ -1,10 +1,63 @@
 @import "~dress-code";
+
 .navigation__applications {
+  @media (min-width: $dc-huge-width) {
+    position: absolute;
+    top: 4.4rem;
+    background: $dc-white;
+    width: 100%;
+    left: 0;
+  }
+
+  .menu--sub {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $dc-space100;
+
     @media (min-width: $dc-huge-width) {
-        position: absolute;
-        top: 4.4rem;
-        background: #fff;
-        width: 100%;
-        left: 0;
+      display: flex;
+      margin: 0 0 0 16rem;
     }
+
+    &__item__link {
+      display: block;
+      text-decoration: none;
+
+      &:hover,
+      &:visited {
+        color: $dc-gray10;
+      }
+    }
+
+    &__item__name {
+      padding: $dc-space125 0 $dc-space125 1rem;
+      display: block;
+      border-bottom: 1px solid $dc-gray70;
+      margin-left: 3.8rem;
+
+      @media (min-width: $dc-huge-width) {
+        border-bottom: none;
+        padding: $dc-space125 0;
+        margin: 0 1.9rem;
+      }
+    }
+
+    &__item--last {
+      .menu--sub__item__name {
+        border-bottom: none;
+      }
+    }
+
+    &__item--highlighted {
+      border-left: 4px solid $dc-orange40;
+
+      @media (min-width: $dc-huge-width) {
+        border: none;
+
+        .menu--sub__item__name {
+          border-bottom: 2px solid $dc-orange40;
+        }
+      }
+    }
+  }
 }

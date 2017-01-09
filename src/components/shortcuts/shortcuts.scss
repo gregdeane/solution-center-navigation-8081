@@ -6,9 +6,10 @@
 
   &__button {
     align-items: center;
-    border-bottom: 1px solid #ededed;
+    border-top: 1px solid $dc-gray60;
     color: $dc-text-color;
     display: flex;
+    padding: 0.5rem 0;
     text-align: center;
 
     @media (min-width: $dc-huge-width) {

@@ -1,22 +1,21 @@
 <nav class="navigation__products">
-    <ul class="menu">
-        <li ng-repeat="product in $ctrl.products track by product.id"
-            class="menu__item">
-            <a class="menu__link"
-               ng-class="{'highlighted': $ctrl.isProductSelected(product)}"
-               ng-click="$ctrl.switchMenu(product)"
-               href>
-                <span class="">
-                    {{product.name}}
-                </span>
-            </a>
-            <applications
-                    ng-if="$ctrl.showApplicationsMenu() && $ctrl.isProductSelected(product)"
-                    class="navigation__applications"
-                    products="$ctrl.products"
-                    applications="product.applications"
-                    user-business-partners="$ctrl.userBusinessPartners">
-            </applications>
-        </li>
-    </ul>
+  <ul class="menu">
+    <li ng-repeat="product in $ctrl.products track by product.id"
+        class="menu__item">
+      <a class="menu__link"
+         ng-class="{'highlighted': $ctrl.isProductSelected(product)}"
+         ng-click="$ctrl.switchMenu(product)"
+         href>
+                <span class="">{{product.name}}</span>
+      </a>
+      <applications
+        ng-if="$ctrl.mobileMenuShown ||
+                    ($ctrl.applicationsMenuShown && $ctrl.isProductSelected(product))"
+        class="navigation__applications"
+        products="$ctrl.products"
+        applications="product.applications"
+        user-business-partners="$ctrl.userBusinessPartners">
+      </applications>
+    </li>
+  </ul>
 </nav>
