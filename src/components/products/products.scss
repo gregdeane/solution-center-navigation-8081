@@ -48,22 +48,27 @@
       font-size: 1.4rem;
       color: $dc-gray30;
       border: none;
-
-      &:hover {
-        color: $dc-gray10;
-      }
+      cursor: pointer;
 
       &::after {
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
         border-top: 5px solid $dc-gray60;
-        content: " ";
+        content: "";
         height: 0;
         width: 0;
         position: absolute;
         right: -5px;
         top: 50%;
         margin-top: -3px;
+      }
+
+      &.highlighted, &:hover {
+        color: $dc-black;
+
+        &::after {
+          border-top: 5px solid $dc-black;
+        }
       }
     }
   }
