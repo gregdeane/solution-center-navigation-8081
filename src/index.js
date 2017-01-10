@@ -10,7 +10,6 @@ import './assets/styles/main.scss';
 const solutionCenterNavigation =
           angular.module('solution-center-navigation', [
             ngRedux,
-            'solutioncenter.login',
             Components,
             Common
           ]);
