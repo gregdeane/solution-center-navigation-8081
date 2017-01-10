@@ -1,0 +1,35 @@
+@import "~breakpoint-sass";
+@import "~dress-code";
+
+.shortcut {
+  &__button {
+    align-items: center;
+    border-top: 1px solid $dc-gray60;
+    color: $dc-text-color;
+    display: flex;
+    padding: 1rem 0;
+    text-align: center;
+
+    @media (min-width: $dc-huge-width) {
+      border-top: none;
+      border-left: 1px solid $dc-gray60;
+      padding: 0 1rem;
+    }
+
+    :hover, &:hover .dc-icon {
+      color: $dc-secondary-accent;
+      cursor: pointer;
+      [stroke^='#'] {
+        stroke: $dc-secondary-accent;
+      }
+    }
+  }
+
+  &--help {
+    display: none;
+
+    @media (min-width: $dc-huge-width) {
+      display: block;
+    }
+  }
+}

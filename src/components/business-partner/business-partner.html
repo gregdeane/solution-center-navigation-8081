@@ -1,13 +1,12 @@
 <!-- The user must be in an application and there should be a selected business partner in order to
      show the menu to change it -->
 <div ng-if="$ctrl.currentApplication">
-    <nav ng-if="$ctrl.currentBusinessPartner">
-        <!-- note: toggleBusinessPartnerMenu() is calling the action directly -->
-        <a class="menu__item__link" ng-click="$ctrl.toggleBusinessPartnerMenu()" href>
-            <span class="menu__item__name toggle">
+  <nav ng-if="$ctrl.currentBusinessPartner">
+    <a class="business-partner__toggle" ng-click="$ctrl.toggleBusinessPartnerMenu()" href>
+            <span class="business-partner__name">
             {{$ctrl.currentBusinessPartner.name}}
             </span>
-        </a>
-    </nav>
-    <business-partner-menu></business-partner-menu>
+    </a>
+  </nav>
+  <business-partner-menu></business-partner-menu>
 </div>

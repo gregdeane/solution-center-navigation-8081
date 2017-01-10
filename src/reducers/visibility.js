@@ -6,7 +6,8 @@ const initialState = {
   selectedProduct: undefined,
   businessPartnerMenuShown: false,
   helpWidgetLoaded: false,
-  helpWidgetShown: false
+  helpWidgetShown: false,
+  mobileMenuShown: false
 };
 
 const visibility = (state = initialState, action) => {
@@ -28,7 +29,8 @@ const visibility = (state = initialState, action) => {
     case types.SHOW_BUSINESS_PARTNER_MENU:
       return {
         ...state,
-        businessPartnerMenuShown: true
+        businessPartnerMenuShown: true,
+        mobileMenuShown: false // In mobile view both cannot be displayed at the same time
       };
 
     case types.HIDE_BUSINESS_PARTNER_MENU:
@@ -40,7 +42,8 @@ const visibility = (state = initialState, action) => {
     case types.TOGGLE_BUSINESS_PARTNER_MENU:
       return {
         ...state,
-        businessPartnerMenuShown: !state.businessPartnerMenuShown
+        businessPartnerMenuShown: !state.businessPartnerMenuShown,
+        mobileMenuShown: false // In mobile view both cannot be displayed at the same time
       };
 
     case types.CHANGE_SELECTED_PRODUCT:
@@ -79,7 +82,15 @@ const visibility = (state = initialState, action) => {
         applicationsMenuShown: false,
         userMenuShown: false,
         businessPartnerMenuShown: false,
-        helpWidgetShown: false
+        helpWidgetShown: false,
+        mobileMenuShown: false
+      };
+
+    case types.TOGGLE_MOBILE_MENU:
+      return {
+        ...state,
+        mobileMenuShown: !state.mobileMenuShown,
+        businessPartnerMenuShown: false // In mobile view both cannot be displayed at the same time
       };
 
     default:

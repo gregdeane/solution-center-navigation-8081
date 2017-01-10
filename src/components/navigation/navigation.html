@@ -1,9 +1,26 @@
-<logo-button
-        class="">
-</logo-button>
+<header class="navigation">
+  <logo-button class="navigation__logo">
+  </logo-button>
 
-<products
-        class=""
-        products="$ctrl.products"
-        user-business-partners="$ctrl.userBusinessPartners">
-</products>
+  <div class="navigation__section navigation__section__application-name">
+    {{$ctrl.currentApplication.name}}
+  </div>
+
+  <div class="navigation__sections"
+       ng-class="{'hidden': !$ctrl.mobileMenuShown}">
+    <products class="navigation__section navigation__section--navigation"
+              products="$ctrl.products"
+              user-business-partners="$ctrl.userBusinessPartners">
+    </products>
+
+    <shortcuts class="navigation__section navigation__section--shortcuts"
+               products="$ctrl.products"
+               user="$ctrl.user">
+    </shortcuts>
+  </div>
+
+  <business-partner class="navigation__section navigation__section--business-partner">
+  </business-partner>
+</header>
+
+<div class="placeholder" style="background-color: black; width: 100%; height: 100%"></div>

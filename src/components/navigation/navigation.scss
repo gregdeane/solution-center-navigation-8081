@@ -1,5 +1,126 @@
+@import "~breakpoint-sass";
 @import "~dress-code";
 
+@mixin row {
+  @include dc-row;
+  @include dc-row--collapse;
+  @include dc-row--align--middle;
+  @include dc-row--align--spaced;
+}
+
+@mixin column {
+  @include dc-column;
+  @include dc-column--shrink;
+}
+
 .navigation {
+  @include column;
+  display: flex;
   align-items: center;
+  background: $dc-white;
+  border-bottom: 1px solid $dc-gray60;
+  height: $dc-touch-size;
+  line-height: 10px;
+  padding: 0 $dc-space100;
+
+  &__sections {
+    background: $dc-white;
+    position: absolute;
+    left: 0;
+    top: 4.4rem;
+    width: 80%;
+    height: 100%;
+
+    @media (min-width: $dc-huge-width) {
+      @include row;
+      position: inherit;
+      margin: 0 !important;
+      justify-content: normal;
+      width: 100%;
+    }
+
+    @media (max-width: $dc-huge-width) {
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  &__section {
+    @media (min-width: $dc-huge-width) {
+      @include column;
+    }
+
+    &__application-name {
+      margin-left: 15px;
+      font-size: 18px;
+
+      @media (min-width: $dc-huge-width) {
+        display: none;
+      }
+    }
+
+    &--products {
+      flex-grow: 1;
+
+      @media (min-width: $dc-huge-width) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &--business-partner {
+      position: absolute;
+      right: 0;
+      margin-right: 30px;
+
+      @media (min-width: $dc-huge-width) {
+        right: 320px;
+        margin-right: auto;
+      }
+    }
+
+    &--shortcuts {
+      @media (min-width: $dc-huge-width) {
+        @include row;
+        margin-left: auto !important;
+        max-width: 340px;
+      }
+    }
+  }
+
+  .sub-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    background: $dc-white;
+    border-top: 1px solid $dc-gray60;
+    border-bottom: 1px solid $dc-gray60;
+    z-index: 998;
+
+    @media (min-width: $dc-huge-width) {
+      border: none;
+      display: block;
+      position: static;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  .dc-icon {
+    font-size: 2.4rem;
+    /* Since we are specifying font-size, we need the line-height as well.
+       As the line-height of the text in the header is smaller (Icons are bigger than the text)
+     */
+    line-height: 2.4rem;
+    width: 36px;
+    color: $dc-gray40;
+
+    &--interactive:hover {
+      color: $dc-orange40;
+    }
+  }
 }
