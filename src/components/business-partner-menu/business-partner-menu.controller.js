@@ -1,22 +1,30 @@
+import * as Actions from '../../actions';
+
 class BusinessPartnerMenuController {
-  constructor(businessPartnerMenuService) {
-    this.businessPartnerMenuService = businessPartnerMenuService;
+  static mapStateToParams(state) {
+    return {
+      currentApplication: state.navigation.currentApplication,
+      currentBusinessPartner: state.navigation.currentBusinessPartner,
+      accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners,
+      lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners,
+      businessPartnerMenuShown: state.visibility.businessPartnerMenuShown
+    };
+  }
+
+  constructor($ngRedux) {
+    this.$ngRedux = $ngRedux;
+  }
+
+  $onInit() {
+    $ngRedux.connect(
+      this.mapStateToParams,
+      Actions)
+    (this);
   }
 
   selectBusinessPartner(businessPartner) {
-    this.businessPartnerMenuService.selectBusinessPartner(businessPartner);
-  }
-
-  getAccessibleBusinessPartners() {
-    return this.businessPartnerMenuService.accessibleBusinessPartners;
-  }
-
-  getLastAccessedBusinessPartners() {
-    return this.businessPartnerMenuService.lastAccessedBusinessPartners;
-  }
-
-  isBusinessPartnerMenuShown() {
-    return this.businessPartnerMenuService.businessPartnerMenuShown;
+    this.changeCurrentBusinessPartner(businessPartner);
+    this.hideBusinessPartnerMenu();
   }
 }
 
