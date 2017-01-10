@@ -1,6 +1,6 @@
-import BusinessPartnerController from './business-partner.controller';
+import UserController from './user.controller';
 
-describe('Business Partner Component', () => {
+describe('User Component', () => {
   let $componentController;
   let $ngRedux;
   let controller;
@@ -13,9 +13,13 @@ describe('Business Partner Component', () => {
   });
 
   it('should wire up the state', () => {
-    let result = BusinessPartnerController.mapStateToProps(mock.state);
-    expect(result.currentBusinessPartner).toEqual(mock.state.navigation.currentBusinessPartner);
-    expect(result.currentApplication).toEqual(mock.state.navigation.currentApplication);
+    let result = UserController.mapStateToProps(mock.state);
+    expect(result.userMenuShown).toEqual(mock.state.visibility.userMenuShown);
+    expect(result.mobileMenuShown).toEqual(mock.state.visibility.mobileMenuShown);
+  });
+
+  it('should use passed bindings', () => {
+    expect(controller.user).toEqual(mock.props);
   });
 
   ////////////////////////////
@@ -44,17 +48,22 @@ describe('Business Partner Component', () => {
   }
 
   function initialize() {
-    controller = $componentController('businessPartner');
+    controller = $componentController('user', null, {
+      user: mock.props
+    });
     controller.$onInit();
   }
 
   function mocks() {
     mock = {
       state: {
-        navigation: {
-          currentBusinessPartner: {},
-          currentApplication: {}
+        visibility: {
+          userMenuShown: {},
+          mobileMenuShown: {}
         }
+      },
+      props: {
+        user: {}
       }
     };
   }
