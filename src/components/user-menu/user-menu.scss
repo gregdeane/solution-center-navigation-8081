@@ -1,100 +1,66 @@
-@import "~dress-code";
-/*
-.menu {
-  box-shadow: 0 2px 8px rgba(0,0,0,.25);
-  display: block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+@import "../../assets/styles/floating-menu";
+
+.user-menu {
+  @include floating-menu;
+
+  padding: 0 2rem;
+  position: absolute;
+  text-align: left;
+  left: 0;
+  top: 50px;
   width: 100%;
 
   @media (min-width: $dc-huge-width) {
-    box-shadow: none;
-    display: flex;
-    margin: 0 $dc-space100 0 0;
+    left: auto;
+    right: 0;
+    width: 170px;
   }
 
-  .menu__item {
-    border-bottom: 1px solid #ededed;
-    flex-shrink: 0;
-    padding: 1.2rem;
-    transform: none;
+  &__options {
+    list-style: none;
+    padding: 0;
+    margin: 0 -2rem;
+  }
 
+  &__option {
     @media (min-width: $dc-huge-width) {
-      border: none;
-      padding: 0;
+      cursor: pointer;
+      line-height: 1.8em;
+      padding: .8rem 2rem;
+    }
+
+    &:hover {
+      @media (min-width: $dc-huge-width) {
+        background: $dc-blue80;
+      }
     }
 
     &__link {
-      margin-top: 0.4rem;
-      color: $dc-text-color;
-      line-height: 3.6rem;
-      display: block;
-      cursor: pointer;
-      border-bottom: solid 3px transparent;
-
-      &--highlighted {
-        border-bottom: solid 3px $dc-orange40;
-
-        @media (max-width: $dc-huge-width) {
-          border: none;
-
-          &::after {
-            content: "";
-            height: 100%;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: $dc-orange40;
-            position: absolute;
-          }
-        }
-      }
-
-      &--bold .menu__item__name {
-        color: $dc-gray10;
-        font-weight: bold;
-      }
-
-      @media (max-width: $dc-huge-width) {
-        line-height: 1.6rem;
-        margin: 0;
-      }
+      color: $dc-gray10;
+      text-decoration: none;
     }
 
     &__name {
-      color: $dc-gray30;
-      font-weight: 500;
-      padding: 0.8rem 1.2rem;
-      position: relative;
+      border-bottom: 1px solid $dc-gray70;
+      display: block;
+      margin-left: 3.8rem;
+      padding: 1.6rem 0 1.6rem 1rem;
 
-      &--switcher {
-        @media (min-width: $dc-huge-width) {
-          padding-right: 16px;
+      @media (min-width: $dc-huge-width) {
+        border: none;
+        margin: 0 auto;
+        padding: initial;
+      }
+    }
 
-          &::after {
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid $dc-gray60;
-            content: "";
-            height: 0;
-            position: absolute;
-            right: 0;
-            top: 13px;
-            width: 0;
-          }
+    @media (min-width: $dc-huge-width) {
+      &--separator-below {
+        border-bottom: 1px solid $dc-gray60;
+      }
 
-          &:hover {
-            color: $dc-secondary-accent;
-
-            &::after {
-              border-top-color: $dc-secondary-accent;
-            }
-          }
-        }
+      &--separator-above {
+        border-top: 1px solid $dc-gray60;
       }
     }
   }
 }
-*/

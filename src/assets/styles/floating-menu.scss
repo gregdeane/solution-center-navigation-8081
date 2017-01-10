@@ -1,0 +1,32 @@
+@import "~dress-code";
+
+@mixin floating-menu {
+  background: $dc-white;
+  z-index: 500;
+
+  @media (min-width: $dc-huge-width) {
+    border: 1px solid $dc-gray60;
+    top: 45px;
+    height: auto;
+
+    // Triangle
+    &:before, &:after {
+      content: '';
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 16px solid $dc-white;
+      position: absolute;
+      right: 20px;
+      top: -15px;
+    }
+
+    // Triangle border
+    &:before {
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid $dc-white;
+      border-bottom-color: inherit;
+      top: -16px;
+    }
+  }
+}
