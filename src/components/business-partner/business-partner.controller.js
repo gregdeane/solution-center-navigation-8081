@@ -1,23 +1,23 @@
+import * as Actions from '../../actions';
+
 class BusinessPartnerController {
-  constructor(businessPartnerService) {
-    this.businessPartnerService = businessPartnerService;
+
+  static mapStateToProps(state) {
+    return {
+      currentBusinessPartner: state.navigation.currentBusinessPartner,
+      currentApplication: state.navigation.currentApplication
+    };
   }
 
-  isApplicationSelected() {
-    return this.businessPartnerService.currentApplication;
+  constructor($ngRedux) {
+    this.$ngRedux = $ngRedux;
   }
 
-  hasCurrentBusinessPartner() {
-    return this.businessPartnerService.currentBusinessPartner;
-  }
-
-  getCurrentBusinessPartnerName() {
-    return this.businessPartnerService.currentBusinessPartner
-        ? this.businessPartnerService.currentBusinessPartner.name : '';
-  }
-
-  toggleBusinessPartnerMenu() {
-    this.businessPartnerService.toggleBusinessPartnerMenu();
+  $onInit() {
+    this.$ngRedux.connect(
+      BusinessPartnerController.mapStateToProps,
+      Actions
+    )(this);
   }
 }
 

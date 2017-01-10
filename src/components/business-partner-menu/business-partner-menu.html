@@ -1,4 +1,5 @@
-<div class="business-partner-menu">
+<div class="business-partner-menu"
+     ng-if="$ctrl.isBusinessPartnerMenuShown()">
     <h2 class="dc-h3">Select Business Partner</h2>
 
     <search class="business-partner-menu__search"
@@ -17,16 +18,6 @@
                 ng-click="$ctrl.selectBusinessPartner(businessPartner)">
                 {{businessPartner.name}}
             </li>
-            <li class="business-partner-menu__last__item">TO BE G s.r.l. (Esperienza s.r.l.)</li>
-            <li class="business-partner-menu__last__item">Cofemel - Sociedade de Vestuario SA</li>
-            <li class="business-partner-menu__last__item">SSL Healthcare Italia Spa</li>
-            <li class="business-partner-menu__last__item">TWC SAS</li>
-            <li class="business-partner-menu__last__item">Maerz</li>
-            <li class="business-partner-menu__last__item">BestFashion4Kids</li>
-            <li class="business-partner-menu__last__item">Black-i</li>
-            <li class="business-partner-menu__last__item">Licht-Design Skapetze</li>
-            <li class="business-partner-menu__last__item">Carl Gross</li>
-            <li class="business-partner-menu__last__item">Cartoon</li>
         </ul>
     </div>
 </div>

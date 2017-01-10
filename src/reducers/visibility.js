@@ -4,7 +4,6 @@ const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
   selectedProduct: undefined,
-  mobileProductMenuShown: false,
   businessPartnerMenuShown: false,
   helpWidgetLoaded: false,
   helpWidgetShown: false
