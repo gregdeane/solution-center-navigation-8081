@@ -1,6 +1,5 @@
 class UsersController {
-  constructor(userService) {
-    this.userService = userService;
+  constructor() {
   }
 }
 

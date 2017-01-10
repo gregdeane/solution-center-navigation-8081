@@ -1,2 +1,10 @@
 @import "~dress-code";
 
+.shortcut--user .shortcut__button {
+  position: relative;
+  border-bottom: 1px solid $dc-gray60;
+
+  @media (min-width: $dc-huge-width) {
+    border-bottom: none;
+  }
+}

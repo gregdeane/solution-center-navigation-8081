@@ -1,14 +1,22 @@
+import * as Actions from '../../actions';
+
 class UserController {
-  constructor(userService) {
-    this.userService = userService;
+  mapStateToParams(state) {
+    return {
+      userMenuShown: state.visibility.userMenuShown,
+      mobileMenuShown: state.visibility.mobileMenuShown
+    };
   }
 
-  toggleUserMenu() {
-    this.userService.toggleUserMenu();
+  constructor($ngRedux) {
+    this.$ngRedux = $ngRedux;
   }
 
-  showUserMenu() {
-    this.userService.showUserMenu();
+  $onInit() {
+    this.$ngRedux.connect(
+      this.mapStateToParams,
+      Actions)
+    (this);
   }
 }
 
