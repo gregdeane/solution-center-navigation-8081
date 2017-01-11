@@ -6,14 +6,15 @@ import UserConnectorService from './backend-connector/user-connector.service';
 import InterceptorService from './security/interceptor.service';
 
 const commonModule =
-          angular.module('common', [])
-              .service('interceptorService', InterceptorService)
-              .service('backendConnectorService', BackendConnectorService)
-              .service('moduleConnectorService', ModuleConnectorService)
-              .service('userConnectorService', UserConnectorService)
-              .config(($httpProvider) => {
-                $httpProvider.interceptors.push('interceptorService');
-              })
-    ;
+          angular.module('common', [
+            'solutioncenter.login'
+          ])
+          .service('interceptorService', InterceptorService)
+          .service('backendConnectorService', BackendConnectorService)
+          .service('moduleConnectorService', ModuleConnectorService)
+          .service('userConnectorService', UserConnectorService)
+          .config(($httpProvider) => {
+            $httpProvider.interceptors.push('interceptorService');
+          });
 
 export default commonModule.name;

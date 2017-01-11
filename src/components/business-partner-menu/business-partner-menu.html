@@ -1,10 +1,10 @@
 <div class="business-partner-menu"
-     ng-if="$ctrl.isBusinessPartnerMenuShown()">
+     ng-if="$ctrl.businessPartnerMenuShown">
 <div class="arrow-up"></div>
     <h2 class="dc-h3">Select Business Partner</h2>
 
     <search class="business-partner-menu__search"
-            searchable-items="$ctrl.getAccessibleBusinessPartners()"
+            searchable-items="$ctrl.accessibleBusinessPartners"
             click-action="$ctrl.selectBusinessPartner">
     </search>
 
@@ -14,7 +14,7 @@
         <!--Show if recent business partner-->
         <h3 class="business-partner-menu__last__heading">Last business partner</h3>
         <ul class="business-partner-menu__last__list">
-            <li ng-repeat="businessPartner in $ctrl.getLastAccessedBusinessPartners() track by businessPartner.id"
+            <li ng-repeat="businessPartner in $ctrl.lastAccessedBusinessPartners track by businessPartner.id"
                 class="business-partner-menu__last__item"
                 ng-click="$ctrl.selectBusinessPartner(businessPartner)">
                 {{businessPartner.name}}
