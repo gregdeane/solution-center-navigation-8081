@@ -13,7 +13,7 @@ const businessPartners = (state = initialState, action) => {
         accessibleBusinessPartners: action.accessibleBusinessPartners
       };
 
-      case types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS:
+    case types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS:
       return {
         ...state,
         lastAccessedBusinessPartners: action.lastAccessedBusinessPartners
