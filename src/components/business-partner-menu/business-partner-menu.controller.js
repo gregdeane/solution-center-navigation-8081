@@ -1,10 +1,8 @@
 import * as Actions from '../../actions';
 
 class BusinessPartnerMenuController {
-  static mapStateToParams(state) {
+  static mapStateToProps(state) {
     return {
-      currentApplication: state.navigation.currentApplication,
-      currentBusinessPartner: state.navigation.currentBusinessPartner,
       accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners,
       lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners,
       businessPartnerMenuShown: state.visibility.businessPartnerMenuShown
@@ -16,10 +14,10 @@ class BusinessPartnerMenuController {
   }
 
   $onInit() {
-    $ngRedux.connect(
-      this.mapStateToParams,
-      Actions)
-    (this);
+    this.$ngRedux.connect(
+      BusinessPartnerMenuController.mapStateToProps,
+      Actions
+    )(this);
   }
 
   selectBusinessPartner(businessPartner) {
