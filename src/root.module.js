@@ -3,8 +3,8 @@ import angular from 'angular';
 
 import './assets/styles/main.scss';
 
-import AppModule from './app/app.module';
+import NavigationModule from './app/navigation.module';
 
 angular.module('solution-center-navigation', [
-  AppModule
+  NavigationModule
 ]);
