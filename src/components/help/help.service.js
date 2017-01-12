@@ -1,15 +1,27 @@
 import * as Actions from '../../actions';
 
 class HelpService {
-  constructor($ngRedux) {
-    $ngRedux.connect(this.mapStateToParams, Actions)(this);
+
+  static getHelpSections(products) {
+    return ['General'].concat(HelpService.getUserApplications(products));
   }
 
-  mapStateToParams(state) {
-    return {
-      isHelpWidgetLoaded: state.visibility.helpWidgetLoaded,
-      isHelpWidgetShown: state.visibility.helpWidgetShown
-    };
+  static getUserApplications(products) {
+    if (!products) {
+      return [];
+    }
+
+    // TODO This will be fetched from a backend endpoint
+    let userApplications = [];
+    products.forEach(product => {
+      userApplications.push(...product.applications.map(application => application.name));
+    });
+
+    return userApplications;
+  }
+
+  constructor($ngRedux) {
+    this.$ngRedux = $ngRedux;
   }
 
   loadHelpWidget(products) {
@@ -19,7 +31,7 @@ class HelpService {
     let _nRepData = window._nRepData || [];
     _nRepData['kb'] = '70732382';
     _nRepData['customParams'] = {
-      product: this.getHelpSections(products)
+      product: HelpService.getHelpSections(products)
     };
     _nRepData['embed'] = {
       account: 'zalandobrands',
@@ -62,20 +74,11 @@ class HelpService {
     // added this to generate code so we can run this outside the global scope
     window._nRepData = _nRepData;
 
-    this.setHelpWidgetAsLoaded();
+    this.dispatch('setHelpWidgetAsLoaded');
   }
 
-  getHelpSections(products) {
-    return ['General'].concat(this.getUserApplications(products));
-  }
-
-  getUserApplications(products) {
-    // TODO This will be fetched from a backend endpoint
-    let userApplications = [];
-    products.forEach(product => {
-      userApplications.push(...product.applications.map(application => application.name));
-    });
-    return userApplications;
+  dispatch(action) {
+    this.$ngRedux.dispatch(Actions[action]());
   }
 }
 
