@@ -27,16 +27,20 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         use: [
-          "style-loader",
-          "css-loader?sourceMap",
-          "sass-loader?sourceMap",
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
         ]
       },
       {
-        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-        use: [
-          "file-loader"
-        ]
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=fonts/[name].[ext]'
       },
       {
         test: /\.html$/,
