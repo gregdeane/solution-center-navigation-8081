@@ -1,14 +1,22 @@
 import * as Actions from '../../actions';
 
 class UserMenuController {
-  constructor($ngRedux) {
-    $ngRedux.connect(this.mapStateToParams, Actions)(this);
-  }
 
-  mapStateToParams(state) {
+  static mapStateToProps(state) {
     return {
       state: state
     };
+  }
+
+  constructor($ngRedux) {
+    this.$ngRedux = $ngRedux;
+  }
+
+  $onInit() {
+    this.$ngRedux.connect(
+      UserMenuController.mapStateToProps,
+      Actions)
+    (this);
   }
 }
 

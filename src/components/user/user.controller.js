@@ -1,6 +1,7 @@
 import * as Actions from '../../actions';
 
 class UserController {
+
   static mapStateToProps(state) {
     return {
       userMenuShown: state.visibility.userMenuShown,
@@ -15,8 +16,8 @@ class UserController {
   $onInit() {
     this.$ngRedux.connect(
       UserController.mapStateToProps,
-      Actions)
-    (this);
+      Actions
+    )(this);
   }
 }
 
