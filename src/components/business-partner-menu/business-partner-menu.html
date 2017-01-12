@@ -1,24 +1,30 @@
 <div class="business-partner-menu"
      ng-if="$ctrl.businessPartnerMenuShown">
-<div class="arrow-up"></div>
-    <h2 class="dc-h3">Select Business Partner</h2>
+  <div class="arrow-up"></div>
+  <h2 class="dc-h3">Select Business Partner</h2>
 
-    <search class="business-partner-menu__search"
-            searchable-items="$ctrl.accessibleBusinessPartners"
-            click-action="$ctrl.selectBusinessPartner">
-    </search>
+  <search class="business-partner-menu__search"
+          searchable-items="$ctrl.accessibleBusinessPartners"
+          click-action="$ctrl.selectBusinessPartner">
+  </search>
 
-    <div class="business-partner-menu__last">
-        <!--Show if no recent business partner-->
-        <h3 class="intro-text hidden">Use the search field above to find business partners. Your most recent ones will be shown here.</h3>
-        <!--Show if recent business partner-->
-        <h3 class="business-partner-menu__last__heading">Last business partner</h3>
-        <ul class="business-partner-menu__last__list">
-            <li ng-repeat="businessPartner in $ctrl.lastAccessedBusinessPartners track by businessPartner.id"
-                class="business-partner-menu__last__item"
-                ng-click="$ctrl.selectBusinessPartner(businessPartner)">
-                {{businessPartner.name}}
-            </li>
-        </ul>
+  <div class="business-partner-menu__last">
+    <!--Show if no recent business partner-->
+    <h3 ng-if="!$ctrl.showLastAccessedSection()"
+        class="intro-text hidden">
+      Use the search field above to find business partners. Your most recent ones will be shown here.
+    </h3>
+
+    <!--Show if there are recent business partners-->
+    <div ng-if="$ctrl.showLastAccessedSection()">
+      <h3 class="business-partner-menu__last__heading">Last business partners</h3>
+      <ul class="business-partner-menu__last__list">
+        <li ng-repeat="businessPartner in $ctrl.lastAccessedBusinessPartners track by businessPartner.id"
+            class="business-partner-menu__last__item"
+            ng-click="$ctrl.selectBusinessPartner(businessPartner)">
+          {{businessPartner.name}}
+        </li>
+      </ul>
     </div>
+  </div>
 </div>

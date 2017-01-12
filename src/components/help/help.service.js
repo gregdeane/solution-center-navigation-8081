@@ -70,11 +70,17 @@ class HelpService {
   }
 
   getUserApplications(products) {
+    if (!products) {
+      return [];
+    }
+
     // TODO This will be fetched from a backend endpoint
     let userApplications = [];
+
     products.forEach(product => {
       userApplications.push(...product.applications.map(application => application.name));
     });
+
     return userApplications;
   }
 }

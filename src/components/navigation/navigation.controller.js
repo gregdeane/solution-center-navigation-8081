@@ -1,23 +1,25 @@
 import * as Actions from '../../actions';
+import { USER_1, USER_2, USER_3, USER_4, USER_5 } from '../../common/mocks';
 
 class NavigationController {
   static mapStateToProps(state) {
     return {
       mobileMenuShown: state.visibility.mobileMenuShown,
-      currentApplication: state.navigation.currentApplication
+      currentApplication: state.navigation.currentApplication,
+      currentBusinessPartner: state.navigation.currentBusinessPartner
     };
   }
 
   constructor($ngRedux,
+              navigationService,
               backendConnectorService,
               moduleConnectorService,
-              userConnectorService,
               ScAuthenticationService) {
 
     this.$ngRedux = $ngRedux;
+    this.navigationService = navigationService;
     this.backendConnectorService = backendConnectorService;
     this.moduleConnectorService = moduleConnectorService;
-    this.userConnectorService = userConnectorService;
     this.scAuthenticationService = ScAuthenticationService;
   }
 
@@ -27,20 +29,32 @@ class NavigationController {
       Actions
     )(this);
 
-    // Perform the backend endpoints calls if the current environment does not allow override or
-    // if any of the required parameters is not set.
-    // Otherwise use the values provided by the client application instead.
-    if (!this.backendConnectorService.isOverridePossible() && !this.areAllRequiredParametersSet()) {
-      this.user = this.scAuthenticationService.getUser();
-      this.getProducts();
-      this.getUserBusinessPartners(this.user && this.user.id);
+    this.navigationService.loadCurrentContext(this.applicationId, this.productId);
+
+    // Allow mocking and skipping the backend endpoint calls only if the current environment allows override and
+    // all the required parameters are set.
+    if (this.backendConnectorService.isOverridePossible() && this.areAllMockedParametersSet()) {
+      this.updateAccessibleBusinessPartners(this.userBusinessPartners);
+      // TODO It will eventually be fetched from BE in business-partner-menu-controller
+      this.updateLastAccessedBusinessPartners(this.accessibleBusinessPartners.slice(0, 8));
     }
+
+    // Otherwise load the stored data and require the rest of needed information from the backend
+    else {
+      // this.user = this.scAuthenticationService.getUser(); TODO Replace when solution-center-login handles new users
+      this.user = USER_4;
+
+      this.getProducts();
+      this.navigationService.getUserBusinessPartnersInApplication();
+    }
+
+    this.navigationService.handleBusinessPartner();
   }
 
   getProducts() {
     this.moduleConnectorService.getProducts()
       .then((response) => {
-        this.products = response.products;
+        this.products = response.data;
       })
       .catch(() => {
         // TODO Log error
@@ -48,22 +62,11 @@ class NavigationController {
       });
   }
 
-  getUserBusinessPartners(userId) {
-    this.userConnectorService.getUserBusinessPartners(userId)
-      .then((response) => {
-        this.userBusinessPartners = response.businessPartners;
-      })
-      .catch(() => {
-        // TODO Log error
-        this.userBusinessPartners = [];
-      });
-  }
-
   /*
    Products, user and business partners must be provided in order to allow skipping backend calls
    */
-  areAllRequiredParametersSet() {
-    return this.products && this.user && this.userBusinessPartners;
+  areAllMockedParametersSet() {
+    return !!this.products && !!this.user && !!this.userBusinessPartners;
   }
 }
 

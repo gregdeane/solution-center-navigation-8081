@@ -2,6 +2,7 @@ import * as types from '../constants/ActionTypes';
 
 import {
     toggleApplicationsMenu,
+    showApplicationsMenu,
     toggleUserMenu,
     showBusinessPartnerMenu,
     hideBusinessPartnerMenu,
@@ -12,11 +13,11 @@ import {
     hideHelpWidget,
     toggleHelpWidget,
     hideAllMenus,
-    changeCurrentProduct,
     changeCurrentApplication,
+    changeCurrentProduct,
     changeCurrentBusinessPartner,
-    resetCurrentProduct,
     resetCurrentApplication,
+    resetCurrentProduct,
     resetCurrentBusinessPartner,
     updateAccessibleBusinessPartners,
     updateLastAccessedBusinessPartners
@@ -26,6 +27,12 @@ describe('actions', () => {
   describe('toggleApplicationsMenu', () => {
     it('should have a type of \"' + types.TOGGLE_APPLICATIONS_MENU + '\"', () =>
         expect(toggleApplicationsMenu().type).toEqual(types.TOGGLE_APPLICATIONS_MENU)
+    );
+  });
+
+  describe('showApplicationsMenu', () => {
+    it('should have a type of \"' + types.SHOW_APPLICATIONS_MENU + '\"', () =>
+      expect(showApplicationsMenu().type).toEqual(types.SHOW_APPLICATIONS_MENU)
     );
   });
 
@@ -94,17 +101,6 @@ describe('actions', () => {
     );
   });
 
-  describe('changeCurrentProduct', () => {
-    it('should have a type of \"' + types.CHANGE_CURRENT_PRODUCT + '\"', () =>
-        expect(changeCurrentProduct().type).toEqual(types.CHANGE_CURRENT_PRODUCT)
-    );
-
-    it('should pass on the product passed in', () => {
-      let product = {id: 1, name: 'PRODUCT'};
-      expect(changeCurrentProduct(product).product);
-    });
-  });
-
   describe('changeCurrentApplication', () => {
     it('should have a type of \"' + types.CHANGE_CURRENT_APPLICATION + '\"', () =>
         expect(changeCurrentApplication().type).toEqual(types.CHANGE_CURRENT_APPLICATION)
@@ -113,6 +109,17 @@ describe('actions', () => {
     it('should pass on the application passed in', () => {
       let application = {id: 1, name: 'APPLICATION'};
       expect(changeCurrentApplication(application).application)
+    });
+  });
+
+  describe('changeCurrentProduct', () => {
+    it('should have a type of \"' + types.CHANGE_CURRENT_PRODUCT + '\"', () =>
+        expect(changeCurrentProduct().type).toEqual(types.CHANGE_CURRENT_PRODUCT)
+    );
+
+    it('should pass on the product passed in', () => {
+      let product = {id: 1, name: 'PRODUCT'};
+      expect(changeCurrentProduct(product).product)
     });
   });
 
@@ -127,15 +134,15 @@ describe('actions', () => {
     });
   });
 
-  describe('resetCurrentProduct', () => {
-    it('should have a type of \"' + types.RESET_CURRENT_PRODUCT + '\"', () =>
-        expect(resetCurrentProduct().type).toEqual(types.RESET_CURRENT_PRODUCT)
-    );
-  });
-
   describe('resetCurrentApplication', () => {
     it('should have a type of \"' + types.RESET_CURRENT_APPLICATION + '\"', () =>
         expect(resetCurrentApplication().type).toEqual(types.RESET_CURRENT_APPLICATION)
+    );
+  });
+
+  describe('resetCurrentProduct', () => {
+    it('should have a type of \"' + types.RESET_CURRENT_PRODUCT + '\"', () =>
+        expect(resetCurrentProduct().type).toEqual(types.RESET_CURRENT_PRODUCT)
     );
   });
 

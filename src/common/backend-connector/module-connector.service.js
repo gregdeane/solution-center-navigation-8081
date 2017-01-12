@@ -11,6 +11,12 @@ class ModuleConnectorService {
 
     return this.$http.get(url);
   }
+
+  getUserBusinessPartnersInApplication(productId, applicationId) {
+    let url = this.baseUrl + '/products/' + productId + '/applications/' + applicationId + '/business-partners';
+
+    return this.$http.get(url);
+  }
 }
 
 export default ModuleConnectorService;

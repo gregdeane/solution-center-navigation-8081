@@ -12,6 +12,7 @@ class ProductsService {
     };
   }
 
+  // TODO This whole logic may be simplified when implementing the new UX requirement of not toggling the menus
   switchMenu(clickedProduct) {
     // If the submenu is opened
     if (this.applicationsMenuShown) {

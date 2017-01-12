@@ -3,14 +3,14 @@
     <li ng-repeat="product in $ctrl.products track by product.id"
         class="menu__item">
       <a class="menu__link"
-         ng-class="{'highlighted': $ctrl.isProductSelected(product)}"
+         ng-class="{'highlighted': $ctrl.isHighlighted(product)}"
          ng-click="$ctrl.switchMenu(product)"
          href>
-                <span class="">{{product.name}}</span>
+        <span class="">{{product.name}}</span>
       </a>
+
       <applications
-        ng-if="$ctrl.mobileMenuShown ||
-                    ($ctrl.applicationsMenuShown && $ctrl.isProductSelected(product))"
+        ng-if="$ctrl.isApplicationSubMenuShown(product)"
         class="navigation__applications"
         products="$ctrl.products"
         applications="product.applications"

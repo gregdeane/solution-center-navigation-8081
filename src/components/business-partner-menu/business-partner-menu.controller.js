@@ -9,8 +9,9 @@ class BusinessPartnerMenuController {
     };
   }
 
-  constructor($ngRedux) {
+  constructor($ngRedux, $cookies) {
     this.$ngRedux = $ngRedux;
+    this.$cookies = $cookies;
   }
 
   $onInit() {
@@ -18,11 +19,18 @@ class BusinessPartnerMenuController {
       BusinessPartnerMenuController.mapStateToProps,
       Actions
     )(this);
+
+    // TODO Fetch last accessed business partners from BE
   }
 
   selectBusinessPartner(businessPartner) {
     this.changeCurrentBusinessPartner(businessPartner);
+    this.$cookies.put('SC_BUSINESS_PARTNER', businessPartner);
     this.hideBusinessPartnerMenu();
+  }
+
+  showLastAccessedSection() {
+    return this.lastAccessedBusinessPartners && this.lastAccessedBusinessPartners.length > 0
   }
 }
 

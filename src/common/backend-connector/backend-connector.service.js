@@ -29,10 +29,6 @@ class BackendConnectorService {
   getModuleServiceUrl() {
     return this.environment.MODULE_SERVICE;
   }
-
-  getUserServiceUrl() {
-    return this.environment.USER_SERVICE;
-  }
 }
 
 export default BackendConnectorService;

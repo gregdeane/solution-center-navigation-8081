@@ -10,6 +10,12 @@ export const toggleApplicationsMenu = () => {
   };
 };
 
+export const showApplicationsMenu = () => {
+  return {
+    type: types.SHOW_APPLICATIONS_MENU
+  };
+};
+
 export const toggleUserMenu = () => {
   return {
     type: types.TOGGLE_USER_MENU
@@ -81,17 +87,17 @@ export const toggleMobileMenu = () => {
   NAVIGATION
  */
 
-export const changeCurrentProduct = (product) => {
-  return {
-    type: types.CHANGE_CURRENT_PRODUCT,
-    product
-  };
-};
-
 export const changeCurrentApplication = (application) => {
   return {
     type: types.CHANGE_CURRENT_APPLICATION,
     application
+  };
+};
+
+export const changeCurrentProduct = (product) => {
+  return {
+    type: types.CHANGE_CURRENT_PRODUCT,
+    product
   };
 };
 
@@ -102,15 +108,15 @@ export const changeCurrentBusinessPartner = (businessPartner) => {
   };
 };
 
-export const resetCurrentProduct = () => {
-  return {
-    type: types.RESET_CURRENT_PRODUCT
-  };
-};
-
 export const resetCurrentApplication = () => {
   return {
     type: types.RESET_CURRENT_APPLICATION
+  };
+};
+
+export const resetCurrentProduct = () => {
+  return {
+    type: types.RESET_CURRENT_PRODUCT
   };
 };
 
