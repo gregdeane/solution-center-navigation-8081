@@ -7,11 +7,18 @@
         <link rel="stylesheet" href="demo.css">
     </head>
 
-    <body class="dc-body" ng-controller="demoController as demoCtrl">
+    <body class="dc-body" ng-controller="demoController as $ctrl">
+        <!--<sc-navigation
+                application-id="$ctrl.applicationId"
+                product-id="$ctrl.productId"
+                products="$ctrl.products"
+                user="$ctrl.user"
+                user-business-partners="$ctrl.userBusinessPartners">
+        </sc-navigation>-->
+
         <sc-navigation
-                products="demoCtrl.products"
-                user="demoCtrl.user"
-                user-business-partners="demoCtrl.userBusinessPartners">
+          application-id="$ctrl.applicationId"
+          product-id="$ctrl.productId">
         </sc-navigation>
 
        <div class="intro">

@@ -3,7 +3,7 @@ import * as types from '../constants/ActionTypes';
 const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
-  selectedProduct: undefined,
+  selectedProduct: undefined, // TODO Consider changing it to hold only the id and not the whole object
   businessPartnerMenuShown: false,
   helpWidgetLoaded: false,
   helpWidgetShown: false,
@@ -16,6 +16,13 @@ const visibility = (state = initialState, action) => {
       return {
         ...state,
         applicationsMenuShown: !state.applicationsMenuShown,
+        userMenuShown: false
+      };
+
+    case types.SHOW_APPLICATIONS_MENU:
+      return {
+        ...state,
+        applicationsMenuShown: true,
         userMenuShown: false
       };
 

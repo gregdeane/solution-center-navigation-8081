@@ -1,23 +1,23 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  currentProduct: undefined,
   currentApplication: undefined,
+  currentProduct: undefined,
   currentBusinessPartner: undefined
 };
 
 const navigation = (state = initialState, action) => {
   switch (action.type) {
-    case types.CHANGE_CURRENT_PRODUCT:
-      return {
-        ...state,
-        currentProduct: action.product
-      };
-
     case types.CHANGE_CURRENT_APPLICATION:
       return {
         ...state,
         currentApplication: action.application
+      };
+
+    case types.CHANGE_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: action.product
       };
 
     case types.CHANGE_CURRENT_BUSINESS_PARTNER:
@@ -26,16 +26,16 @@ const navigation = (state = initialState, action) => {
         currentBusinessPartner: action.businessPartner
       };
 
-    case types.RESET_CURRENT_PRODUCT:
-      return {
-        ...state,
-        currentProduct: undefined
-      };
-
     case types.RESET_CURRENT_APPLICATION:
       return {
         ...state,
         currentApplication: undefined
+      };
+
+    case types.RESET_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: undefined
       };
 
     case types.RESET_CURRENT_BUSINESS_PARTNER:

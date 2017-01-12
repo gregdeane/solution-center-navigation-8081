@@ -1,115 +1,127 @@
 angular.module('demo', ['solution-center-navigation'])
-    .controller('demoController', [function () {
-      'use strict';
+  .controller('demoController', [function () {
+    'use strict';
 
-      var vm = this;
+    var vm = this;
 
-      vm.products = [
-        {
+    vm.products = [
+      {
+        id: 0,
+        name: 'Demo',
+        applications: [{
+          id: 0,
+          name: 'Demo',
+          businessPartnerRoles: ['BRAND']
+        }]
+      },
+      {
+        id: 1,
+        name: 'Content',
+        applications: [{
           id: 1,
-          name: 'Content',
-          applications: [{
-            id: 1,
-            name: 'CMS',
-            url: '/cms',
-            businessPartnerTypes: ['BRAND', 'SUPPLIER']
-          }, {
-            id: 2,
-            name: 'Analytics',
-            url: '/analytics',
-            businessPartnerTypes: ['BRAND']
-          }]
-        },
-        {
+          name: 'CMS',
+          url: '/cms',
+          businessPartnerRoles: ['BRAND', 'SUPPLIER']
+        }, {
           id: 2,
-          name: 'Insights',
-          applications: [{
-            id: 3,
-            name: 'Coplanner',
-            url: '/coplanner',
-            businessPartnerTypes: ['SUPPLIER']
-          }]
-        },
-        {
-          id: 3,
-          name: 'Merchant center',
-          applications: [{
-            id: 4,
-            name: 'Articles',
-            url: '/articles',
-            businessPartnerTypes: ['MERCHANT']
-          }, {
-            id: 5,
-            name: 'Orders',
-            url: '/orders',
-            businessPartnerTypes: ['MERCHANT']
-          }]
-        }
-      ];
-
-      vm.userBusinessPartners = [{
-        id: 1,
-        name: 'Adidas',
-        types: ['BRAND', 'MERCHANT', 'SUPPLIER']
-      }, {
+          name: 'Analytics',
+          url: '/analytics',
+          businessPartnerRoles: ['BRAND']
+        }]
+      },
+      {
         id: 2,
-        name: 'Nike',
-        types: ['BRAND', 'SUPPLIER']
-      }, {
+        name: 'Insights',
+        applications: [{
+          id: 3,
+          name: 'Coplanner',
+          url: '/coplanner',
+          businessPartnerRoles: ['SUPPLIER']
+        }]
+      },
+      {
         id: 3,
-        name: 'FourFlavor',
-        types: ['MERCHANT']
-      }, {
-        id: 4,
-        name: 'WarehouseOne',
-        types: ['MERCHANT']
-      }, {
-        id: 5,
-        name: 'GREENALITY',
-        types: ['MERCHANT']
-      }, {
-        id: 6,
-        name: 'Lea Trade Srl',
-        types: ['SUPPLIER']
-      }, {
-        id: 7,
-        name: 'Hirsch Fashion GmbH',
-        types: ['SUPPLIER']
-      }, {
-        id: 8,
-        name: 'Reebok',
-        types: ['BRAND']
-      }, {
-        id: 9,
-        name: 'Vans',
-        types: ['BRAND']
-      }, {
-        id: 10,
-        name: 'Ray-Ban',
-        types: ['BRAND']
-      }, {
-        id: 11,
-        name: 'Tommy Hilfiger',
-        types: ['BRAND']
-      }, {
-        id: 12,
-        name: 'Eterna',
-        types: ['MERCHANT']
-      }, {
-        id: 13,
-        name: 'Roberto Collina SRL',
-        types: ['SUPPLIER']
-      }, {
-        id: 14,
-        name: 'fashion4home GmbH',
-        types: ['SUPPLIER']
-      }];
+        name: 'Merchant center',
+        applications: [{
+          id: 4,
+          name: 'Articles',
+          url: '/articles',
+          businessPartnerRoles: ['MERCHANT']
+        }, {
+          id: 5,
+          name: 'Orders',
+          url: '/orders',
+          businessPartnerRoles: ['MERCHANT']
+        }]
+      }
+    ];
 
-      vm.user = {
-        id: 1,
-        firstName: 'Chuck',
-        lastName: 'Norris',
-        email: 'chuck.norris@solutions.zalando.com'
-      };
-    }
-    ]);
+    vm.userBusinessPartners = [{
+      id: 1,
+      name: 'Adidas',
+      roles: ['BRAND', 'MERCHANT', 'SUPPLIER']
+    }, {
+      id: 2,
+      name: 'Nike',
+      roles: ['BRAND', 'SUPPLIER']
+    }, {
+      id: 3,
+      name: 'FourFlavor',
+      roles: ['MERCHANT']
+    }, {
+      id: 4,
+      name: 'WarehouseOne',
+      roles: ['MERCHANT']
+    }, {
+      id: 5,
+      name: 'GREENALITY',
+      roles: ['MERCHANT']
+    }, {
+      id: 6,
+      name: 'Lea Trade Srl',
+      roles: ['SUPPLIER']
+    }, {
+      id: 7,
+      name: 'Hirsch Fashion GmbH',
+      roles: ['SUPPLIER']
+    }, {
+      id: 8,
+      name: 'Reebok',
+      roles: ['BRAND']
+    }, {
+      id: 9,
+      name: 'Vans',
+      roles: ['BRAND']
+    }, {
+      id: 10,
+      name: 'Ray-Ban',
+      roles: ['BRAND']
+    }, {
+      id: 11,
+      name: 'Tommy Hilfiger',
+      roles: ['BRAND']
+    }, {
+      id: 12,
+      name: 'Eterna',
+      roles: ['MERCHANT']
+    }, {
+      id: 13,
+      name: 'Roberto Collina SRL',
+      roles: ['SUPPLIER']
+    }, {
+      id: 14,
+      name: 'fashion4home GmbH',
+      roles: ['SUPPLIER']
+    }];
+
+    vm.user = {
+      id: 1,
+      firstName: 'Chuck',
+      lastName: 'Norris',
+      email: 'chuck.norris@solutions.zalando.com'
+    };
+
+    vm.applicationId = 'app1';
+    vm.productId = 'prod1';
+  }
+  ]);

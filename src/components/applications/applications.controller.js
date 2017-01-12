@@ -1,16 +1,37 @@
+import * as Actions from '../../actions';
+
 class ApplicationsController {
-  constructor(applicationsService) {
-    this.applicationsService = applicationsService;
-
-    this.currentApplicationId = this.applicationsService.getCurrentApplicationId();
+  static mapStateToProps(state) {
+    return {
+      selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
+      currentApplication: state.navigation.currentApplication,
+      currentBusinessPartner: state.navigation.currentBusinessPartner
+    };
   }
 
-  navigateToApplication(selectedApplication) {
-    this.applicationsService.navigateToApplication(selectedApplication, this.products, this.userBusinessPartners);
+  constructor($ngRedux, $window) {
+    this.$ngRedux = $ngRedux;
+    this.$window = $window;
   }
 
-  isCurrentApplication (applicationId) {
-    return this.currentApplicationId === applicationId;
+  $onInit() {
+    this.$ngRedux.connect(
+      ApplicationsController.mapStateToProps,
+      Actions)
+    (this);
+  }
+
+  navigateToApplication(url) {
+    if (!url) {
+      return;
+    }
+
+    this.hideAllMenus();
+    this.$window.location.href = url;
+  }
+
+  isCurrentApplication(applicationId) {
+    return this.currentApplication === applicationId;
   }
 }
 

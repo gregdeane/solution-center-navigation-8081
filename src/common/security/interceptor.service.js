@@ -1,3 +1,5 @@
+import { USER_1, USER_2, USER_3, USER_4, USER_5 } from '../mocks';
+
 /*
   This parent class is needed in order to avoid losing the context (this) when intercepting $http calls since
   we need access to it to reach the injected services:
@@ -23,7 +25,8 @@ class InterceptorService extends HttpInterceptor {
   }
 
   request(config) {
-    let token = this.scAuthenticationService.getToken();
+    // let token = this.scAuthenticationService.getToken();
+    let token = USER_4.token;
 
     if (token) {
       config.headers['Authorization'] = token;

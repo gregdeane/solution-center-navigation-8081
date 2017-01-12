@@ -4,9 +4,11 @@ import './navigation.scss';
 
 const navigationComponent = {
   bindings: {
-    products: '<',
-    user: '<',
-    userBusinessPartners: '<'
+    applicationId: '<',
+    productId: '<',
+    products: '<?',
+    user: '<?',
+    userBusinessPartners: '<?'
   },
   template,
   controller
