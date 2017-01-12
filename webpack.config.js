@@ -1,27 +1,27 @@
 'use strict';
 
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 module.exports = {
-  context: __dirname + "/src",
+  context: __dirname + '/src',
   entry: {
-    app: "./index.js",
+    app: './root.module.js',
   },
   output: {
-    path: __dirname + "/dist",
-    filename: "solution-center-navigation.js",
+    path: __dirname + '/dist',
+    filename: 'solution-center-navigation.js',
   },
   devServer: {
-    contentBase: __dirname + "/demo"
+    contentBase: __dirname + '/demo'
   },
   devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         options: {
-          presets: ["es2015", "stage-2"]
+          presets: ['es2015', 'stage-2']
         }
       },
       {
