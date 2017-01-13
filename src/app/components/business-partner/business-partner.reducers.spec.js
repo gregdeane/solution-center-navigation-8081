@@ -1,7 +1,7 @@
-import * as types from '../constants/ActionTypes';
-import businessPartners from './business-partners';
+import * as constants from './business-partner.constants';
+import businessPartners from './business-partner.reducers';
 
-describe('Business Partners Reducers', () => {
+describe('Business Partner Reducers', () => {
   let mock;
 
   beforeEach(setup);
@@ -14,18 +14,18 @@ describe('Business Partners Reducers', () => {
     expect(result).toEqual(mock.initialState);
   });
 
-  it(`should update appropriate value for ${types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS} action type`, () => {
+  it(`should update appropriate value for ${constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS} action type`, () => {
     const result = businessPartners(mock.initialState, {
-      type: types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
+      type: constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
       accessibleBusinessPartners: mock.data
     });
 
     expect(result.accessibleBusinessPartners).toEqual(mock.data);
   });
 
-  it(`should update appropriate value for ${types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS} action type`, () => {
+  it(`should update appropriate value for ${constants.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS} action type`, () => {
     const result = businessPartners(mock.initialState, {
-      type: types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS,
+      type: constants.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS,
       lastAccessedBusinessPartners: mock.data
     });
 

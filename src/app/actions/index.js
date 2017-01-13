@@ -125,21 +125,3 @@ export const resetCurrentBusinessPartner = () => {
     type: types.RESET_CURRENT_BUSINESS_PARTNER
   };
 };
-
-/*
- BUSINESS PARTNERS
- */
-
-export const updateAccessibleBusinessPartners = (accessibleBusinessPartners) => {
-  return {
-    type: types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
-    accessibleBusinessPartners
-  };
-};
-
-export const updateLastAccessedBusinessPartners = (lastAccessedBusinessPartners) => {
-  return {
-    type: types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS,
-    lastAccessedBusinessPartners
-  };
-};

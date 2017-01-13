@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes';
+import * as constants from './business-partner.constants';
 
 const initialState = {
   accessibleBusinessPartners: [],
@@ -7,13 +7,13 @@ const initialState = {
 
 const businessPartners = (state = initialState, action) => {
   switch (action.type) {
-    case types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS:
+    case constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS:
       return {
         ...state,
         accessibleBusinessPartners: action.accessibleBusinessPartners
       };
 
-    case types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS:
+    case constants.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS:
       return {
         ...state,
         lastAccessedBusinessPartners: action.lastAccessedBusinessPartners

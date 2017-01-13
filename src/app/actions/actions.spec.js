@@ -151,26 +151,4 @@ describe('actions', () => {
         expect(resetCurrentBusinessPartner().type).toEqual(types.RESET_CURRENT_BUSINESS_PARTNER)
     );
   });
-
-  describe('updateAccessibleBusinessPartners', () => {
-    it('should have a type of \"' + types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS + '\"', () =>
-        expect(updateAccessibleBusinessPartners().type).toEqual(types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS)
-    );
-
-    it('should pass on the accessible business partners passed in', () => {
-      let accessibleBusinessPartners = [{id: 1, name: 'BUSINESS_PARTNER_1'}, {id: 2, name: 'BUSINESS_PARTNER_2'}];
-      expect(updateAccessibleBusinessPartners(accessibleBusinessPartners).accessibleBusinessPartners);
-    });
-  });
-
-  describe('updateLastAccessedBusinessPartners', () => {
-    it('should have a type of \"' + types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS + '\"', () =>
-        expect(updateLastAccessedBusinessPartners().type).toEqual(types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS)
-    );
-
-    it('should pass on the last accessed business partners passed in', () => {
-      let lastAccessedBusinessPartners = [{id: 1, name: 'BUSINESS_PARTNER_1'}, {id: 2, name: 'BUSINESS_PARTNER_2'}];
-      expect(updateLastAccessedBusinessPartners(lastAccessedBusinessPartners).lastAccessedBusinessPartners);
-    });
-  });
 });

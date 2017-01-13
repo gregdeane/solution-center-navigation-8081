@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import visibility from './reducers/visibility';
 import navigation from './reducers/navigation';
-import businessPartners from './reducers/business-partners';
+import businessPartners from './components/business-partner/business-partner.reducers';
 
 const reducers = combineReducers({
   visibility,
