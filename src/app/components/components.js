@@ -3,8 +3,7 @@ import angular from 'angular';
 import LogoButton from './logo-button';
 import Products from './products';
 import Applications from './applications';
-import BusinessPartner from './business-partner';
-import BusinessPartnerMenu from './business-partner-menu';
+import BusinessPartnerModule from './business-partner/business-partner.module';
 import Shortcuts from './shortcuts';
 import User from './user';
 import UserMenu from './user-menu';
@@ -17,8 +16,7 @@ const componentsModule =
     LogoButton,
     Products,
     Applications,
-    BusinessPartner,
-    BusinessPartnerMenu,
+    BusinessPartnerModule,
     Shortcuts,
     User,
     Users,
