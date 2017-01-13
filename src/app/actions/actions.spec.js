@@ -123,17 +123,6 @@ describe('actions', () => {
     });
   });
 
-  describe('changeCurrentBusinessPartner', () => {
-    it('should have a type of \"' + types.CHANGE_CURRENT_BUSINESS_PARTNER + '\"', () =>
-        expect(changeCurrentBusinessPartner().type).toEqual(types.CHANGE_CURRENT_BUSINESS_PARTNER)
-    );
-
-    it('should pass on the business partner passed in', () => {
-      let application = {id: 1, name: 'BUSINESS PARTNER'};
-      expect(changeCurrentBusinessPartner(application).application);
-    });
-  });
-
   describe('resetCurrentApplication', () => {
     it('should have a type of \"' + types.RESET_CURRENT_APPLICATION + '\"', () =>
         expect(resetCurrentApplication().type).toEqual(types.RESET_CURRENT_APPLICATION)
@@ -143,12 +132,6 @@ describe('actions', () => {
   describe('resetCurrentProduct', () => {
     it('should have a type of \"' + types.RESET_CURRENT_PRODUCT + '\"', () =>
         expect(resetCurrentProduct().type).toEqual(types.RESET_CURRENT_PRODUCT)
-    );
-  });
-
-  describe('resetCurrentBusinessPartner', () => {
-    it('should have a type of \"' + types.RESET_CURRENT_BUSINESS_PARTNER + '\"', () =>
-        expect(resetCurrentBusinessPartner().type).toEqual(types.RESET_CURRENT_BUSINESS_PARTNER)
     );
   });
 });

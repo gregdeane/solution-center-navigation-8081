@@ -16,9 +16,24 @@ const BusinessPartnerActions = () => {
     };
   };
 
+  const changeCurrentBusinessPartner = (businessPartner) => {
+    return {
+      type: constants.CHANGE_CURRENT_BUSINESS_PARTNER,
+      businessPartner
+    };
+  };
+
+  const resetCurrentBusinessPartner = () => {
+    return {
+      type: constants.RESET_CURRENT_BUSINESS_PARTNER
+    };
+  };
+
   return {
     updateAccessibleBusinessPartners,
-    updateLastAccessedBusinessPartners
+    updateLastAccessedBusinessPartners,
+    changeCurrentBusinessPartner,
+    resetCurrentBusinessPartner
   };
 };
 
