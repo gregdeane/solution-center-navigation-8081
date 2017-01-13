@@ -1,9 +1,13 @@
+// TODO remove this once all actions are in their specific locations (non-global)
 import * as types from '../constants/ActionTypes';
+
+import * as constants from '../navigation.constants';
 
 const initialState = {
   currentApplication: undefined,
   currentProduct: undefined,
-  currentBusinessPartner: undefined
+  currentBusinessPartner: undefined,
+  products: []
 };
 
 const navigation = (state = initialState, action) => {
@@ -42,6 +46,12 @@ const navigation = (state = initialState, action) => {
       return {
         ...state,
         currentBusinessPartner: undefined
+      };
+
+    case constants.GET_PRODUCTS:
+      return {
+        ...state,
+        products: action.products
       };
 
     default:

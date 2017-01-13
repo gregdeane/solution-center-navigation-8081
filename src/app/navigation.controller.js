@@ -5,7 +5,8 @@ class NavigationController {
     return {
       mobileMenuShown: state.visibility.mobileMenuShown,
       currentApplication: state.navigation.currentApplication,
-      currentBusinessPartner: state.navigation.currentBusinessPartner
+      currentBusinessPartner: state.navigation.currentBusinessPartner,
+      products: state.navigation.products
     };
   }
 
@@ -51,17 +52,6 @@ class NavigationController {
     }
 
     this.navigationService.handleBusinessPartner();
-  }
-
-  getProducts() {
-    this.moduleConnectorService.getProducts()
-      .then((response) => {
-        this.products = response.data;
-      })
-      .catch(() => {
-        // TODO Log error
-        this.products = [];
-      });
   }
 
   /*

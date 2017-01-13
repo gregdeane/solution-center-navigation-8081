@@ -24,8 +24,24 @@ const NavigationActions = (moduleConnectorService) => {
     };
   };
 
+  const getProducts = () => {
+    return (dispatch) => {
+      moduleConnectorService.getProducts()
+        .then(response => dispatch({
+          type: constants.GET_PRODUCTS,
+          products: response.data
+        }))
+        .catch(() => dispatch({
+          // TODO Log error
+          type: constants.GET_PRODUCTS,
+          products: []
+        }));
+    };
+  };
+
   return {
-    getUserBusinessPartnersInApplication
+    getUserBusinessPartnersInApplication,
+    getProducts
   };
 };
 

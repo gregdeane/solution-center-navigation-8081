@@ -23,26 +23,6 @@ class NavigationService {
   }
 
   /**
-   * Performs a call to the backend endpoint to retrieve the list of business partner that the user has access to
-   * in the current application
-   */
-  // getUserBusinessPartnersInApplication() {
-  //   const currentApplication = this.getProp('navigation', 'currentApplication');
-  //   const currentProduct = this.getProp('navigation', 'currentProduct');
-  //
-  //   this.moduleConnectorService.getUserBusinessPartnersInApplication(currentProduct, currentApplication)
-  //     .then((response) => {
-  //       this.dispatch('updateAccessibleBusinessPartners', response.data);
-  //       // TODO It will eventually be fetched from BE in business-partner-menu-controller
-  //       this.dispatch('updateLastAccessedBusinessPartners', response.data.slice(0, 8));
-  //     })
-  //     .catch(() => {
-  //       // TODO Log error
-  //       this.dispatch('updateAccessibleBusinessPartners', []);
-  //     });
-  // }
-
-  /**
    * Handles the business partner selection, checking if any has been persisted in a previous visit
    *  - if so, it verifies that it is still valid in the current context and updates the state accordingly
    *  - otherwise it shows the business partner menu to allow the user to select one
