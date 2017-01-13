@@ -6,7 +6,8 @@ import InterceptorService from './security/interceptor.service';
 
 const commonModule =
           angular.module('common', [
-            'solutioncenter.login'
+            'solutioncenter.login',
+            'ngCookies'
           ])
           .service('interceptorService', InterceptorService)
           .service('backendConnectorService', BackendConnectorService)

@@ -1,5 +1,5 @@
-import * as Actions from '../../actions';
-import { USER_1, USER_2, USER_3, USER_4, USER_5 } from '../../common/mocks';
+import * as Actions from './actions';
+import { USER_1, USER_2, USER_3, USER_4, USER_5 } from './common/mocks';
 
 class NavigationController {
   static mapStateToProps(state) {
