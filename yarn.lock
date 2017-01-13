@@ -69,7 +69,7 @@ amdefine@1.0.0, amdefine@>=0.0.4:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.0.tgz#fd17474700cb5cc9c2b709f0be9d23ce3c198c33"
 
-angular-cookies@~1.5.0:
+angular-cookies@^1.5.9, angular-cookies@~1.5.0:
   version "1.5.10"
   resolved "https://registry.yarnpkg.com/angular-cookies/-/angular-cookies-1.5.10.tgz#3bd1f137c04f86d27d88c02b6352752354787b6c"
 
@@ -77,13 +77,13 @@ angular-jwt@^0.0.9:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/angular-jwt/-/angular-jwt-0.0.9.tgz#912587b520189d28d089446c7faaf30ef7534313"
 
-angular-mocks@^1.5.7:
-  version "1.5.8"
-  resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.5.8.tgz#2e9399056669f286a681396bc35ae0d7c5c70d16"
+angular-mocks@1.5.9:
+  version "1.5.9"
+  resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.5.9.tgz#5d6d6b37873d6c59e32e195f5de161f4a3f2f7e8"
 
-angular@^1.5.0, angular@~1.5.0:
-  version "1.5.8"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.5.8.tgz#925a5392b8c212d09572dc446db7e01264e094cb"
+angular@1.5.9, angular@^1.5.0, angular@~1.5.0:
+  version "1.5.9"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.5.9.tgz#b7aeff42dad87881e06be16b6690fe766d868b51"
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
@@ -3003,8 +3003,8 @@ loader-utils@0.x.x, loader-utils@^0.2.11, loader-utils@^0.2.15, loader-utils@^0.
     object-assign "^4.0.1"
 
 lodash-es@^4.2.1:
-  version "4.16.6"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.16.6.tgz#c8552faedaa4d1d591de8da9b3980ef1c52efa08"
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
 
 lodash._baseassign@^3.0.0:
   version "3.2.0"
@@ -3394,7 +3394,7 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ng-redux:
+ng-redux@^3.4.0-beta.1:
   version "3.4.0-beta.1"
   resolved "https://registry.yarnpkg.com/ng-redux/-/ng-redux-3.4.0-beta.1.tgz#9bc1636b390fed538dccca3dfaee22a7b327aff6"
   dependencies:
@@ -4286,7 +4286,11 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "~0.1.0"
 
-redux@^3.0.0:
+redux-thunk@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.1.0.tgz#c724bfee75dbe352da2e3ba9bc14302badd89a98"
+
+redux@^3.0.0, redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
@@ -4701,7 +4705,7 @@ sockjs@0.3.18:
     faye-websocket "^0.10.0"
     uuid "^2.0.2"
 
-solution-center-communicator@^2.0.0:
+solution-center-communicator@^2.0.0, solution-center-communicator@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/solution-center-communicator/-/solution-center-communicator-2.3.0.tgz#e46959ec103678d6baed9f630fbd4a4a9f401be0"
   dependencies:

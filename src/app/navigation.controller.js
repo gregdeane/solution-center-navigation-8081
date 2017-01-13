@@ -1,4 +1,3 @@
-import * as Actions from './actions';
 import { USER_1, USER_2, USER_3, USER_4, USER_5 } from './common/mocks';
 
 class NavigationController {
@@ -6,7 +5,8 @@ class NavigationController {
     return {
       mobileMenuShown: state.visibility.mobileMenuShown,
       currentApplication: state.navigation.currentApplication,
-      currentBusinessPartner: state.navigation.currentBusinessPartner
+      currentBusinessPartner: state.navigation.currentBusinessPartner,
+      products: state.navigation.products
     };
   }
 
@@ -14,19 +14,21 @@ class NavigationController {
               navigationService,
               backendConnectorService,
               moduleConnectorService,
-              ScAuthenticationService) {
+              ScAuthenticationService,
+              NavigationActions) {
 
     this.$ngRedux = $ngRedux;
     this.navigationService = navigationService;
     this.backendConnectorService = backendConnectorService;
     this.moduleConnectorService = moduleConnectorService;
     this.scAuthenticationService = ScAuthenticationService;
+    this.navigationActions = NavigationActions;
   }
 
   $onInit() {
     this.$ngRedux.connect(
       NavigationController.mapStateToProps,
-      Actions
+      this.navigationActions
     )(this);
 
     this.navigationService.loadCurrentContext(this.applicationId, this.productId);
@@ -45,21 +47,11 @@ class NavigationController {
       this.user = USER_4;
 
       this.getProducts();
-      this.navigationService.getUserBusinessPartnersInApplication();
+      //this.navigationService.getUserBusinessPartnersInApplication();
+      this.getUserBusinessPartnersInApplication();
     }
 
     this.navigationService.handleBusinessPartner();
-  }
-
-  getProducts() {
-    this.moduleConnectorService.getProducts()
-      .then((response) => {
-        this.products = response.data;
-      })
-      .catch(() => {
-        // TODO Log error
-        this.products = [];
-      });
   }
 
   /*
