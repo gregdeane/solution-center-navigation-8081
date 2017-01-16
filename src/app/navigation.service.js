@@ -1,10 +1,11 @@
 import * as Actions from './actions';
 
 class NavigationService {
-  constructor($ngRedux, $cookies, moduleConnectorService) {
+  constructor($ngRedux, $cookies, moduleConnectorService, BusinessPartnerActions) {
     this.$ngRedux = $ngRedux;
     this.$cookies = $cookies;
     this.moduleConnectorService = moduleConnectorService;
+    this.businessPartnerActions = BusinessPartnerActions;
   }
 
   /**
@@ -59,7 +60,9 @@ class NavigationService {
   }
 
   dispatch(action, parameter) {
-    this.$ngRedux.dispatch(Actions[action](parameter));
+    // TODO after all actions are in their final locations, remove this if and just use `this.businessPartnerActions`
+    let dispatchAction = Actions[action] || this.businessPartnerActions[action];
+    this.$ngRedux.dispatch(dispatchAction(parameter));
   }
 
   getProp(type, prop) {

@@ -1,5 +1,3 @@
-import * as Actions from '../../actions';
-
 class BusinessPartnerController {
 
   static mapStateToProps(state) {
@@ -9,14 +7,15 @@ class BusinessPartnerController {
     };
   }
 
-  constructor($ngRedux) {
+  constructor($ngRedux, BusinessPartnerActions) {
     this.$ngRedux = $ngRedux;
+    this.businessPartnerActions = BusinessPartnerActions;
   }
 
   $onInit() {
     this.$ngRedux.connect(
       BusinessPartnerController.mapStateToProps,
-      Actions
+      this.businessPartnerActions
     )(this);
   }
 }

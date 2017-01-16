@@ -1,5 +1,3 @@
-import * as Actions from '../../actions';
-
 class BusinessPartnerMenuController {
   static mapStateToProps(state) {
     return {
@@ -9,15 +7,16 @@ class BusinessPartnerMenuController {
     };
   }
 
-  constructor($ngRedux, $cookies) {
+  constructor($ngRedux, $cookies, BusinessPartnerActions) {
     this.$ngRedux = $ngRedux;
     this.$cookies = $cookies;
+    this.businessPartnerActions = BusinessPartnerActions;
   }
 
   $onInit() {
     this.$ngRedux.connect(
       BusinessPartnerMenuController.mapStateToProps,
-      Actions
+      this.businessPartnerActions
     )(this);
 
     // TODO Fetch last accessed business partners from BE

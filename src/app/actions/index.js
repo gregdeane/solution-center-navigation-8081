@@ -101,13 +101,6 @@ export const changeCurrentProduct = (product) => {
   };
 };
 
-export const changeCurrentBusinessPartner = (businessPartner) => {
-  return {
-    type: types.CHANGE_CURRENT_BUSINESS_PARTNER,
-    businessPartner
-  };
-};
-
 export const resetCurrentApplication = () => {
   return {
     type: types.RESET_CURRENT_APPLICATION
@@ -117,29 +110,5 @@ export const resetCurrentApplication = () => {
 export const resetCurrentProduct = () => {
   return {
     type: types.RESET_CURRENT_PRODUCT
-  };
-};
-
-export const resetCurrentBusinessPartner = () => {
-  return {
-    type: types.RESET_CURRENT_BUSINESS_PARTNER
-  };
-};
-
-/*
- BUSINESS PARTNERS
- */
-
-export const updateAccessibleBusinessPartners = (accessibleBusinessPartners) => {
-  return {
-    type: types.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
-    accessibleBusinessPartners
-  };
-};
-
-export const updateLastAccessedBusinessPartners = (lastAccessedBusinessPartners) => {
-  return {
-    type: types.UPDATE_LAST_ACCESSED_BUSINESS_PARTNERS,
-    lastAccessedBusinessPartners
   };
 };
