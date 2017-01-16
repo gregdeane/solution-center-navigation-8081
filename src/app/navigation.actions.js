@@ -8,40 +8,40 @@ const NavigationActions = (moduleConnectorService) => {
    */
   const getUserBusinessPartnersInApplication = () => {
     return (dispatch, getState) => {
-      const { navigation } = getState();
+      const {navigation} = getState();
 
-      moduleConnectorService
+      return moduleConnectorService
         .getUserBusinessPartnersInApplication(navigation.currentProduct, navigation.currentApplication)
-          .then(response => dispatch({
-            type: constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
-            accessibleBusinessPartners: response.data
-          }))
-          .catch(() => dispatch({
-            // TODO Log error
-            type: constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
-            accessibleBusinessPartners: []
-          }));
-    };
-  };
-
-  const getProducts = () => {
-    return (dispatch) => {
-      moduleConnectorService.getProducts()
         .then(response => dispatch({
-          type: constants.GET_PRODUCTS,
-          products: response.data
+          type: constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
+          accessibleBusinessPartners: response.data
         }))
         .catch(() => dispatch({
           // TODO Log error
-          type: constants.GET_PRODUCTS,
-          products: []
+          type: constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
+          accessibleBusinessPartners: []
+        }));
+    };
+  };
+
+  const getAccessibleProducts = () => {
+    return (dispatch) => {
+      moduleConnectorService.getAccessibleProducts()
+        .then(response => dispatch({
+          type: constants.UPDATE_ACCESSIBLE_PRODUCTS,
+          accessibleProducts: response.data
+        }))
+        .catch(() => dispatch({
+          // TODO Log error
+          type: constants.UPDATE_ACCESSIBLE_PRODUCTS,
+          accessibleProducts: []
         }));
     };
   };
 
   return {
     getUserBusinessPartnersInApplication,
-    getProducts
+    getAccessibleProducts
   };
 };
 

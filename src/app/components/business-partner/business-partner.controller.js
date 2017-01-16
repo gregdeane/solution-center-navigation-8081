@@ -1,8 +1,8 @@
 class BusinessPartnerController {
 
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
-      currentBusinessPartner: state.navigation.currentBusinessPartner,
+      currentBusinessPartner: state.businessPartners.currentBusinessPartner,
       currentApplication: state.navigation.currentApplication
     };
   }
@@ -14,7 +14,7 @@ class BusinessPartnerController {
 
   $onInit() {
     this.$ngRedux.connect(
-      BusinessPartnerController.mapStateToProps,
+      BusinessPartnerController.mapStateToThis,
       this.businessPartnerActions
     )(this);
   }

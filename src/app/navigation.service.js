@@ -1,11 +1,12 @@
 import * as Actions from './actions';
 
 class NavigationService {
-  constructor($ngRedux, $cookies, moduleConnectorService, BusinessPartnerActions) {
+  constructor($ngRedux, $cookies, moduleConnectorService, BusinessPartnerActions, NavigationActions) {
     this.$ngRedux = $ngRedux;
     this.$cookies = $cookies;
     this.moduleConnectorService = moduleConnectorService;
     this.businessPartnerActions = BusinessPartnerActions;
+    this.navigationActions = NavigationActions;
   }
 
   /**
@@ -34,9 +35,7 @@ class NavigationService {
 
     // If there is and has a type valid for the current application store it in the state
     if (this.isValidBusinessPartnerForApplication(businessPartnerId)) {
-      // TODO Fetch business partner from BE
-      let businessPartner = {id: businessPartnerId};
-      this.dispatch('changeCurrentBusinessPartner', businessPartner);
+      this.dispatch('getBusinessPartnerById', businessPartnerId);
     }
 
     // Otherwise show the business partner menu in order to choose one
@@ -61,7 +60,7 @@ class NavigationService {
 
   dispatch(action, parameter) {
     // TODO after all actions are in their final locations, remove this if and just use `this.businessPartnerActions`
-    let dispatchAction = Actions[action] || this.businessPartnerActions[action];
+    let dispatchAction = Actions[action] || this.businessPartnerActions[action] || this.navigationActions[action];
     this.$ngRedux.dispatch(dispatchAction(parameter));
   }
 
