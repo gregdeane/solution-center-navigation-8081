@@ -20,7 +20,6 @@ class BusinessPartnerMenuController {
     )(this);
 
     // TODO Fetch last accessed business partners from BE
-    // TODO YOU SHOULDN'T NEED TO FETCH FROM BE. THIS DATA SHOULD ALREADY BE IN THE STORE
   }
 
   selectBusinessPartner(businessPartner) {
