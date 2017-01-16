@@ -24,7 +24,7 @@ describe('Business Partner Actions', () => {
     expect(action.currentBusinessPartner).toEqual(mock.businessPartner);
   });
 
-  it(`should create the ${constants.CHANGE_CURRENT_BUSINESS_PARTNER} action`, () => {
+  it(`should create the ${constants.RESET_CURRENT_BUSINESS_PARTNER} action`, () => {
     const action = getAction('resetCurrentBusinessPartner');
     expect(action.type).toEqual(constants.RESET_CURRENT_BUSINESS_PARTNER);
   });

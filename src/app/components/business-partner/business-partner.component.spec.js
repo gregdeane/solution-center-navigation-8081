@@ -14,6 +14,7 @@ describe('Business Partner Component', () => {
 
   it('should wire up the state', () => {
     const result = BusinessPartnerController.mapStateToThis(mock.state);
+
     expect(result.currentBusinessPartner).toEqual(mock.state.businessPartners.currentBusinessPartner);
     expect(result.currentApplication).toEqual(mock.state.navigation.currentApplication);
   });
