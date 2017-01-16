@@ -30,7 +30,6 @@ class BusinessPartnerMenuController {
   }
 
   showLastAccessedSection() {
-    console.log('this.lastAccessedBusinessPartners', this.lastAccessedBusinessPartners);
     return this.lastAccessedBusinessPartners && this.lastAccessedBusinessPartners.length > 0
   }
 }
