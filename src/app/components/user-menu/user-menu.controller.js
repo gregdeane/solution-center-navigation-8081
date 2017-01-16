@@ -8,8 +8,9 @@ class UserMenuController {
     };
   }
 
-  constructor($ngRedux) {
+  constructor($ngRedux, ScAuthenticationService) {
     this.$ngRedux = $ngRedux;
+    this.scAuthenticationService = ScAuthenticationService;
   }
 
   $onInit() {
@@ -17,6 +18,10 @@ class UserMenuController {
       UserMenuController.mapStateToProps,
       Actions)
     (this);
+  }
+
+  logout() {
+    this.scAuthenticationService.logout();
   }
 }
 
