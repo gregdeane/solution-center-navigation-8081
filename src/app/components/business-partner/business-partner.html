@@ -2,10 +2,13 @@
      show the menu to change it -->
 <div ng-if="$ctrl.currentApplication">
   <nav ng-if="$ctrl.currentBusinessPartner">
-    <a class="business-partner__toggle" ng-click="$ctrl.toggleBusinessPartnerMenu()" href>
-            <span class="business-partner__name">
-              {{$ctrl.currentBusinessPartner.name}}
-            </span>
+    <a class="business-partner__name"
+       ng-class="{'business-partner__toggle': !$ctrl.businessPartnerMenuDisabled}"
+       ng-click="$ctrl.toggleBusinessPartnerMenu()"
+       href>
+      <span>
+        {{$ctrl.currentBusinessPartner.name}}
+      </span>
     </a>
   </nav>
   <business-partner-menu></business-partner-menu>

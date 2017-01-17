@@ -1,13 +1,26 @@
 @import "~dress-code";
 
 .business-partner {
-  &__toggle {
+
+  &__name {
     font-size: 1.4rem;
     font-weight: 500;
     color: $dc-black;
     padding-right: 10px;
     text-decoration: none;
     text-transform: uppercase;
+
+    @media (min-width: $dc-huge-width) {
+      cursor: default;
+      padding-right: 0;
+
+      &:hover {
+        color: $dc-gray10;
+      }
+    }
+  }
+
+  &__toggle {
 
     &::after {
       border-left: 5px solid transparent;
@@ -23,11 +36,7 @@
     }
 
     @media (min-width: $dc-huge-width) {
-      padding-right: 0;
-
-      &:hover {
-        color: $dc-gray10;
-      }
+      cursor: pointer;
     }
   }
 }

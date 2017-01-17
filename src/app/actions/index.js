@@ -40,6 +40,12 @@ export const toggleBusinessPartnerMenu = () => {
   }
 };
 
+export const disableBusinessPartnerMenu = () => {
+  return {
+    type: types.DISABLE_BUSINESS_PARTNER_MENU
+  }
+};
+
 export const changeSelectedProduct = (product) => {
   return {
     type: types.CHANGE_SELECTED_PRODUCT,

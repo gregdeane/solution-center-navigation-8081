@@ -3,7 +3,8 @@ class BusinessPartnerMenuController {
     return {
       accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners,
       lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners,
-      businessPartnerMenuShown: state.visibility.businessPartnerMenuShown
+      businessPartnerMenuShown: state.visibility.businessPartnerMenuShown,
+      businessPartnerMenuDisabled: state.visibility.businessPartnerMenuDisabled
     };
   }
 
