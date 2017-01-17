@@ -13,7 +13,7 @@ describe('Help Component', () => {
   });
 
   it('should wire up the state', () => {
-    const result = HelpController.mapStateToProps(mock.state);
+    const result = HelpController.mapStateToThis(mock.state);
     expect(result.isHelpWidgetLoaded).toEqual(mock.state.visibility.helpWidgetLoaded);
     expect(result.isHelpWidgetShown).toEqual(mock.state.visibility.helpWidgetShown);
   });
