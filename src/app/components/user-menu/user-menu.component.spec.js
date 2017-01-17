@@ -17,6 +17,11 @@ describe('User Menu Component', () => {
     expect(result.state).toEqual(mock.state);
   });
 
+  it('should log out', () => {
+    controller.logout();
+    expect(mock.scAuthenticationService.logout).toHaveBeenCalled();
+  });
+
   ////////////////////////////
 
   function setup() {
@@ -28,7 +33,9 @@ describe('User Menu Component', () => {
   }
 
   function modules() {
-    angular.mock.module('solution-center-navigation');
+    angular.mock.module('solution-center-navigation', $provide => {
+      $provide.value('ScAuthenticationService', mock.scAuthenticationService);
+    });
   }
 
   function injectors() {
@@ -49,7 +56,10 @@ describe('User Menu Component', () => {
 
   function mocks() {
     mock = {
-      state: {}
+      state: {},
+      scAuthenticationService: jasmine.createSpyObj('ScAuthenticationService', [
+        'logout'
+      ])
     };
   }
 });
