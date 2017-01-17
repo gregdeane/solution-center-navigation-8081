@@ -32,6 +32,24 @@ describe('Business Partner Reducers', () => {
     expect(result.lastAccessedBusinessPartners).toEqual(mock.data);
   });
 
+  it(`should update appropriate value for ${constants.CHANGE_CURRENT_BUSINESS_PARTNER} action type`, () => {
+    const result = businessPartners(mock.initialState, {
+      type: constants.CHANGE_CURRENT_BUSINESS_PARTNER,
+      currentBusinessPartner: mock.data
+    });
+
+    expect(result.currentBusinessPartner).toEqual(mock.data);
+  });
+
+  it(`should update appropriate value for ${constants.RESET_CURRENT_BUSINESS_PARTNER} action type`, () => {
+    const result = businessPartners(mock.initialState, {
+      type: constants.RESET_CURRENT_BUSINESS_PARTNER,
+      currentBusinessPartner: mock.data
+    });
+
+    expect(result.currentBusinessPartner).toBeUndefined();
+  });
+
   ////////////////////////////
 
   function setup() {

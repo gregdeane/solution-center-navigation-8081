@@ -2,7 +2,8 @@ import * as constants from './business-partner.constants';
 
 const initialState = {
   accessibleBusinessPartners: [],
-  lastAccessedBusinessPartners: []
+  lastAccessedBusinessPartners: [],
+  currentBusinessPartner: undefined
 };
 
 const businessPartners = (state = initialState, action) => {
@@ -17,6 +18,18 @@ const businessPartners = (state = initialState, action) => {
       return {
         ...state,
         lastAccessedBusinessPartners: action.lastAccessedBusinessPartners
+      };
+
+    case constants.CHANGE_CURRENT_BUSINESS_PARTNER:
+      return {
+        ...state,
+        currentBusinessPartner: action.currentBusinessPartner
+      };
+
+    case constants.RESET_CURRENT_BUSINESS_PARTNER:
+      return {
+        ...state,
+        currentBusinessPartner: undefined
       };
 
     default:

@@ -6,7 +6,7 @@ class NavigationController {
       mobileMenuShown: state.visibility.mobileMenuShown,
       currentApplication: state.navigation.currentApplication,
       currentBusinessPartner: state.navigation.currentBusinessPartner,
-      products: state.navigation.products
+      products: state.navigation.accessibleProducts
     };
   }
 
@@ -39,6 +39,7 @@ class NavigationController {
       this.updateAccessibleBusinessPartners(this.userBusinessPartners);
       // TODO It will eventually be fetched from BE in business-partner-menu-controller
       this.updateLastAccessedBusinessPartners(this.accessibleBusinessPartners.slice(0, 8));
+      this.navigationService.handleBusinessPartner();
     }
 
     // Otherwise load the stored data and require the rest of needed information from the backend
@@ -46,12 +47,10 @@ class NavigationController {
       // this.user = this.scAuthenticationService.getUser(); TODO Replace when solution-center-login handles new users
       this.user = USER_4;
 
-      this.getProducts();
-      //this.navigationService.getUserBusinessPartnersInApplication();
-      this.getUserBusinessPartnersInApplication();
+      this.getAccessibleProducts();
+      this.getUserBusinessPartnersInApplication()
+        .then(() => this.navigationService.handleBusinessPartner());
     }
-
-    this.navigationService.handleBusinessPartner();
   }
 
   /*

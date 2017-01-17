@@ -1,6 +1,6 @@
 import * as constants from './business-partner.constants';
 
-const BusinessPartnerActions = () => {
+const BusinessPartnerActions = (moduleConnectorService) => {
 
   const updateAccessibleBusinessPartners = (accessibleBusinessPartners) => {
     return {
@@ -16,10 +16,10 @@ const BusinessPartnerActions = () => {
     };
   };
 
-  const changeCurrentBusinessPartner = (businessPartner) => {
+  const changeCurrentBusinessPartner = (currentBusinessPartner) => {
     return {
       type: constants.CHANGE_CURRENT_BUSINESS_PARTNER,
-      businessPartner
+      currentBusinessPartner
     };
   };
 
@@ -29,11 +29,27 @@ const BusinessPartnerActions = () => {
     };
   };
 
+  const getBusinessPartnerById = (businessPartnerId) => {
+    return (dispatch) => {
+      moduleConnectorService.getBusinessPartnerById(businessPartnerId)
+        .then((response) => dispatch({
+          type: constants.CHANGE_CURRENT_BUSINESS_PARTNER,
+          currentBusinessPartner: response.data
+        }))
+        .catch(() => dispatch({
+          // TODO Log error
+          type: constants.CHANGE_CURRENT_BUSINESS_PARTNER,
+          currentBusinessPartner: undefined
+        }));
+    };
+  };
+
   return {
     updateAccessibleBusinessPartners,
     updateLastAccessedBusinessPartners,
     changeCurrentBusinessPartner,
-    resetCurrentBusinessPartner
+    resetCurrentBusinessPartner,
+    getBusinessPartnerById
   };
 };
 

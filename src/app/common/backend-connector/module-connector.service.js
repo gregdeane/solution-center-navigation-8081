@@ -6,7 +6,7 @@ class ModuleConnectorService {
     this.baseUrl = this.backendConnectorService.getModuleServiceUrl();
   }
 
-  getProducts() {
+  getAccessibleProducts() {
     let url = this.baseUrl + '/products';
 
     return this.$http.get(url);
@@ -14,6 +14,12 @@ class ModuleConnectorService {
 
   getUserBusinessPartnersInApplication(productId, applicationId) {
     let url = this.baseUrl + '/products/' + productId + '/applications/' + applicationId + '/business-partners';
+
+    return this.$http.get(url);
+  }
+
+  getBusinessPartnerById(businessPartnerId) {
+    let url = this.baseUrl + '/business-partners/' + businessPartnerId;
 
     return this.$http.get(url);
   }

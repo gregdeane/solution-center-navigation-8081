@@ -6,8 +6,7 @@ import * as constants from '../navigation.constants';
 const initialState = {
   currentApplication: undefined,
   currentProduct: undefined,
-  currentBusinessPartner: undefined,
-  products: []
+  accessibleProducts: []
 };
 
 const navigation = (state = initialState, action) => {
@@ -24,12 +23,6 @@ const navigation = (state = initialState, action) => {
         currentProduct: action.product
       };
 
-    case types.CHANGE_CURRENT_BUSINESS_PARTNER:
-      return {
-        ...state,
-        currentBusinessPartner: action.businessPartner
-      };
-
     case types.RESET_CURRENT_APPLICATION:
       return {
         ...state,
@@ -42,16 +35,10 @@ const navigation = (state = initialState, action) => {
         currentProduct: undefined
       };
 
-    case types.RESET_CURRENT_BUSINESS_PARTNER:
+    case constants.UPDATE_ACCESSIBLE_PRODUCTS:
       return {
         ...state,
-        currentBusinessPartner: undefined
-      };
-
-    case constants.GET_PRODUCTS:
-      return {
-        ...state,
-        products: action.products
+        accessibleProducts: action.accessibleProducts
       };
 
     default:
