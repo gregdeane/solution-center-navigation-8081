@@ -38,7 +38,7 @@ const VisibilityActions = () => {
     }
   };
 
-  export const disableBusinessPartnerMenu = () => {
+  const disableBusinessPartnerMenu = () => {
     return {
       type: constants.DISABLE_BUSINESS_PARTNER_MENU
     }
