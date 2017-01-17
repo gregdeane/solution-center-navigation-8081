@@ -5,7 +5,7 @@ import './search.scss';
 const searchComponent = {
   bindings: {
     searchableItems: '<',
-    clickAction: '&'
+    onClick: '&'
   },
   template,
   controller
