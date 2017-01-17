@@ -5,6 +5,7 @@ const initialState = {
   userMenuShown: false,
   selectedProduct: undefined, // TODO Consider changing it to hold only the id and not the whole object
   businessPartnerMenuShown: false,
+  businessPartnerMenuDisabled: false,
   helpWidgetLoaded: false,
   helpWidgetShown: false,
   mobileMenuShown: false
@@ -51,6 +52,12 @@ const visibility = (state = initialState, action) => {
         ...state,
         businessPartnerMenuShown: !state.businessPartnerMenuShown,
         mobileMenuShown: false // In mobile view both cannot be displayed at the same time
+      };
+
+    case types.DISABLE_BUSINESS_PARTNER_MENU:
+      return {
+        ...state,
+        businessPartnerMenuDisabled: true
       };
 
     case types.CHANGE_SELECTED_PRODUCT:

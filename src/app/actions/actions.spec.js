@@ -7,6 +7,7 @@ import {
     showBusinessPartnerMenu,
     hideBusinessPartnerMenu,
     toggleBusinessPartnerMenu,
+    disableBusinessPartnerMenu,
     changeSelectedProduct,
     resetSelectedProduct,
     setHelpWidgetAsLoaded,
@@ -15,12 +16,8 @@ import {
     hideAllMenus,
     changeCurrentApplication,
     changeCurrentProduct,
-    changeCurrentBusinessPartner,
     resetCurrentApplication,
     resetCurrentProduct,
-    resetCurrentBusinessPartner,
-    updateAccessibleBusinessPartners,
-    updateLastAccessedBusinessPartners
 } from '../actions';
 
 describe('actions', () => {
@@ -57,6 +54,12 @@ describe('actions', () => {
   describe('toggleBusinessPartnerMenu', () => {
     it('should have a type of \"' + types.TOGGLE_BUSINESS_PARTNER_MENU + '\"', () =>
         expect(toggleBusinessPartnerMenu().type).toEqual(types.TOGGLE_BUSINESS_PARTNER_MENU)
+    );
+  });
+
+  describe('disableBusinessPartnerMenu', () => {
+    it('should have a type of \"' + types.DISABLE_BUSINESS_PARTNER_MENU + '\"', () =>
+      expect(disableBusinessPartnerMenu().type).toEqual(types.DISABLE_BUSINESS_PARTNER_MENU)
     );
   });
 

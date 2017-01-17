@@ -17,6 +17,7 @@ describe('Business Partner Component', () => {
 
     expect(result.currentBusinessPartner).toEqual(mock.state.businessPartners.currentBusinessPartner);
     expect(result.currentApplication).toEqual(mock.state.navigation.currentApplication);
+    expect(result.businessPartnerMenuDisabled).toEqual(mock.state.visibility.businessPartnerMenuDisabled);
   });
 
   ////////////////////////////
@@ -57,6 +58,9 @@ describe('Business Partner Component', () => {
         },
         businessPartners: {
           currentBusinessPartner: {}
+        },
+        visibility: {
+          businessPartnerMenuDisabled: {}
         }
       }
     };

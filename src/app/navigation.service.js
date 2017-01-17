@@ -15,6 +15,7 @@ class NavigationService {
    * @param productId
    */
   loadCurrentContext(applicationId, productId) {
+    // TODO Add some kind of verification here in case parameters are not correctly provided?
     this.dispatch('changeCurrentApplication', applicationId);
     this.dispatch('changeCurrentProduct', productId);
 
@@ -30,18 +31,28 @@ class NavigationService {
    *  - otherwise it shows the business partner menu to allow the user to select one
    */
   handleBusinessPartner() {
-    // Check if there is a business partner persisted from previous visits
-    let businessPartnerId = this.$cookies.get('SC_BUSINESS_PARTNER');
+    const accessibleBusinessPartners = this.getProp('businessPartners', 'accessibleBusinessPartners');
 
-    // If there is and has a type valid for the current application store it in the state
-    if (this.isValidBusinessPartnerForApplication(businessPartnerId)) {
-      this.dispatch('getBusinessPartnerById', businessPartnerId);
+    // If the user has access to ONLY one business partner, we automatically assign it and disable the
+    // business partner selection menu since he will not have a chance to choose another one
+    if (accessibleBusinessPartners.length === 1) {
+      this.dispatch('changeCurrentBusinessPartner', accessibleBusinessPartners[0]);
+      this.dispatch('disableBusinessPartnerMenu');
     }
 
-    // Otherwise show the business partner menu in order to choose one
     else {
-      this.dispatch('resetCurrentBusinessPartner');
-      this.dispatch('showBusinessPartnerMenu');
+      // Check if there is a business partner persisted from previous visits
+      let businessPartnerId = this.$cookies.get('SC_BUSINESS_PARTNER');
+
+      // If there is and has a type valid for the current application keep it as current business partner
+      if (this.isValidBusinessPartnerForApplication(accessibleBusinessPartners, businessPartnerId)) {
+        this.dispatch('getBusinessPartnerById', businessPartnerId);
+      }
+
+      // Otherwise show the business partner menu to allow the user to choose one
+      else {
+        this.dispatch('showBusinessPartnerMenu');
+      }
     }
   }
 
@@ -50,9 +61,7 @@ class NavigationService {
    * @param businessPartnerId
    * @returns {boolean}
    */
-  isValidBusinessPartnerForApplication(businessPartnerId) {
-    const accessibleBusinessPartners = this.getProp('businessPartners', 'accessibleBusinessPartners');
-
+  isValidBusinessPartnerForApplication(accessibleBusinessPartners, businessPartnerId) {
     return accessibleBusinessPartners.filter((businessPartner) => {
         return businessPartner.id === businessPartnerId;
       }).length > 0;
