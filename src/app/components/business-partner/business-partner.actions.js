@@ -36,11 +36,14 @@ const BusinessPartnerActions = (moduleConnectorService) => {
           type: constants.CHANGE_CURRENT_BUSINESS_PARTNER,
           currentBusinessPartner: response.data
         }))
-        .catch(() => dispatch({
+        .catch(() => {
           // TODO Log error
-          type: constants.CHANGE_CURRENT_BUSINESS_PARTNER,
-          currentBusinessPartner: undefined
-        }));
+          dispatch({
+            type: constants.RESET_CURRENT_BUSINESS_PARTNER
+          });
+
+          // TODO Dispatch SHOW_BUSINESS_PARTNER_MENU from future VisibilityService
+        });
     };
   };
 
