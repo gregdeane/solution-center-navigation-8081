@@ -1,6 +1,6 @@
 class UserController {
 
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
       userMenuShown: state.visibility.userMenuShown,
       mobileMenuShown: state.visibility.mobileMenuShown
@@ -14,7 +14,7 @@ class UserController {
 
   $onInit() {
     this.$ngRedux.connect(
-      UserController.mapStateToProps,
+      UserController.mapStateToThis,
       this.visibilityActions
     )(this);
   }
