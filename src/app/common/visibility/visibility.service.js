@@ -5,8 +5,8 @@ class VisibilityService {
     this.visibilityActions = VisibilityActions;
   }
 
-  dispatch(action) {
-    this.$ngRedux.dispatch(this.visibilityActions[action]());
+  dispatch(action, data) {
+    this.$ngRedux.dispatch(this.visibilityActions[action](data));
   }
 
 }

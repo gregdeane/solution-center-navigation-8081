@@ -1,13 +1,11 @@
-import { hideBusinessPartnerMenu } from '../../actions';
-
 class BusinessPartnerService {
 
-  constructor($ngRedux) {
-    this.$ngRedux = $ngRedux;
+  constructor(VisibilityService) {
+    this.visibilityService = VisibilityService;
   }
 
   hideBusinessPartnerMenu() {
-    this.$ngRedux.dispatch(hideBusinessPartnerMenu());
+    this.visibilityService.dispatch('hideBusinessPartnerMenu');
   }
 
 }

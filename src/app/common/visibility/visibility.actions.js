@@ -94,6 +94,7 @@ const VisibilityActions = () => {
     showBusinessPartnerMenu,
     hideBusinessPartnerMenu,
     toggleBusinessPartnerMenu,
+    disableBusinessPartnerMenu,
     changeSelectedProduct,
     resetSelectedProduct,
     setHelpWidgetAsLoaded,

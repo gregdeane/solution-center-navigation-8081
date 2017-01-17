@@ -10,11 +10,11 @@ export const toggleApplicationsMenu = () => {
   };
 };
 
-export const showApplicationsMenu = () => {
-  return {
-    type: types.SHOW_APPLICATIONS_MENU
-  };
-};
+// export const showApplicationsMenu = () => {
+//   return {
+//     type: types.SHOW_APPLICATIONS_MENU
+//   };
+// };
 
 export const toggleUserMenu = () => {
   return {
@@ -22,11 +22,11 @@ export const toggleUserMenu = () => {
   };
 };
 
-export const showBusinessPartnerMenu = () => {
-  return {
-    type: types.SHOW_BUSINESS_PARTNER_MENU
-  }
-};
+// export const showBusinessPartnerMenu = () => {
+//   return {
+//     type: types.SHOW_BUSINESS_PARTNER_MENU
+//   }
+// };
 
 export const hideBusinessPartnerMenu = () => {
   return {
@@ -40,11 +40,11 @@ export const toggleBusinessPartnerMenu = () => {
   }
 };
 
-export const disableBusinessPartnerMenu = () => {
-  return {
-    type: types.DISABLE_BUSINESS_PARTNER_MENU
-  }
-};
+// export const disableBusinessPartnerMenu = () => {
+//   return {
+//     type: types.DISABLE_BUSINESS_PARTNER_MENU
+//   }
+// };
 
 export const changeSelectedProduct = (product) => {
   return {
