@@ -53,6 +53,12 @@ const visibility = (state = initialState, action) => {
         mobileMenuShown: false // In mobile view both cannot be displayed at the same time
       };
 
+    case constants.DISABLE_BUSINESS_PARTNER_MENU:
+      return {
+        ...state,
+        businessPartnerMenuDisabled: true
+      };
+
     case constants.CHANGE_SELECTED_PRODUCT:
       return {
         ...state,

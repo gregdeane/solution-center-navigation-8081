@@ -38,6 +38,12 @@ const VisibilityActions = () => {
     }
   };
 
+  export const disableBusinessPartnerMenu = () => {
+    return {
+      type: constants.DISABLE_BUSINESS_PARTNER_MENU
+    }
+  };
+
   const changeSelectedProduct = (product) => {
     return {
       type: constants.CHANGE_SELECTED_PRODUCT,
