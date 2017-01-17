@@ -1,5 +1,3 @@
-import * as Actions from '../../actions';
-
 class UserController {
 
   static mapStateToProps(state) {
@@ -9,14 +7,15 @@ class UserController {
     };
   }
 
-  constructor($ngRedux) {
+  constructor($ngRedux, VisibilityActions) {
     this.$ngRedux = $ngRedux;
+    this.visibilityActions = VisibilityActions;
   }
 
   $onInit() {
     this.$ngRedux.connect(
       UserController.mapStateToProps,
-      Actions
+      this.visibilityActions
     )(this);
   }
 }
