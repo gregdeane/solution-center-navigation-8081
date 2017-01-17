@@ -12,8 +12,8 @@
         class="dc-list dc-suggest">
         <li ng-repeat="result in $ctrl.searchResults track by result.id"
             class="dc-suggest__item dc-link"
-            ng-click="$ctrl.clickAction(result)">
-            {{result.name}}
+            ng-click="$ctrl.onClick({selection: result})">
+              {{result.name}}
         </li>
     </ul>
 </div>
