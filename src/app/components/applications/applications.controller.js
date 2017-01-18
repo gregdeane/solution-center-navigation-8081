@@ -9,9 +9,10 @@ class ApplicationsController {
     };
   }
 
-  constructor($ngRedux, $window) {
+  constructor($ngRedux, $window, VisibilityService) {
     this.$ngRedux = $ngRedux;
     this.$window = $window;
+    this.visibilityService = VisibilityService;
   }
 
   $onInit() {
@@ -26,7 +27,7 @@ class ApplicationsController {
       return;
     }
 
-    this.hideAllMenus();
+    this.visibilityService.dispatch('hideAllMenus');
     this.$window.location.href = url;
   }
 
