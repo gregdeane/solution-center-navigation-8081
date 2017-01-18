@@ -26,7 +26,7 @@ class BusinessPartnerMenuController {
 
   selectBusinessPartner(businessPartner) {
     this.changeCurrentBusinessPartner(businessPartner);
-    this.$cookies.put('SC_BUSINESS_PARTNER', businessPartner);
+    this.$cookies.put('SC_BUSINESS_PARTNER', JSON.stringify(businessPartner));
     this.visibilityService.dispatch('hideBusinessPartnerMenu');
   }
 

@@ -45,7 +45,8 @@ class NavigationService {
 
     else {
       // Check if there is a business partner persisted from previous visits
-      let businessPartnerId = this.$cookies.get('SC_BUSINESS_PARTNER');
+      let businessPartnerCookie = this.$cookies.get('SC_BUSINESS_PARTNER');
+      let businessPartnerId = businessPartnerCookie && JSON.parse(businessPartnerCookie).id;
 
       // If there is and has a type valid for the current application keep it as current business partner
       if (this.isValidBusinessPartnerForApplication(accessibleBusinessPartners, businessPartnerId)) {
