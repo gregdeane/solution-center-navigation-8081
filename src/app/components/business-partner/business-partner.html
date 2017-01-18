@@ -1,6 +1,6 @@
 <!-- The user must be in an application and there should be a selected business partner in order to
      show the menu to change it -->
-<div ng-if="$ctrl.currentApplication">
+<div ng-if="$ctrl.currentApplicationId">
   <nav ng-if="$ctrl.currentBusinessPartner">
     <a class="business-partner__name"
        ng-class="{'business-partner__toggle': !$ctrl.businessPartnerMenuDisabled}"

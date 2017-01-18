@@ -17,7 +17,7 @@ describe('Business Partner Component', () => {
     const result = BusinessPartnerController.mapStateToThis(mock.state);
 
     expect(result.currentBusinessPartner).toEqual(mock.state.businessPartners.currentBusinessPartner);
-    expect(result.currentApplication).toEqual(mock.state.navigation.currentApplication);
+    expect(result.currentApplicationId).toEqual(mock.state.navigation.currentApplicationId);
     expect(result.businessPartnerMenuDisabled).toEqual(mock.state.visibility.businessPartnerMenuDisabled);
   });
 
@@ -62,7 +62,7 @@ describe('Business Partner Component', () => {
     mock = {
       state: {
         navigation: {
-          currentApplication: {}
+          currentApplicationId: {}
         },
         businessPartners: {
           currentBusinessPartner: {}

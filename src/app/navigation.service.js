@@ -11,7 +11,7 @@ class NavigationService {
    */
   loadCurrentContext(applicationId, productId) {
     // TODO Add some kind of verification here in case parameters are not correctly provided?
-    this.stateHandlerService.dispatch('changeCurrentApplication', applicationId);
+    this.stateHandlerService.dispatch('changeCurrentApplicationId', applicationId);
     this.stateHandlerService.dispatch('changeCurrentProduct', productId);
 
     // If there is an applicationId load the context and show the applications menu (S.C. does not have appId so far)

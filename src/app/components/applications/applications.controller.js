@@ -4,7 +4,7 @@ class ApplicationsController {
   static mapStateToThis(state) {
     return {
       selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
-      currentApplication: state.navigation.currentApplication,
+      currentApplicationId: state.navigation.currentApplicationId,
       currentBusinessPartner: state.navigation.currentBusinessPartner
     };
   }
@@ -32,7 +32,7 @@ class ApplicationsController {
   }
 
   isCurrentApplication(applicationId) {
-    return this.currentApplication === applicationId;
+    return this.currentApplicationId === applicationId;
   }
 }
 

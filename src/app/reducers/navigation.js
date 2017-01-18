@@ -4,17 +4,17 @@ import * as types from '../constants/ActionTypes';
 import * as constants from '../navigation.constants';
 
 const initialState = {
-  currentApplication: undefined,
+  currentApplicationId: undefined,
   currentProduct: undefined,
   accessibleProducts: []
 };
 
 const navigation = (state = initialState, action) => {
   switch (action.type) {
-    case types.CHANGE_CURRENT_APPLICATION:
+    case types.CHANGE_CURRENT_APPLICATION_ID:
       return {
         ...state,
-        currentApplication: action.application
+        currentApplicationId: action.applicationId
       };
 
     case types.CHANGE_CURRENT_PRODUCT:
@@ -23,10 +23,10 @@ const navigation = (state = initialState, action) => {
         currentProduct: action.product
       };
 
-    case types.RESET_CURRENT_APPLICATION:
+    case types.RESET_CURRENT_APPLICATION_ID:
       return {
         ...state,
-        currentApplication: undefined
+        currentApplicationId: undefined
       };
 
     case types.RESET_CURRENT_PRODUCT:

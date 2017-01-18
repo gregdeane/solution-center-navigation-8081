@@ -4,10 +4,10 @@ import * as types from '../constants/ActionTypes';
   NAVIGATION
  */
 
-export const changeCurrentApplication = (application) => {
+export const changeCurrentApplicationId = (applicationId) => {
   return {
-    type: types.CHANGE_CURRENT_APPLICATION,
-    application
+    type: types.CHANGE_CURRENT_APPLICATION_ID,
+    applicationId
   };
 };
 
@@ -18,9 +18,9 @@ export const changeCurrentProduct = (product) => {
   };
 };
 
-export const resetCurrentApplication = () => {
+export const resetCurrentApplicationId = () => {
   return {
-    type: types.RESET_CURRENT_APPLICATION
+    type: types.RESET_CURRENT_APPLICATION_ID
   };
 };
 

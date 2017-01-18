@@ -4,14 +4,14 @@ import * as actions from '../actions';
 
 describe('actions', () => {
 
-  describe('changeCurrentApplication', () => {
-    it('should have a type of \"' + types.CHANGE_CURRENT_APPLICATION + '\"', () =>
-      expect(actions.changeCurrentApplication().type).toEqual(types.CHANGE_CURRENT_APPLICATION)
+  describe('changeCurrentApplicationId', () => {
+    it('should have a type of \"' + types.CHANGE_CURRENT_APPLICATION_ID + '\"', () =>
+      expect(actions.changeCurrentApplicationId().type).toEqual(types.CHANGE_CURRENT_APPLICATION_ID)
     );
 
-    it('should pass on the application passed in', () => {
-      let application = {id: 1, name: 'APPLICATION'};
-      expect(actions.changeCurrentApplication(application).application)
+    it('should pass on the application id passed in', () => {
+      let applicationId = 1;
+      expect(actions.changeCurrentApplicationId(applicationId).applicationId)
     });
   });
 
@@ -26,9 +26,9 @@ describe('actions', () => {
     });
   });
 
-  describe('resetCurrentApplication', () => {
-    it('should have a type of \"' + types.RESET_CURRENT_APPLICATION + '\"', () =>
-      expect(actions.resetCurrentApplication().type).toEqual(types.RESET_CURRENT_APPLICATION)
+  describe('resetCurrentApplicationId', () => {
+    it('should have a type of \"' + types.RESET_CURRENT_APPLICATION_ID + '\"', () =>
+      expect(actions.resetCurrentApplicationId().type).toEqual(types.RESET_CURRENT_APPLICATION_ID)
     );
   });
 
