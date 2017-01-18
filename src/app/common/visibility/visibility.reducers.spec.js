@@ -1,5 +1,5 @@
-import * as types from '../constants/ActionTypes';
-import visibility from './visibility';
+import * as constants from './visibility.constants';
+import visibility from './visibility.reducers';
 
 describe('Visibility Reducers', () => {
   let mock;
@@ -14,94 +14,111 @@ describe('Visibility Reducers', () => {
     expect(result).toEqual(mock.initialState);
   });
 
-  it(`should update appropriate values for ${types.TOGGLE_APPLICATIONS_MENU} action type`, () => {
+  it(`should update appropriate values for ${constants.TOGGLE_APPLICATIONS_MENU} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.TOGGLE_APPLICATIONS_MENU
+      type: constants.TOGGLE_APPLICATIONS_MENU
     });
 
     expect(result.applicationsMenuShown).toBe(!mock.updatedState.applicationsMenuShown);
     expect(result.userMenuShown).toBe(false);
   });
 
-  it(`should update appropriate values for ${types.TOGGLE_USER_MENU} action type`, () => {
+  it(`should update appropriate values for ${constants.SHOW_APPLICATIONS_MENU} action type`, () => {
+    const result = visibility(mock.initialState, {
+      type: constants.SHOW_APPLICATIONS_MENU
+    });
+
+    expect(result.applicationsMenuShown).toBe(true);
+    expect(result.userMenuShown).toBe(false);
+  });
+
+  it(`should update appropriate values for ${constants.TOGGLE_USER_MENU} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.TOGGLE_USER_MENU
+      type: constants.TOGGLE_USER_MENU
     });
 
     expect(result.userMenuShown).toBe(!mock.updatedState.userMenuShown);
     expect(result.applicationsMenuShown).toBe(false);
   });
 
-  it(`should update appropriate values for ${types.SHOW_BUSINESS_PARTNER_MENU} action type`, () => {
+  it(`should update appropriate values for ${constants.SHOW_BUSINESS_PARTNER_MENU} action type`, () => {
     const result = visibility(mock.initialState, {
-      type: types.SHOW_BUSINESS_PARTNER_MENU
+      type: constants.SHOW_BUSINESS_PARTNER_MENU
     });
 
     expect(result.businessPartnerMenuShown).toBe(true);
     expect(result.mobileMenuShown).toBe(false);
   });
 
-  it(`should update appropriate values for ${types.HIDE_BUSINESS_PARTNER_MENU} action type`, () => {
+  it(`should update appropriate values for ${constants.HIDE_BUSINESS_PARTNER_MENU} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.HIDE_BUSINESS_PARTNER_MENU
+      type: constants.HIDE_BUSINESS_PARTNER_MENU
     });
 
     expect(result.businessPartnerMenuShown).toBe(false);
   });
 
-  it(`should update appropriate values for ${types.TOGGLE_BUSINESS_PARTNER_MENU} action type`, () => {
+  it(`should update appropriate values for ${constants.TOGGLE_BUSINESS_PARTNER_MENU} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.TOGGLE_BUSINESS_PARTNER_MENU
+      type: constants.TOGGLE_BUSINESS_PARTNER_MENU
     });
 
     expect(result.businessPartnerMenuShown).toBe(!mock.updatedState.businessPartnerMenuShown);
     expect(result.mobileMenuShown).toBe(false);
   });
 
-  it(`should update appropriate values for ${types.CHANGE_SELECTED_PRODUCT} action type`, () => {
+  it(`should update appropriate values for ${constants.DISABLE_BUSINESS_PARTNER_MENU} action type`, () => {
     const result = visibility(mock.initialState, {
-      type: types.CHANGE_SELECTED_PRODUCT,
+      type: constants.DISABLE_BUSINESS_PARTNER_MENU
+    });
+
+    expect(result.businessPartnerMenuDisabled).toBe(true);
+  });
+
+  it(`should update appropriate values for ${constants.CHANGE_SELECTED_PRODUCT} action type`, () => {
+    const result = visibility(mock.initialState, {
+      type: constants.CHANGE_SELECTED_PRODUCT,
       product: mock.data
     });
 
     expect(result.selectedProduct).toBe(mock.data);
   });
 
-  it(`should update appropriate values for ${types.RESET_SELECTED_PRODUCT} action type`, () => {
+  it(`should update appropriate values for ${constants.RESET_SELECTED_PRODUCT} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.RESET_SELECTED_PRODUCT
+      type: constants.RESET_SELECTED_PRODUCT
     });
 
     expect(result.selectedProduct).toBeUndefined();
   });
 
-  it(`should update appropriate values for ${types.SET_HELP_WIDGET_AS_LOADED} action type`, () => {
+  it(`should update appropriate values for ${constants.SET_HELP_WIDGET_AS_LOADED} action type`, () => {
     const result = visibility(mock.initialState, {
-      type: types.SET_HELP_WIDGET_AS_LOADED
+      type: constants.SET_HELP_WIDGET_AS_LOADED
     });
 
     expect(result.helpWidgetLoaded).toBe(true);
   });
 
-  it(`should update appropriate values for ${types.HIDE_HELP_WIDGET} action type`, () => {
+  it(`should update appropriate values for ${constants.HIDE_HELP_WIDGET} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.HIDE_HELP_WIDGET
+      type: constants.HIDE_HELP_WIDGET
     });
 
     expect(result.helpWidgetShown).toBe(false);
   });
 
-  it(`should update appropriate values for ${types.TOGGLE_HELP_WIDGET} action type`, () => {
+  it(`should update appropriate values for ${constants.TOGGLE_HELP_WIDGET} action type`, () => {
     const result = visibility(mock.initialState, {
-      type: types.TOGGLE_HELP_WIDGET
+      type: constants.TOGGLE_HELP_WIDGET
     });
 
     expect(result.helpWidgetShown).toBe(!mock.initialState.helpWidgetShown);
   });
 
-  it(`should update appropriate values for ${types.HIDE_ALL_MENUS} action type`, () => {
+  it(`should update appropriate values for ${constants.HIDE_ALL_MENUS} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.HIDE_ALL_MENUS
+      type: constants.HIDE_ALL_MENUS
     });
 
     expect(result.applicationsMenuShown).toBe(false);
@@ -111,9 +128,9 @@ describe('Visibility Reducers', () => {
     expect(result.mobileMenuShown).toBe(false);
   });
 
-  it(`should update appropriate values for ${types.TOGGLE_MOBILE_MENU} action type`, () => {
+  it(`should update appropriate values for ${constants.TOGGLE_MOBILE_MENU} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: types.TOGGLE_MOBILE_MENU
+      type: constants.TOGGLE_MOBILE_MENU
     });
 
     expect(result.mobileMenuShown).toBe(!mock.updatedState.mobileMenuShown);
@@ -152,5 +169,4 @@ describe('Visibility Reducers', () => {
       }
     };
   }
-
 });

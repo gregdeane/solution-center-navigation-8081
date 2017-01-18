@@ -3,6 +3,7 @@ import BusinessPartnerController from './business-partner.controller';
 describe('Business Partner Component', () => {
   let $componentController;
   let $ngRedux;
+  let stateHandlerService;
   let controller;
   let mock;
 
@@ -18,6 +19,11 @@ describe('Business Partner Component', () => {
     expect(result.currentBusinessPartner).toEqual(mock.state.businessPartners.currentBusinessPartner);
     expect(result.currentApplication).toEqual(mock.state.navigation.currentApplication);
     expect(result.businessPartnerMenuDisabled).toEqual(mock.state.visibility.businessPartnerMenuDisabled);
+  });
+
+  it('should toggle business partner menu', () => {
+    controller.toggleBusinessPartnerMenu();
+    expect(stateHandlerService.dispatch).toHaveBeenCalled();
   });
 
   ////////////////////////////
@@ -38,11 +44,13 @@ describe('Business Partner Component', () => {
     angular.mock.inject($injector => {
       $componentController = $injector.get('$componentController');
       $ngRedux = $injector.get('$ngRedux');
+      stateHandlerService = $injector.get('stateHandlerService');
     });
   }
 
   function spies() {
     spyOn($ngRedux, 'connect').and.callThrough();
+    spyOn(stateHandlerService, 'dispatch').and.returnValue(true);
   }
 
   function initialize() {

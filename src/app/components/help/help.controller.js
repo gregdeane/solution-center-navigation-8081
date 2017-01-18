@@ -1,23 +1,22 @@
-import * as Actions from '../../actions';
-
 class HelpController {
 
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
       isHelpWidgetLoaded: state.visibility.helpWidgetLoaded,
       isHelpWidgetShown: state.visibility.helpWidgetShown
     };
   }
 
-  constructor(helpService, $ngRedux) {
-    this.helpService = helpService;
+  constructor($ngRedux, helpService, VisibilityActions) {
     this.$ngRedux = $ngRedux;
+    this.helpService = helpService;
+    this.visibilityActions = VisibilityActions;
   }
 
   $onInit() {
     this.$ngRedux.connect(
-      HelpController.mapStateToProps,
-      Actions
+      HelpController.mapStateToThis,
+      this.visibilityActions
     )(this);
 
     this.helpService.loadHelpWidget(this.products);

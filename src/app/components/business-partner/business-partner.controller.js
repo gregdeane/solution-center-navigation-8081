@@ -1,5 +1,3 @@
-import * as Actions from '../../actions';
-
 class BusinessPartnerController {
 
   static mapStateToThis(state) {
@@ -10,9 +8,10 @@ class BusinessPartnerController {
     };
   }
 
-  constructor($ngRedux, BusinessPartnerActions) {
+  constructor($ngRedux, BusinessPartnerActions, stateHandlerService) {
     this.$ngRedux = $ngRedux;
     this.businessPartnerActions = BusinessPartnerActions;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
@@ -22,14 +21,9 @@ class BusinessPartnerController {
     )(this);
   }
 
-  /* TODO This is just a fiddle to show that common visibility actions can be accessed independently from
-          different components but it must be implemented properly in a different issue, moving all the related
-          files to the common directory and maybe writing an own dedicated service to access them
   toggleBusinessPartnerMenu() {
-    let dispatchAction = Actions['toggleBusinessPartnerMenu'];
-    this.$ngRedux.dispatch(dispatchAction());
+    this.stateHandlerService.dispatch('toggleBusinessPartnerMenu');
   }
-  */
 }
 
 export default BusinessPartnerController;

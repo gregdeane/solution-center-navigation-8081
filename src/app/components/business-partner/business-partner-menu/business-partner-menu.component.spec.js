@@ -1,10 +1,10 @@
-import * as actions from '../../../actions/actions.spec';
 import BusinessPartnerMenuController from './business-partner-menu.controller';
 
 describe('Business Partner Menu Component', () => {
   let $componentController;
   let $cookies;
   let $ngRedux;
+  let stateHandlerService;
   let controller;
   let mock;
 
@@ -15,7 +15,7 @@ describe('Business Partner Menu Component', () => {
   });
 
   it('should wire up the state', () => {
-    const result = mapStateToProps(mock.state);
+    const result = mapStateToThis(mock.state);
     const bp = mock.state.businessPartners;
     const vis = mock.state.visibility;
 
@@ -24,17 +24,14 @@ describe('Business Partner Menu Component', () => {
     expect(result.businessPartnerMenuShown).toEqual(vis.businessPartnerMenuShown);
   });
 
-  // TODO this test is failing but it might be easier to wait for the code to be restructured
-  // TODO before trying to implement this test.
-  xit('should select business partner', () => {
+  it('should select business partner', () => {
     spyOn(controller, 'changeCurrentBusinessPartner');
-    //spyOn(controller, 'hideBusinessPartnerMenu');
 
     controller.selectBusinessPartner(mock.businessPartner);
 
     expect($cookies.put).toHaveBeenCalledWith('SC_BUSINESS_PARTNER', mock.businessPartner);
     expect(controller.changeCurrentBusinessPartner).toHaveBeenCalledWith(mock.businessPartner);
-    //expect(controller.hideBusinessPartnerMenu).toHaveBeenCalled();
+    expect(stateHandlerService.dispatch).toHaveBeenCalled();
   });
 
   it('should hide last accessed section', () => {
@@ -59,15 +56,16 @@ describe('Business Partner Menu Component', () => {
   function injectors() {
     angular.mock.inject($injector => {
       $componentController = $injector.get('$componentController');
-      $cookies = $injector.get('$cookies');
       $ngRedux = $injector.get('$ngRedux');
+      $cookies = $injector.get('$cookies');
+      stateHandlerService = $injector.get('stateHandlerService');
     });
   }
 
   function spies() {
-    spyOn($cookies, 'put').and.callThrough();
     spyOn($ngRedux, 'connect').and.callThrough();
-    // spyOn(actions, 'hideBusinessPartnerMenu').and.callThrough();
+    spyOn($cookies, 'put');
+    spyOn(stateHandlerService, 'dispatch');
   }
 
   function initialize() {
@@ -75,8 +73,8 @@ describe('Business Partner Menu Component', () => {
     controller.$onInit();
   }
 
-  function mapStateToProps(state) {
-    return BusinessPartnerMenuController.mapStateToProps(state);
+  function mapStateToThis(state) {
+    return BusinessPartnerMenuController.mapStateToThis(state);
   }
 
   function mocks() {

@@ -1,14 +1,14 @@
-import angular from 'angular';
-
 import BackendConnectorService from './backend-connector/backend-connector.service';
 import ModuleConnectorService from './backend-connector/module-connector.service';
 import InterceptorService from './security/interceptor.service';
 import StateHandlerService from './state-handler/state-handler.service';
+import VisibilityModule from './visibility/visibility.module';
 
 const commonModule =
         angular.module('common', [
           'solutioncenter.login',
-          'ngCookies'
+          'ngCookies',
+          VisibilityModule
         ])
           .service('interceptorService', InterceptorService)
           .service('backendConnectorService', BackendConnectorService)

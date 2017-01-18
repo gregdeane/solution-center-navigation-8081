@@ -1,5 +1,5 @@
 class BusinessPartnerMenuController {
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
       accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners,
       lastAccessedBusinessPartners: state.businessPartners.lastAccessedBusinessPartners,
@@ -8,16 +8,16 @@ class BusinessPartnerMenuController {
     };
   }
 
-  constructor($ngRedux, $cookies, BusinessPartnerActions, BusinessPartnerService) {
+  constructor($ngRedux, $cookies, BusinessPartnerActions, stateHandlerService) {
     this.$ngRedux = $ngRedux;
     this.$cookies = $cookies;
     this.businessPartnerActions = BusinessPartnerActions;
-    this.businessPartnerService = BusinessPartnerService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
     this.$ngRedux.connect(
-      BusinessPartnerMenuController.mapStateToProps,
+      BusinessPartnerMenuController.mapStateToThis,
       this.businessPartnerActions
     )(this);
 
@@ -27,7 +27,7 @@ class BusinessPartnerMenuController {
   selectBusinessPartner(businessPartner) {
     this.changeCurrentBusinessPartner(businessPartner);
     this.$cookies.put('SC_BUSINESS_PARTNER', businessPartner);
-    this.businessPartnerService.hideBusinessPartnerMenu();
+    this.stateHandlerService.dispatch('hideBusinessPartnerMenu');
   }
 
   showLastAccessedSection() {
