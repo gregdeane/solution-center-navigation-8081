@@ -6,7 +6,7 @@ class NavigationController {
       mobileMenuShown: state.visibility.mobileMenuShown,
       currentApplication: state.navigation.currentApplication,
       currentBusinessPartner: state.navigation.currentBusinessPartner,
-      products: state.navigation.accessibleProducts
+      accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners
     };
   }
 
@@ -15,7 +15,8 @@ class NavigationController {
               backendConnectorService,
               moduleConnectorService,
               ScAuthenticationService,
-              NavigationActions) {
+              NavigationActions,
+              stateHandlerService) {
 
     this.$ngRedux = $ngRedux;
     this.navigationService = navigationService;
@@ -23,6 +24,7 @@ class NavigationController {
     this.moduleConnectorService = moduleConnectorService;
     this.scAuthenticationService = ScAuthenticationService;
     this.navigationActions = NavigationActions;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
@@ -36,9 +38,10 @@ class NavigationController {
     // Allow mocking and skipping the backend endpoint calls only if the current environment allows override and
     // all the required parameters are set.
     if (this.backendConnectorService.isOverridePossible() && this.areAllMockedParametersSet()) {
-      this.updateAccessibleBusinessPartners(this.userBusinessPartners);
-      // TODO It will eventually be fetched from BE in business-partner-menu-controller
-      this.updateLastAccessedBusinessPartners(this.accessibleBusinessPartners.slice(0, 8));
+      console.log(this.products);
+      this.stateHandlerService.dispatch('updateAccessibleBusinessPartners', this.userBusinessPartners);
+      // // TODO It will eventually be fetched from BE in business-partner-menu-controller
+      this.stateHandlerService.dispatch('updateLastAccessedBusinessPartners', this.accessibleBusinessPartners.slice(0, 8));
       this.navigationService.handleBusinessPartner();
     }
 
