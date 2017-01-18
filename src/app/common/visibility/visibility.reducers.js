@@ -5,6 +5,7 @@ const initialState = {
   userMenuShown: false,
   selectedProduct: undefined, // TODO Consider changing it to hold only the id and not the whole object
   businessPartnerMenuShown: false,
+  businessPartnerMenuDisabled: false,
   helpWidgetLoaded: false,
   helpWidgetShown: false,
   mobileMenuShown: false
