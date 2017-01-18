@@ -69,12 +69,6 @@ const VisibilityActions = () => {
     }
   };
 
-  const hideAllMenus = () => {
-    return {
-      type: constants.HIDE_ALL_MENUS
-    }
-  };
-
   const toggleMobileMenu = () => {
     return {
       type: constants.TOGGLE_MOBILE_MENU
@@ -93,7 +87,6 @@ const VisibilityActions = () => {
     setHelpWidgetAsLoaded,
     hideHelpWidget,
     toggleHelpWidget,
-    hideAllMenus,
     toggleMobileMenu
   };
 };

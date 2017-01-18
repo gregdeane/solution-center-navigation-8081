@@ -107,18 +107,6 @@ describe('Visibility Reducers', () => {
     expect(result.helpWidgetShown).toBe(!mock.initialState.helpWidgetShown);
   });
 
-  it(`should update appropriate values for ${constants.HIDE_ALL_MENUS} action type`, () => {
-    const result = visibility(mock.updatedState, {
-      type: constants.HIDE_ALL_MENUS
-    });
-
-    expect(result.applicationsMenuShown).toBe(false);
-    expect(result.userMenuShown).toBe(false);
-    expect(result.businessPartnerMenuShown).toBe(false);
-    expect(result.helpWidgetShown).toBe(false);
-    expect(result.mobileMenuShown).toBe(false);
-  });
-
   it(`should update appropriate values for ${constants.TOGGLE_MOBILE_MENU} action type`, () => {
     const result = visibility(mock.updatedState, {
       type: constants.TOGGLE_MOBILE_MENU

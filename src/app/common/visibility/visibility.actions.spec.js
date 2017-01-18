@@ -62,11 +62,6 @@ describe('Visibility Actions', () => {
     expect(type).toEqual(constants.TOGGLE_HELP_WIDGET);
   });
 
-  it(`should create the ${constants.HIDE_ALL_MENUS} action`, () => {
-    const type = getAction('hideAllMenus').type;
-    expect(type).toEqual(constants.HIDE_ALL_MENUS);
-  });
-
   it(`should create the ${constants.TOGGLE_MOBILE_MENU} action`, () => {
     const type = getAction('toggleMobileMenu').type;
     expect(type).toEqual(constants.TOGGLE_MOBILE_MENU);

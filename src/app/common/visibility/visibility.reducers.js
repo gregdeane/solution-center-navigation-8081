@@ -83,16 +83,6 @@ const visibility = (state = initialState, action) => {
         helpWidgetShown: !state.helpWidgetShown
       };
 
-    case constants.HIDE_ALL_MENUS:
-      return {
-        ...state,
-        applicationsMenuShown: false,
-        userMenuShown: false,
-        businessPartnerMenuShown: false,
-        helpWidgetShown: false,
-        mobileMenuShown: false
-      };
-
     case constants.TOGGLE_MOBILE_MENU:
       return {
         ...state,

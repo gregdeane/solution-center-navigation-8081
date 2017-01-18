@@ -27,7 +27,6 @@ class ApplicationsController {
       return;
     }
 
-    this.stateHandlerService.dispatch('hideAllMenus');
     this.$window.location.href = url;
   }
 
