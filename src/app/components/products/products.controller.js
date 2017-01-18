@@ -3,7 +3,7 @@ import * as Actions from '../../actions';
 class ProductsController {
   static mapStateToThis(state) {
     return {
-      selectedProduct: state.visibility.selectedProduct,
+      selectedProductId: state.visibility.selectedProductId,
       currentProductId: state.navigation.currentProductId,
       mobileMenuShown: state.visibility.mobileMenuShown,
       applicationsMenuShown: state.visibility.applicationsMenuShown
@@ -22,14 +22,14 @@ class ProductsController {
     )(this);
   }
 
-  switchMenu(clickedProduct) {
+  switchMenu(clickedProductId) {
     // If the submenu is closed (which can only happen when in the Solution Center), open it
     if (!this.applicationsMenuShown) {
       this.stateHandlerService.dispatch('showApplicationsMenu');
     }
 
     // Switch view to the submenu of the clicked product
-    this.stateHandlerService.dispatch('changeSelectedProduct', clickedProduct);
+    this.stateHandlerService.dispatch('changeSelectedProductId', clickedProductId);
   }
 
   /**
@@ -43,7 +43,7 @@ class ProductsController {
    */
   isApplicationSubMenuShown(product) {
     return this.mobileMenuShown || this.isProductSelected(product) ||
-      (!this.selectedProduct && this.isCurrentProduct(product));
+      (!this.selectedProductId && this.isCurrentProduct(product));
   }
 
   /**
@@ -52,7 +52,7 @@ class ProductsController {
    * @returns {*|boolean}
    */
   isProductSelected(product) {
-    return product && this.selectedProduct && product.id === this.selectedProduct.id;
+    return product && product.id === this.selectedProductId;
   }
 
   /**

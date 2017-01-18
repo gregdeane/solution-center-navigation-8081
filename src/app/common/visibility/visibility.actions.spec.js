@@ -36,15 +36,15 @@ describe('Visibility Actions', () => {
     expect(type).toEqual(constants.DISABLE_BUSINESS_PARTNER_MENU);
   });
 
-  it(`should create the ${constants.CHANGE_SELECTED_PRODUCT} action`, () => {
-    const action = getAction('changeSelectedProduct', mock.product);
-    expect(action.type).toEqual(constants.CHANGE_SELECTED_PRODUCT);
-    expect(action.product).toEqual(mock.product);
+  it(`should create the ${constants.CHANGE_SELECTED_PRODUCT_ID} action`, () => {
+    const action = getAction('changeSelectedProductId', mock.productId);
+    expect(action.type).toEqual(constants.CHANGE_SELECTED_PRODUCT_ID);
+    expect(action.productId).toEqual(mock.productId);
   });
 
-  it(`should create the ${constants.RESET_SELECTED_PRODUCT} action`, () => {
-    const type = getAction('resetSelectedProduct').type;
-    expect(type).toEqual(constants.RESET_SELECTED_PRODUCT);
+  it(`should create the ${constants.RESET_SELECTED_PRODUCT_ID} action`, () => {
+    const type = getAction('resetSelectedProductId').type;
+    expect(type).toEqual(constants.RESET_SELECTED_PRODUCT_ID);
   });
 
   it(`should create the ${constants.SET_HELP_WIDGET_AS_LOADED} action`, () => {
@@ -91,7 +91,7 @@ describe('Visibility Actions', () => {
 
   function mocks() {
     mock = {
-      product: {}
+      productId: 1
     };
   }
 });

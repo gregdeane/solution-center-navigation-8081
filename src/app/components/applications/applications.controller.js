@@ -3,7 +3,7 @@ import * as Actions from '../../actions';
 class ApplicationsController {
   static mapStateToThis(state) {
     return {
-      selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
+      selectedProductId: state.visibility.selectedProductId,
       currentApplicationId: state.navigation.currentApplicationId,
       currentBusinessPartner: state.navigation.currentBusinessPartner
     };

@@ -38,16 +38,16 @@ const VisibilityActions = () => {
     }
   };
 
-  const changeSelectedProduct = (product) => {
+  const changeSelectedProductId = (productId) => {
     return {
-      type: constants.CHANGE_SELECTED_PRODUCT,
-      product
+      type: constants.CHANGE_SELECTED_PRODUCT_ID,
+      productId
     }
   };
 
-  const resetSelectedProduct = () => {
+  const resetSelectedProductId = () => {
     return {
-      type: constants.RESET_SELECTED_PRODUCT
+      type: constants.RESET_SELECTED_PRODUCT_ID
     }
   };
 
@@ -82,8 +82,8 @@ const VisibilityActions = () => {
     hideBusinessPartnerMenu,
     toggleBusinessPartnerMenu,
     disableBusinessPartnerMenu,
-    changeSelectedProduct,
-    resetSelectedProduct,
+    changeSelectedProductId,
+    resetSelectedProductId,
     setHelpWidgetAsLoaded,
     hideHelpWidget,
     toggleHelpWidget,

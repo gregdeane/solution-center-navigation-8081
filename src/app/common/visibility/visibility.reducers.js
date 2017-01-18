@@ -3,7 +3,7 @@ import * as constants from './visibility.constants';
 const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
-  selectedProduct: undefined, // TODO Consider changing it to hold only the id and not the whole object
+  selectedProductId: undefined,
   businessPartnerMenuShown: false,
   businessPartnerMenuDisabled: false,
   helpWidgetLoaded: false,
@@ -53,16 +53,16 @@ const visibility = (state = initialState, action) => {
         businessPartnerMenuDisabled: true
       };
 
-    case constants.CHANGE_SELECTED_PRODUCT:
+    case constants.CHANGE_SELECTED_PRODUCT_ID:
       return {
         ...state,
-        selectedProduct: action.product
+        selectedProductId: action.productId
       };
 
-    case constants.RESET_SELECTED_PRODUCT:
+    case constants.RESET_SELECTED_PRODUCT_ID:
       return {
         ...state,
-        selectedProduct: undefined
+        selectedProductId: undefined
       };
 
     case constants.SET_HELP_WIDGET_AS_LOADED:
