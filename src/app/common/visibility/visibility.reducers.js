@@ -13,13 +13,6 @@ const initialState = {
 
 const visibility = (state = initialState, action) => {
   switch (action.type) {
-    case constants.TOGGLE_APPLICATIONS_MENU:
-      return {
-        ...state,
-        applicationsMenuShown: !state.applicationsMenuShown,
-        userMenuShown: false
-      };
-
     case constants.SHOW_APPLICATIONS_MENU:
       return {
         ...state,

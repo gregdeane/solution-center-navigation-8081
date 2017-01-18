@@ -1,33 +1,40 @@
 import * as Actions from '../../actions';
 
 class ProductsController {
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
       selectedProduct: state.visibility.selectedProduct,
       currentProduct: state.navigation.currentProduct,
-      mobileMenuShown: state.visibility.mobileMenuShown
+      mobileMenuShown: state.visibility.mobileMenuShown,
+      applicationsMenuShown: state.visibility.applicationsMenuShown
     };
   }
 
-  constructor($ngRedux, productsService) {
+  constructor($ngRedux, stateHandlerService) {
     this.$ngRedux = $ngRedux;
-    this.productsService = productsService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
     this.$ngRedux.connect(
-      ProductsController.mapStateToProps,
+      ProductsController.mapStateToThis,
       Actions
     )(this);
   }
 
   switchMenu(clickedProduct) {
-    this.productsService.switchMenu(clickedProduct);
+    // If the submenu is closed (which can only happen when in the Solution Center), open it
+    if (!this.applicationsMenuShown) {
+      this.stateHandlerService.dispatch('showApplicationsMenu');
+    }
+
+    // Switch view to the submenu of the clicked product
+    this.stateHandlerService.dispatch('changeSelectedProduct', clickedProduct);
   }
 
   /**
    * Checks if the applications sub menu is shown according to:
-   * - In desktop show only the applications of one product at a time (unless the user toggles it):
+   * - In desktop show only the applications of one product at a time:
    * -- First the selected product applications
    * -- Only the current product applications if nothing has been selected
    * - In mobile show the applications of all products
@@ -35,13 +42,6 @@ class ProductsController {
    * @returns {mock.state.visibility.mobileMenuShown|{}|*|boolean}
    */
   isApplicationSubMenuShown(product) {
-    /*
-      TODO
-    return this.mobileMenuShown || (this.applicationsMenuShown &&
-      (this.isProductSelected(product) ||
-      (!this.selectedProduct && this.isCurrentProduct(product))));
-      */
-
     return this.mobileMenuShown || this.isProductSelected(product) ||
       (!this.selectedProduct && this.isCurrentProduct(product));
   }

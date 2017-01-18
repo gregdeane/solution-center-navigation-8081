@@ -2,12 +2,6 @@ import * as constants from './visibility.constants';
 
 const VisibilityActions = () => {
 
-  const toggleApplicationsMenu = () => {
-    return {
-      type: constants.TOGGLE_APPLICATIONS_MENU
-    };
-  };
-
   const showApplicationsMenu = () => {
     return {
       type: constants.SHOW_APPLICATIONS_MENU
@@ -88,7 +82,6 @@ const VisibilityActions = () => {
   };
 
   return {
-    toggleApplicationsMenu,
     showApplicationsMenu,
     toggleUserMenu,
     showBusinessPartnerMenu,

@@ -6,11 +6,6 @@ describe('Visibility Actions', () => {
 
   beforeEach(setup);
 
-  it(`should create the ${constants.TOGGLE_APPLICATIONS_MENU} action`, () => {
-    const type = getAction('toggleApplicationsMenu').type;
-    expect(type).toEqual(constants.TOGGLE_APPLICATIONS_MENU);
-  });
-
   it(`should create the ${constants.SHOW_APPLICATIONS_MENU} action`, () => {
     const type = getAction('showApplicationsMenu').type;
     expect(type).toEqual(constants.SHOW_APPLICATIONS_MENU);

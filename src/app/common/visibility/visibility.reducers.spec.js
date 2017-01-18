@@ -14,15 +14,6 @@ describe('Visibility Reducers', () => {
     expect(result).toEqual(mock.initialState);
   });
 
-  it(`should update appropriate values for ${constants.TOGGLE_APPLICATIONS_MENU} action type`, () => {
-    const result = visibility(mock.updatedState, {
-      type: constants.TOGGLE_APPLICATIONS_MENU
-    });
-
-    expect(result.applicationsMenuShown).toBe(!mock.updatedState.applicationsMenuShown);
-    expect(result.userMenuShown).toBe(false);
-  });
-
   it(`should update appropriate values for ${constants.SHOW_APPLICATIONS_MENU} action type`, () => {
     const result = visibility(mock.initialState, {
       type: constants.SHOW_APPLICATIONS_MENU
