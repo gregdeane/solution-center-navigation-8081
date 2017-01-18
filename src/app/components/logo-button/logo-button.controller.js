@@ -1,21 +1,26 @@
 import * as Actions from '../../actions';
 
 class LogoButtonController {
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
       mobileMenuShown: state.visibility.mobileMenuShown
     };
   }
 
-  constructor($ngRedux) {
+  constructor($ngRedux, stateHandlerService) {
     this.$ngRedux = $ngRedux;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
     this.$ngRedux.connect(
-      LogoButtonController.mapStateToProps,
+      LogoButtonController.mapStateToThis,
       Actions
     )(this);
+  }
+
+  toggleMobileMenu() {
+    this.stateHandlerService.dispatch('toggleMobileMenu');
   }
 }
 
