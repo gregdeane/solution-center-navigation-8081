@@ -11,10 +11,10 @@ export const changeCurrentApplicationId = (applicationId) => {
   };
 };
 
-export const changeCurrentProduct = (product) => {
+export const changeCurrentProductId = (productId) => {
   return {
-    type: types.CHANGE_CURRENT_PRODUCT,
-    product
+    type: types.CHANGE_CURRENT_PRODUCT_ID,
+    productId
   };
 };
 
@@ -24,8 +24,8 @@ export const resetCurrentApplicationId = () => {
   };
 };
 
-export const resetCurrentProduct = () => {
+export const resetCurrentProductId = () => {
   return {
-    type: types.RESET_CURRENT_PRODUCT
+    type: types.RESET_CURRENT_PRODUCT_ID
   };
 };

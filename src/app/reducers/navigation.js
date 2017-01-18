@@ -5,7 +5,7 @@ import * as constants from '../navigation.constants';
 
 const initialState = {
   currentApplicationId: undefined,
-  currentProduct: undefined,
+  currentProductId: undefined,
   accessibleProducts: []
 };
 
@@ -17,10 +17,10 @@ const navigation = (state = initialState, action) => {
         currentApplicationId: action.applicationId
       };
 
-    case types.CHANGE_CURRENT_PRODUCT:
+    case types.CHANGE_CURRENT_PRODUCT_ID:
       return {
         ...state,
-        currentProduct: action.product
+        currentProductId: action.productId
       };
 
     case types.RESET_CURRENT_APPLICATION_ID:
@@ -29,10 +29,10 @@ const navigation = (state = initialState, action) => {
         currentApplicationId: undefined
       };
 
-    case types.RESET_CURRENT_PRODUCT:
+    case types.RESET_CURRENT_PRODUCT_ID:
       return {
         ...state,
-        currentProduct: undefined
+        currentProductId: undefined
       };
 
     case constants.UPDATE_ACCESSIBLE_PRODUCTS:

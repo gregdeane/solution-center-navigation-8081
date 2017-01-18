@@ -11,7 +11,7 @@ const NavigationActions = (moduleConnectorService) => {
       const {navigation} = getState();
 
       return moduleConnectorService
-        .getUserBusinessPartnersInApplication(navigation.currentProduct, navigation.currentApplicationId)
+        .getUserBusinessPartnersInApplication(navigation.currentProductId, navigation.currentApplicationId)
         .then(response => dispatch({
           type: constants.UPDATE_ACCESSIBLE_BUSINESS_PARTNERS,
           accessibleBusinessPartners: response.data

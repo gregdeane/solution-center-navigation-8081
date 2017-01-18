@@ -151,7 +151,7 @@ describe('Navigation Service', () => {
       businessPartnerId: MOCKED_ID,
       actions: {
         changeCurrentApplicationId: 'changeCurrentApplicationId',
-        changeCurrentProductId: 'changeCurrentProduct',
+        changeCurrentProductId: 'changeCurrentProductId',
         showApplicationsMenu: 'showApplicationsMenu',
         changeCurrentBusinessPartnerId: 'changeCurrentBusinessPartner',
         disableBusinessPartnerMenu: 'disableBusinessPartnerMenu',

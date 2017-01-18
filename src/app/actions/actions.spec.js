@@ -15,14 +15,14 @@ describe('actions', () => {
     });
   });
 
-  describe('changeCurrentProduct', () => {
-    it('should have a type of \"' + types.CHANGE_CURRENT_PRODUCT + '\"', () =>
-      expect(actions.changeCurrentProduct().type).toEqual(types.CHANGE_CURRENT_PRODUCT)
+  describe('changeCurrentProductId', () => {
+    it('should have a type of \"' + types.CHANGE_CURRENT_PRODUCT_ID + '\"', () =>
+      expect(actions.changeCurrentProductId().type).toEqual(types.CHANGE_CURRENT_PRODUCT_ID)
     );
 
-    it('should pass on the product passed in', () => {
-      let product = {id: 1, name: 'PRODUCT'};
-      expect(actions.changeCurrentProduct(product).product)
+    it('should pass on the product id passed in', () => {
+      let productId = 1;
+      expect(actions.changeCurrentProductId(productId).productId)
     });
   });
 
@@ -32,9 +32,9 @@ describe('actions', () => {
     );
   });
 
-  describe('resetCurrentProduct', () => {
-    it('should have a type of \"' + types.RESET_CURRENT_PRODUCT + '\"', () =>
-      expect(actions.resetCurrentProduct().type).toEqual(types.RESET_CURRENT_PRODUCT)
+  describe('resetCurrentProductId', () => {
+    it('should have a type of \"' + types.RESET_CURRENT_PRODUCT_ID + '\"', () =>
+      expect(actions.resetCurrentProductId().type).toEqual(types.RESET_CURRENT_PRODUCT_ID)
     );
   });
 });

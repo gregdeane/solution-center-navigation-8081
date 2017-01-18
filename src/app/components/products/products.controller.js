@@ -4,7 +4,7 @@ class ProductsController {
   static mapStateToThis(state) {
     return {
       selectedProduct: state.visibility.selectedProduct,
-      currentProduct: state.navigation.currentProduct,
+      currentProductId: state.navigation.currentProductId,
       mobileMenuShown: state.visibility.mobileMenuShown,
       applicationsMenuShown: state.visibility.applicationsMenuShown
     };
@@ -61,7 +61,7 @@ class ProductsController {
    * @returns {*|boolean}
    */
   isCurrentProduct(product) {
-    return product && product.id === this.currentProduct;
+    return product && product.id === this.currentProductId;
   }
 
   /**

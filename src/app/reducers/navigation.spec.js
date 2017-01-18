@@ -15,13 +15,13 @@ describe('Navigation Reducers', () => {
     expect(result).toEqual(mock.initialState);
   });
 
-  it(`should update appropriate value for ${types.CHANGE_CURRENT_PRODUCT} action type`, () => {
+  it(`should update appropriate value for ${types.CHANGE_CURRENT_PRODUCT_ID} action type`, () => {
     const result = navigation(mock.initialState, {
-      type: types.CHANGE_CURRENT_PRODUCT,
-      product: mock.data
+      type: types.CHANGE_CURRENT_PRODUCT_ID,
+      productId: mock.data
     });
 
-    expect(result.currentProduct).toEqual(mock.data);
+    expect(result.currentProductId).toEqual(mock.data);
   });
 
   it(`should update appropriate value for ${types.CHANGE_CURRENT_APPLICATION_ID} action type`, () => {
@@ -33,12 +33,12 @@ describe('Navigation Reducers', () => {
     expect(result.currentApplicationId).toEqual(mock.data);
   });
 
-  it(`should reset appropriate value for ${types.RESET_CURRENT_PRODUCT} action type`, () => {
+  it(`should reset appropriate value for ${types.RESET_CURRENT_PRODUCT_ID} action type`, () => {
     const result = navigation(mock.initialState, {
-      type: types.RESET_CURRENT_PRODUCT
+      type: types.RESET_CURRENT_PRODUCT_ID
     });
 
-    expect(result.currentProduct).toBeUndefined();
+    expect(result.currentProductId).toBeUndefined();
   });
 
   it(`should reset appropriate value for ${types.RESET_CURRENT_APPLICATION_ID} action type`, () => {
