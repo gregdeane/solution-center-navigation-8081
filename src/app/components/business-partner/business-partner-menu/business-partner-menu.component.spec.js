@@ -29,7 +29,7 @@ describe('Business Partner Menu Component', () => {
 
     controller.selectBusinessPartner(mock.businessPartner);
 
-    expect($cookies.put).toHaveBeenCalledWith('SC_BUSINESS_PARTNER', mock.businessPartner);
+    expect($cookies.put).toHaveBeenCalledWith('SC_BUSINESS_PARTNER', JSON.stringify(mock.businessPartner));
     expect(controller.changeCurrentBusinessPartner).toHaveBeenCalledWith(mock.businessPartner);
     expect(visibilityService.dispatch).toHaveBeenCalled();
   });
