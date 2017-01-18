@@ -1,12 +1,7 @@
-import * as Actions from './actions';
-
 class NavigationService {
-  constructor($ngRedux, $cookies, moduleConnectorService, BusinessPartnerActions, NavigationActions) {
-    this.$ngRedux = $ngRedux;
+  constructor($cookies, stateHandlerService) {
     this.$cookies = $cookies;
-    this.moduleConnectorService = moduleConnectorService;
-    this.businessPartnerActions = BusinessPartnerActions;
-    this.navigationActions = NavigationActions;
+    this.stateHandlerService = stateHandlerService;
   }
 
   /**
@@ -16,12 +11,12 @@ class NavigationService {
    */
   loadCurrentContext(applicationId, productId) {
     // TODO Add some kind of verification here in case parameters are not correctly provided?
-    this.dispatch('changeCurrentApplication', applicationId);
-    this.dispatch('changeCurrentProduct', productId);
+    this.stateHandlerService.dispatch('changeCurrentApplication', applicationId);
+    this.stateHandlerService.dispatch('changeCurrentProduct', productId);
 
     // If there is an applicationId load the context and show the applications menu (S.C. does not have appId so far)
     if (applicationId) {
-      this.dispatch('showApplicationsMenu');
+      this.stateHandlerService.dispatch('showApplicationsMenu');
     }
   }
 
@@ -31,13 +26,13 @@ class NavigationService {
    *  - otherwise it shows the business partner menu to allow the user to select one
    */
   handleBusinessPartner() {
-    const accessibleBusinessPartners = this.getProp('businessPartners', 'accessibleBusinessPartners');
+    const accessibleBusinessPartners = this.stateHandlerService.getProperty('businessPartners', 'accessibleBusinessPartners');
 
     // If the user has access to ONLY one business partner, we automatically assign it and disable the
     // business partner selection menu since he will not have a chance to choose another one
     if (accessibleBusinessPartners.length === 1) {
-      this.dispatch('changeCurrentBusinessPartner', accessibleBusinessPartners[0]);
-      this.dispatch('disableBusinessPartnerMenu');
+      this.stateHandlerService.dispatch('changeCurrentBusinessPartner', accessibleBusinessPartners[0]);
+      this.stateHandlerService.dispatch('disableBusinessPartnerMenu');
     }
 
     else {
@@ -46,12 +41,12 @@ class NavigationService {
 
       // If there is and has a type valid for the current application keep it as current business partner
       if (this.isValidBusinessPartnerForApplication(accessibleBusinessPartners, businessPartnerId)) {
-        this.dispatch('getBusinessPartnerById', businessPartnerId);
+        this.stateHandlerService.dispatch('getBusinessPartnerById', businessPartnerId);
       }
 
       // Otherwise show the business partner menu to allow the user to choose one
       else {
-        this.dispatch('showBusinessPartnerMenu');
+        this.stateHandlerService.dispatch('showBusinessPartnerMenu');
       }
     }
   }
@@ -65,16 +60,6 @@ class NavigationService {
     return accessibleBusinessPartners.filter((businessPartner) => {
         return businessPartner.id === businessPartnerId;
       }).length > 0;
-  }
-
-  dispatch(action, parameter) {
-    // TODO after all actions are in their final locations, remove this if and just use `this.businessPartnerActions`
-    let dispatchAction = Actions[action] || this.businessPartnerActions[action] || this.navigationActions[action];
-    this.$ngRedux.dispatch(dispatchAction(parameter));
-  }
-
-  getProp(type, prop) {
-    return this.$ngRedux.getState()[type][prop];
   }
 }
 
