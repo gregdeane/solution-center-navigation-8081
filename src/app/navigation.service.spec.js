@@ -1,4 +1,4 @@
-fdescribe('Navigation Service', () => {
+describe('Navigation Service', () => {
   let navigationService;
   let stateHandlerService;
   let $cookies;
@@ -7,7 +7,7 @@ fdescribe('Navigation Service', () => {
   beforeEach(setup);
 
   describe('loadCurrentContext', () => {
-    xit('should dispatch three actions if an application id is provided', () => {
+    it('should dispatch three actions if an application id is provided', () => {
       navigationService.loadCurrentContext(mock.applicationId, mock.productId);
 
       expect(stateHandlerService.dispatch.calls.count()).toEqual(3);
@@ -33,8 +33,8 @@ fdescribe('Navigation Service', () => {
         [mock.actions.changeCurrentProductId, mock.productId])
     });
 
-    xit('should dispatch an action to show the applications menu if there is an application id', () => {
-      let result = navigationService.loadCurrentContext(mock.applicationId, mock.productId);
+    it('should dispatch an action to show the applications menu if there is an application id', () => {
+      navigationService.loadCurrentContext(mock.applicationId, mock.productId);
 
       expect(stateHandlerService.dispatch.calls.argsFor(2)).toEqual(
         [mock.actions.showApplicationsMenu]);
@@ -140,14 +140,12 @@ fdescribe('Navigation Service', () => {
   }
 
   function spies() {
-    spyOn(stateHandlerService, 'dispatch').and.callFake(mock.emptyFunction);
+    spyOn(stateHandlerService, 'dispatch').and.callThrough();
   }
 
   function mocks() {
-    const MOCKED_ID = 0;
+    const MOCKED_ID = 1;
     mock = {
-      emptyFunction: () => {
-      },
       applicationId: MOCKED_ID,
       productId: MOCKED_ID,
       businessPartnerId: MOCKED_ID,
