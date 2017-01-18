@@ -7,9 +7,29 @@ class ModuleConnectorService {
   }
 
   getAccessibleProducts() {
+    return this.getTempAccessibleProducts();
+    // let url = this.baseUrl + '/products';
+    //
+    // return this.$http.get(url);
+  }
+
+  getTempAccessibleProducts() {
     let url = this.baseUrl + '/products';
 
-    return this.$http.get(url);
+    const updateUrls = (products) => {
+      products.forEach(product => {
+        product.applications.forEach(application => {
+          application.url = '';
+        });
+      });
+
+      return products;
+    };
+
+    return this.$http.get(url)
+      .then(response => {
+        return updateUrls(response.data);
+      });
   }
 
   getUserBusinessPartnersInApplication(productId, applicationId) {
