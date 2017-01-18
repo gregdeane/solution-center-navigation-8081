@@ -38,7 +38,6 @@ class NavigationController {
     // Allow mocking and skipping the backend endpoint calls only if the current environment allows override and
     // all the required parameters are set.
     if (this.backendConnectorService.isOverridePossible() && this.areAllMockedParametersSet()) {
-      console.log(this.products);
       this.stateHandlerService.dispatch('updateAccessibleBusinessPartners', this.userBusinessPartners);
       // // TODO It will eventually be fetched from BE in business-partner-menu-controller
       this.stateHandlerService.dispatch('updateLastAccessedBusinessPartners', this.accessibleBusinessPartners.slice(0, 8));
