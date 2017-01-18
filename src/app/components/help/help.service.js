@@ -20,8 +20,9 @@ class HelpService {
     return userApplications;
   }
 
-  constructor($ngRedux) {
+  constructor($ngRedux, VisibilityService) {
     this.$ngRedux = $ngRedux;
+    this.visibilityService = VisibilityService;
   }
 
   loadHelpWidget(products) {
@@ -74,11 +75,7 @@ class HelpService {
     // added this to generate code so we can run this outside the global scope
     window._nRepData = _nRepData;
 
-    this.dispatch('setHelpWidgetAsLoaded');
-  }
-
-  dispatch(action) {
-    this.$ngRedux.dispatch(Actions[action]());
+    this.visibilityService.dispatch('setHelpWidgetAsLoaded');
   }
 }
 

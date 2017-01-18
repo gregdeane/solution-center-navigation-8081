@@ -1,12 +1,15 @@
 import * as Actions from './actions';
 
 class NavigationService {
-  constructor($ngRedux, $cookies, moduleConnectorService, BusinessPartnerActions, NavigationActions) {
+  constructor(
+    $ngRedux, $cookies, moduleConnectorService, BusinessPartnerActions,
+    NavigationActions, VisibilityService) {
     this.$ngRedux = $ngRedux;
     this.$cookies = $cookies;
     this.moduleConnectorService = moduleConnectorService;
     this.businessPartnerActions = BusinessPartnerActions;
     this.navigationActions = NavigationActions;
+    this.visibilityService = VisibilityService;
   }
 
   /**
@@ -21,7 +24,7 @@ class NavigationService {
 
     // If there is an applicationId load the context and show the applications menu (S.C. does not have appId so far)
     if (applicationId) {
-      this.dispatch('showApplicationsMenu');
+      this.visibilityService.dispatch('showApplicationsMenu');
     }
   }
 
@@ -37,7 +40,7 @@ class NavigationService {
     // business partner selection menu since he will not have a chance to choose another one
     if (accessibleBusinessPartners.length === 1) {
       this.dispatch('changeCurrentBusinessPartner', accessibleBusinessPartners[0]);
-      this.dispatch('disableBusinessPartnerMenu');
+      this.visibilityService.dispatch('disableBusinessPartnerMenu');
     }
 
     else {
@@ -51,7 +54,7 @@ class NavigationService {
 
       // Otherwise show the business partner menu to allow the user to choose one
       else {
-        this.dispatch('showBusinessPartnerMenu');
+        this.visibilityService.dispatch('showBusinessPartnerMenu');
       }
     }
   }

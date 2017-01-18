@@ -13,7 +13,7 @@ describe('User Component', () => {
   });
 
   it('should wire up the state', () => {
-    const result = UserController.mapStateToProps(mock.state);
+    const result = UserController.mapStateToThis(mock.state);
     expect(result.userMenuShown).toEqual(mock.state.visibility.userMenuShown);
     expect(result.mobileMenuShown).toEqual(mock.state.visibility.mobileMenuShown);
   });
