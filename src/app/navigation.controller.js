@@ -50,7 +50,7 @@ class NavigationController {
     // Otherwise load the stored data and require the rest of needed information from the backend
     else {
       // this.user = this.scAuthenticationService.getUser(); TODO Replace when solution-center-login handles new users
-      this.user = USER_4;
+      this.user = USER_1;
 
       this.getAccessibleProducts();
       this.getUserBusinessPartnersInApplication()

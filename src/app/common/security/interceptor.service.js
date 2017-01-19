@@ -26,7 +26,7 @@ class InterceptorService extends HttpInterceptor {
 
   request(config) {
     // let token = this.scAuthenticationService.getToken();
-    let token = USER_4.token;
+    let token = USER_1.token;
 
     if (token) {
       config.headers['Authorization'] = token;
