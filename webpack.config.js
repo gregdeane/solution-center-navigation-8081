@@ -12,7 +12,9 @@ module.exports = {
     filename: 'solution-center-navigation.js',
   },
   devServer: {
-    contentBase: __dirname + '/demo'
+    contentBase: __dirname + '/demo',
+    port: 8081,
+    open: true
   },
   devtool: 'inline-source-map',
   module: {

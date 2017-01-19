@@ -16,7 +16,8 @@ class NavigationController {
               moduleConnectorService,
               ScAuthenticationService,
               NavigationActions,
-              stateHandlerService) {
+              stateHandlerService,
+              $cookies) {
 
     this.$ngRedux = $ngRedux;
     this.navigationService = navigationService;
@@ -25,6 +26,7 @@ class NavigationController {
     this.scAuthenticationService = ScAuthenticationService;
     this.navigationActions = NavigationActions;
     this.stateHandlerService = stateHandlerService;
+    this.$cookies = $cookies
   }
 
   $onInit() {
@@ -32,6 +34,10 @@ class NavigationController {
       NavigationController.mapStateToProps,
       this.navigationActions
     )(this);
+
+    // TODO TEMP TEMP TEMP / remove this temp code
+    this.$cookies.put('SC_BUSINESS_PARTNER_ID', '973f100e-7088-45c9-bf8a-39e443ac7bb5');
+    // TODO TEMP TEMP TEMP / end remove this temp code
 
     this.navigationService.loadCurrentContext(this.applicationId, this.productId);
 
