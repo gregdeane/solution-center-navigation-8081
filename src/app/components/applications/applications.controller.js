@@ -3,8 +3,8 @@ import * as Actions from '../../actions';
 class ApplicationsController {
   static mapStateToThis(state) {
     return {
-      selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
-      currentApplication: state.navigation.currentApplication,
+      selectedProductId: state.visibility.selectedProductId,
+      currentApplicationId: state.navigation.currentApplicationId,
       currentBusinessPartner: state.navigation.currentBusinessPartner
     };
   }
@@ -27,12 +27,11 @@ class ApplicationsController {
       return;
     }
 
-    this.stateHandlerService.dispatch('hideAllMenus');
     this.$window.location.href = url;
   }
 
   isCurrentApplication(applicationId) {
-    return this.currentApplication === applicationId;
+    return this.currentApplicationId === applicationId;
   }
 }
 

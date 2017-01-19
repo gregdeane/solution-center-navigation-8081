@@ -6,11 +6,6 @@ describe('Visibility Actions', () => {
 
   beforeEach(setup);
 
-  it(`should create the ${constants.TOGGLE_APPLICATIONS_MENU} action`, () => {
-    const type = getAction('toggleApplicationsMenu').type;
-    expect(type).toEqual(constants.TOGGLE_APPLICATIONS_MENU);
-  });
-
   it(`should create the ${constants.SHOW_APPLICATIONS_MENU} action`, () => {
     const type = getAction('showApplicationsMenu').type;
     expect(type).toEqual(constants.SHOW_APPLICATIONS_MENU);
@@ -41,15 +36,15 @@ describe('Visibility Actions', () => {
     expect(type).toEqual(constants.DISABLE_BUSINESS_PARTNER_MENU);
   });
 
-  it(`should create the ${constants.CHANGE_SELECTED_PRODUCT} action`, () => {
-    const action = getAction('changeSelectedProduct', mock.product);
-    expect(action.type).toEqual(constants.CHANGE_SELECTED_PRODUCT);
-    expect(action.product).toEqual(mock.product);
+  it(`should create the ${constants.CHANGE_SELECTED_PRODUCT_ID} action`, () => {
+    const action = getAction('changeSelectedProductId', mock.productId);
+    expect(action.type).toEqual(constants.CHANGE_SELECTED_PRODUCT_ID);
+    expect(action.productId).toEqual(mock.productId);
   });
 
-  it(`should create the ${constants.RESET_SELECTED_PRODUCT} action`, () => {
-    const type = getAction('resetSelectedProduct').type;
-    expect(type).toEqual(constants.RESET_SELECTED_PRODUCT);
+  it(`should create the ${constants.RESET_SELECTED_PRODUCT_ID} action`, () => {
+    const type = getAction('resetSelectedProductId').type;
+    expect(type).toEqual(constants.RESET_SELECTED_PRODUCT_ID);
   });
 
   it(`should create the ${constants.SET_HELP_WIDGET_AS_LOADED} action`, () => {
@@ -65,11 +60,6 @@ describe('Visibility Actions', () => {
   it(`should create the ${constants.TOGGLE_HELP_WIDGET} action`, () => {
     const type = getAction('toggleHelpWidget').type;
     expect(type).toEqual(constants.TOGGLE_HELP_WIDGET);
-  });
-
-  it(`should create the ${constants.HIDE_ALL_MENUS} action`, () => {
-    const type = getAction('hideAllMenus').type;
-    expect(type).toEqual(constants.HIDE_ALL_MENUS);
   });
 
   it(`should create the ${constants.TOGGLE_MOBILE_MENU} action`, () => {
@@ -101,7 +91,7 @@ describe('Visibility Actions', () => {
 
   function mocks() {
     mock = {
-      product: {}
+      productId: 1
     };
   }
 });

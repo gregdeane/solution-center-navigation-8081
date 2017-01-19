@@ -4,37 +4,37 @@ import * as actions from '../actions';
 
 describe('actions', () => {
 
-  describe('changeCurrentApplication', () => {
-    it('should have a type of \"' + types.CHANGE_CURRENT_APPLICATION + '\"', () =>
-      expect(actions.changeCurrentApplication().type).toEqual(types.CHANGE_CURRENT_APPLICATION)
+  describe('changeCurrentApplicationId', () => {
+    it('should have a type of \"' + types.CHANGE_CURRENT_APPLICATION_ID + '\"', () =>
+      expect(actions.changeCurrentApplicationId().type).toEqual(types.CHANGE_CURRENT_APPLICATION_ID)
     );
 
-    it('should pass on the application passed in', () => {
-      let application = {id: 1, name: 'APPLICATION'};
-      expect(actions.changeCurrentApplication(application).application)
+    it('should pass on the application id passed in', () => {
+      let applicationId = 1;
+      expect(actions.changeCurrentApplicationId(applicationId).applicationId)
     });
   });
 
-  describe('changeCurrentProduct', () => {
-    it('should have a type of \"' + types.CHANGE_CURRENT_PRODUCT + '\"', () =>
-      expect(actions.changeCurrentProduct().type).toEqual(types.CHANGE_CURRENT_PRODUCT)
+  describe('changeCurrentProductId', () => {
+    it('should have a type of \"' + types.CHANGE_CURRENT_PRODUCT_ID + '\"', () =>
+      expect(actions.changeCurrentProductId().type).toEqual(types.CHANGE_CURRENT_PRODUCT_ID)
     );
 
-    it('should pass on the product passed in', () => {
-      let product = {id: 1, name: 'PRODUCT'};
-      expect(actions.changeCurrentProduct(product).product)
+    it('should pass on the product id passed in', () => {
+      let productId = 1;
+      expect(actions.changeCurrentProductId(productId).productId)
     });
   });
 
-  describe('resetCurrentApplication', () => {
-    it('should have a type of \"' + types.RESET_CURRENT_APPLICATION + '\"', () =>
-      expect(actions.resetCurrentApplication().type).toEqual(types.RESET_CURRENT_APPLICATION)
+  describe('resetCurrentApplicationId', () => {
+    it('should have a type of \"' + types.RESET_CURRENT_APPLICATION_ID + '\"', () =>
+      expect(actions.resetCurrentApplicationId().type).toEqual(types.RESET_CURRENT_APPLICATION_ID)
     );
   });
 
-  describe('resetCurrentProduct', () => {
-    it('should have a type of \"' + types.RESET_CURRENT_PRODUCT + '\"', () =>
-      expect(actions.resetCurrentProduct().type).toEqual(types.RESET_CURRENT_PRODUCT)
+  describe('resetCurrentProductId', () => {
+    it('should have a type of \"' + types.RESET_CURRENT_PRODUCT_ID + '\"', () =>
+      expect(actions.resetCurrentProductId().type).toEqual(types.RESET_CURRENT_PRODUCT_ID)
     );
   });
 });

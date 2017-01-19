@@ -3,7 +3,7 @@ class BusinessPartnerController {
   static mapStateToThis(state) {
     return {
       currentBusinessPartner: state.businessPartners.currentBusinessPartner,
-      currentApplication: state.navigation.currentApplication,
+      currentApplicationId: state.navigation.currentApplicationId,
       businessPartnerMenuDisabled: state.visibility.businessPartnerMenuDisabled
     };
   }

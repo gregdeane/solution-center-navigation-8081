@@ -4,7 +4,7 @@
         class="menu__item">
       <a class="menu__link"
          ng-class="{'highlighted': $ctrl.isHighlighted(product)}"
-         ng-click="$ctrl.switchMenu(product)"
+         ng-click="$ctrl.switchMenu(product.id)"
          href>
         <span class="">{{product.name}}</span>
       </a>
