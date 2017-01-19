@@ -3,7 +3,7 @@ import BusinessPartnerController from './business-partner.controller';
 describe('Business Partner Component', () => {
   let $componentController;
   let $ngRedux;
-  let visibilityService;
+  let stateHandlerService;
   let controller;
   let mock;
 
@@ -17,13 +17,13 @@ describe('Business Partner Component', () => {
     const result = BusinessPartnerController.mapStateToThis(mock.state);
 
     expect(result.currentBusinessPartner).toEqual(mock.state.businessPartners.currentBusinessPartner);
-    expect(result.currentApplication).toEqual(mock.state.navigation.currentApplication);
+    expect(result.currentApplicationId).toEqual(mock.state.navigation.currentApplicationId);
     expect(result.businessPartnerMenuDisabled).toEqual(mock.state.visibility.businessPartnerMenuDisabled);
   });
 
   it('should toggle business partner menu', () => {
     controller.toggleBusinessPartnerMenu();
-    expect(visibilityService.dispatch).toHaveBeenCalled();
+    expect(stateHandlerService.dispatch).toHaveBeenCalled();
   });
 
   ////////////////////////////
@@ -44,13 +44,13 @@ describe('Business Partner Component', () => {
     angular.mock.inject($injector => {
       $componentController = $injector.get('$componentController');
       $ngRedux = $injector.get('$ngRedux');
-      visibilityService = $injector.get('VisibilityService');
+      stateHandlerService = $injector.get('stateHandlerService');
     });
   }
 
   function spies() {
     spyOn($ngRedux, 'connect').and.callThrough();
-    spyOn(visibilityService, 'dispatch').and.returnValue(true);
+    spyOn(stateHandlerService, 'dispatch').and.returnValue(true);
   }
 
   function initialize() {
@@ -62,7 +62,7 @@ describe('Business Partner Component', () => {
     mock = {
       state: {
         navigation: {
-          currentApplication: {}
+          currentApplicationId: {}
         },
         businessPartners: {
           currentBusinessPartner: {}

@@ -1,5 +1,3 @@
-import * as Actions from '../../actions';
-
 class HelpService {
 
   static getHelpSections(products) {
@@ -20,9 +18,9 @@ class HelpService {
     return userApplications;
   }
 
-  constructor($ngRedux, VisibilityService) {
+  constructor($ngRedux, stateHandlerService) {
     this.$ngRedux = $ngRedux;
-    this.visibilityService = VisibilityService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   loadHelpWidget(products) {
@@ -75,7 +73,7 @@ class HelpService {
     // added this to generate code so we can run this outside the global scope
     window._nRepData = _nRepData;
 
-    this.visibilityService.dispatch('setHelpWidgetAsLoaded');
+    this.stateHandlerService.dispatch('setHelpWidgetAsLoaded');
   }
 }
 

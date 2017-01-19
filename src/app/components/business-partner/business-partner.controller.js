@@ -3,15 +3,15 @@ class BusinessPartnerController {
   static mapStateToThis(state) {
     return {
       currentBusinessPartner: state.businessPartners.currentBusinessPartner,
-      currentApplication: state.navigation.currentApplication,
+      currentApplicationId: state.navigation.currentApplicationId,
       businessPartnerMenuDisabled: state.visibility.businessPartnerMenuDisabled
     };
   }
 
-  constructor($ngRedux, BusinessPartnerActions, VisibilityService) {
+  constructor($ngRedux, BusinessPartnerActions, stateHandlerService) {
     this.$ngRedux = $ngRedux;
     this.businessPartnerActions = BusinessPartnerActions;
-    this.visibilityService = VisibilityService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
@@ -22,7 +22,7 @@ class BusinessPartnerController {
   }
 
   toggleBusinessPartnerMenu() {
-    this.visibilityService.dispatch('toggleBusinessPartnerMenu');
+    this.stateHandlerService.dispatch('toggleBusinessPartnerMenu');
   }
 }
 

@@ -2,9 +2,12 @@
   <logo-button class="navigation__logo">
   </logo-button>
 
+  <!-- TODO Rethink this, it needs a backend call just to show the name
+      It might be possible to extract it when loading all the products though
   <div class="navigation__section navigation__section__application-name">
     {{$ctrl.currentApplication.name}}
   </div>
+  -->
 
   <div class="navigation__sections"
        ng-class="{'hidden': !$ctrl.mobileMenuShown}">

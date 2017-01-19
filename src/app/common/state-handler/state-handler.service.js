@@ -10,7 +10,11 @@ class StateHandlerService {
 
   dispatch(action, parameter) {
     // TODO after all actions are in their final locations, remove this if and just use `this.businessPartnerActions`
-    let dispatchAction = Actions[action] || this.businessPartnerActions[action] || this.navigationActions[action] || this.visibilityActions[action];
+    let dispatchAction = Actions[action]
+      || this.businessPartnerActions[action]
+      || this.navigationActions[action]
+      || this.visibilityActions[action];
+
     this.$ngRedux.dispatch(dispatchAction(parameter));
   }
 

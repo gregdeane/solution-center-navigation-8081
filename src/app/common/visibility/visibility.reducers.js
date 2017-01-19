@@ -3,7 +3,7 @@ import * as constants from './visibility.constants';
 const initialState = {
   applicationsMenuShown: false,
   userMenuShown: false,
-  selectedProduct: undefined, // TODO Consider changing it to hold only the id and not the whole object
+  selectedProductId: undefined,
   businessPartnerMenuShown: false,
   businessPartnerMenuDisabled: false,
   helpWidgetLoaded: false,
@@ -13,13 +13,6 @@ const initialState = {
 
 const visibility = (state = initialState, action) => {
   switch (action.type) {
-    case constants.TOGGLE_APPLICATIONS_MENU:
-      return {
-        ...state,
-        applicationsMenuShown: !state.applicationsMenuShown,
-        userMenuShown: false
-      };
-
     case constants.SHOW_APPLICATIONS_MENU:
       return {
         ...state,
@@ -60,16 +53,16 @@ const visibility = (state = initialState, action) => {
         businessPartnerMenuDisabled: true
       };
 
-    case constants.CHANGE_SELECTED_PRODUCT:
+    case constants.CHANGE_SELECTED_PRODUCT_ID:
       return {
         ...state,
-        selectedProduct: action.product
+        selectedProductId: action.productId
       };
 
-    case constants.RESET_SELECTED_PRODUCT:
+    case constants.RESET_SELECTED_PRODUCT_ID:
       return {
         ...state,
-        selectedProduct: undefined
+        selectedProductId: undefined
       };
 
     case constants.SET_HELP_WIDGET_AS_LOADED:
@@ -88,16 +81,6 @@ const visibility = (state = initialState, action) => {
       return {
         ...state,
         helpWidgetShown: !state.helpWidgetShown
-      };
-
-    case constants.HIDE_ALL_MENUS:
-      return {
-        ...state,
-        applicationsMenuShown: false,
-        userMenuShown: false,
-        businessPartnerMenuShown: false,
-        helpWidgetShown: false,
-        mobileMenuShown: false
       };
 
     case constants.TOGGLE_MOBILE_MENU:

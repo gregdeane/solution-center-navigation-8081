@@ -4,7 +4,7 @@ class NavigationController {
   static mapStateToProps(state) {
     return {
       mobileMenuShown: state.visibility.mobileMenuShown,
-      currentApplication: state.navigation.currentApplication,
+      currentApplicationId: state.navigation.currentApplicationId,
       currentBusinessPartner: state.navigation.currentBusinessPartner,
       accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners
     };

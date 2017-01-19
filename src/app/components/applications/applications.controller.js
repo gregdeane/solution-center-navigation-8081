@@ -1,23 +1,23 @@
 import * as Actions from '../../actions';
 
 class ApplicationsController {
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
-      selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
-      currentApplication: state.navigation.currentApplication,
+      selectedProductId: state.visibility.selectedProductId,
+      currentApplicationId: state.navigation.currentApplicationId,
       currentBusinessPartner: state.navigation.currentBusinessPartner
     };
   }
 
-  constructor($ngRedux, $window, VisibilityService) {
+  constructor($ngRedux, $window, stateHandlerService) {
     this.$ngRedux = $ngRedux;
     this.$window = $window;
-    this.visibilityService = VisibilityService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
     this.$ngRedux.connect(
-      ApplicationsController.mapStateToProps,
+      ApplicationsController.mapStateToThis,
       Actions)
     (this);
   }
@@ -27,12 +27,11 @@ class ApplicationsController {
       return;
     }
 
-    this.visibilityService.dispatch('hideAllMenus');
     this.$window.location.href = url;
   }
 
   isCurrentApplication(applicationId) {
-    return this.currentApplication === applicationId;
+    return this.currentApplicationId === applicationId;
   }
 }
 

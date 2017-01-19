@@ -14,15 +14,6 @@ describe('Visibility Reducers', () => {
     expect(result).toEqual(mock.initialState);
   });
 
-  it(`should update appropriate values for ${constants.TOGGLE_APPLICATIONS_MENU} action type`, () => {
-    const result = visibility(mock.updatedState, {
-      type: constants.TOGGLE_APPLICATIONS_MENU
-    });
-
-    expect(result.applicationsMenuShown).toBe(!mock.updatedState.applicationsMenuShown);
-    expect(result.userMenuShown).toBe(false);
-  });
-
   it(`should update appropriate values for ${constants.SHOW_APPLICATIONS_MENU} action type`, () => {
     const result = visibility(mock.initialState, {
       type: constants.SHOW_APPLICATIONS_MENU
@@ -75,21 +66,21 @@ describe('Visibility Reducers', () => {
     expect(result.businessPartnerMenuDisabled).toBe(true);
   });
 
-  it(`should update appropriate values for ${constants.CHANGE_SELECTED_PRODUCT} action type`, () => {
+  it(`should update appropriate values for ${constants.CHANGE_SELECTED_PRODUCT_ID} action type`, () => {
     const result = visibility(mock.initialState, {
-      type: constants.CHANGE_SELECTED_PRODUCT,
-      product: mock.data
+      type: constants.CHANGE_SELECTED_PRODUCT_ID,
+      productId: mock.data
     });
 
-    expect(result.selectedProduct).toBe(mock.data);
+    expect(result.selectedProductId).toBe(mock.data);
   });
 
-  it(`should update appropriate values for ${constants.RESET_SELECTED_PRODUCT} action type`, () => {
+  it(`should update appropriate values for ${constants.RESET_SELECTED_PRODUCT_ID} action type`, () => {
     const result = visibility(mock.updatedState, {
-      type: constants.RESET_SELECTED_PRODUCT
+      type: constants.RESET_SELECTED_PRODUCT_ID
     });
 
-    expect(result.selectedProduct).toBeUndefined();
+    expect(result.selectedProductId).toBeUndefined();
   });
 
   it(`should update appropriate values for ${constants.SET_HELP_WIDGET_AS_LOADED} action type`, () => {
@@ -116,18 +107,6 @@ describe('Visibility Reducers', () => {
     expect(result.helpWidgetShown).toBe(!mock.initialState.helpWidgetShown);
   });
 
-  it(`should update appropriate values for ${constants.HIDE_ALL_MENUS} action type`, () => {
-    const result = visibility(mock.updatedState, {
-      type: constants.HIDE_ALL_MENUS
-    });
-
-    expect(result.applicationsMenuShown).toBe(false);
-    expect(result.userMenuShown).toBe(false);
-    expect(result.businessPartnerMenuShown).toBe(false);
-    expect(result.helpWidgetShown).toBe(false);
-    expect(result.mobileMenuShown).toBe(false);
-  });
-
   it(`should update appropriate values for ${constants.TOGGLE_MOBILE_MENU} action type`, () => {
     const result = visibility(mock.updatedState, {
       type: constants.TOGGLE_MOBILE_MENU
@@ -148,7 +127,7 @@ describe('Visibility Reducers', () => {
       initialState: {
         applicationsMenuShown: false,
         userMenuShown: false,
-        selectedProduct: undefined,
+        selectedProductId: undefined,
         businessPartnerMenuShown: false,
         helpWidgetLoaded: false,
         helpWidgetShown: false,
@@ -157,7 +136,7 @@ describe('Visibility Reducers', () => {
       updatedState: {
         applicationsMenuShown: true,
         userMenuShown: true,
-        selectedProduct: {},
+        selectedProductId: 1,
         businessPartnerMenuShown: true,
         helpWidgetLoaded: true,
         helpWidgetShown: true,

@@ -2,12 +2,6 @@ import * as constants from './visibility.constants';
 
 const VisibilityActions = () => {
 
-  const toggleApplicationsMenu = () => {
-    return {
-      type: constants.TOGGLE_APPLICATIONS_MENU
-    };
-  };
-
   const showApplicationsMenu = () => {
     return {
       type: constants.SHOW_APPLICATIONS_MENU
@@ -44,16 +38,16 @@ const VisibilityActions = () => {
     }
   };
 
-  const changeSelectedProduct = (product) => {
+  const changeSelectedProductId = (productId) => {
     return {
-      type: constants.CHANGE_SELECTED_PRODUCT,
-      product
+      type: constants.CHANGE_SELECTED_PRODUCT_ID,
+      productId
     }
   };
 
-  const resetSelectedProduct = () => {
+  const resetSelectedProductId = () => {
     return {
-      type: constants.RESET_SELECTED_PRODUCT
+      type: constants.RESET_SELECTED_PRODUCT_ID
     }
   };
 
@@ -75,12 +69,6 @@ const VisibilityActions = () => {
     }
   };
 
-  const hideAllMenus = () => {
-    return {
-      type: constants.HIDE_ALL_MENUS
-    }
-  };
-
   const toggleMobileMenu = () => {
     return {
       type: constants.TOGGLE_MOBILE_MENU
@@ -88,19 +76,17 @@ const VisibilityActions = () => {
   };
 
   return {
-    toggleApplicationsMenu,
     showApplicationsMenu,
     toggleUserMenu,
     showBusinessPartnerMenu,
     hideBusinessPartnerMenu,
     toggleBusinessPartnerMenu,
     disableBusinessPartnerMenu,
-    changeSelectedProduct,
-    resetSelectedProduct,
+    changeSelectedProductId,
+    resetSelectedProductId,
     setHelpWidgetAsLoaded,
     hideHelpWidget,
     toggleHelpWidget,
-    hideAllMenus,
     toggleMobileMenu
   };
 };
