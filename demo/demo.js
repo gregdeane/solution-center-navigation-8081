@@ -11,8 +11,8 @@ angular.module('demo', ['solution-center-navigation'])
       email: 'chuck.norris@solutions.zalando.com'
     };
 
-    vm.applicationId = 'app1';
-    vm.productId = 'prod1';
+    vm.applicationId = 'app3';
+    vm.productId = 'prod2';
 
     vm.products = [
       {
