@@ -49,7 +49,7 @@ angular.module('demo', ['solution-center-navigation'])
             id: 'app3',
             name: 'app3',
             productId: 'prod2',
-            url: 'string',
+            url: '',
             icon: 'string',
             businessPartnerRoles: [
               'LOGISTICS_PROVIDER'
