@@ -8,10 +8,10 @@ class BusinessPartnerController {
     };
   }
 
-  constructor($ngRedux, BusinessPartnerActions, VisibilityService) {
+  constructor($ngRedux, BusinessPartnerActions, stateHandlerService) {
     this.$ngRedux = $ngRedux;
     this.businessPartnerActions = BusinessPartnerActions;
-    this.visibilityService = VisibilityService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
@@ -22,7 +22,7 @@ class BusinessPartnerController {
   }
 
   toggleBusinessPartnerMenu() {
-    this.visibilityService.dispatch('toggleBusinessPartnerMenu');
+    this.stateHandlerService.dispatch('toggleBusinessPartnerMenu');
   }
 }
 

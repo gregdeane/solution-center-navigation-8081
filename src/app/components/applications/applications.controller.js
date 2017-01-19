@@ -1,7 +1,7 @@
 import * as Actions from '../../actions';
 
 class ApplicationsController {
-  static mapStateToProps(state) {
+  static mapStateToThis(state) {
     return {
       selectedProductId: state.visibility.selectedProduct && state.visibility.selectedProduct.id,
       currentApplication: state.navigation.currentApplication,
@@ -9,15 +9,15 @@ class ApplicationsController {
     };
   }
 
-  constructor($ngRedux, $window, VisibilityService) {
+  constructor($ngRedux, $window, stateHandlerService) {
     this.$ngRedux = $ngRedux;
     this.$window = $window;
-    this.visibilityService = VisibilityService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
     this.$ngRedux.connect(
-      ApplicationsController.mapStateToProps,
+      ApplicationsController.mapStateToThis,
       Actions)
     (this);
   }
@@ -27,7 +27,7 @@ class ApplicationsController {
       return;
     }
 
-    this.visibilityService.dispatch('hideAllMenus');
+    this.stateHandlerService.dispatch('hideAllMenus');
     this.$window.location.href = url;
   }
 

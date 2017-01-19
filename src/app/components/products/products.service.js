@@ -1,9 +1,9 @@
 import * as Actions from '../../actions';
 
 class ProductsService {
-  constructor($ngRedux, VisibilityService) {
+  constructor($ngRedux, stateHandlerService) {
     $ngRedux.connect(this.mapStateToParams, Actions)(this);
-    this.visibilityService = VisibilityService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   mapStateToParams(state) {
@@ -19,19 +19,19 @@ class ProductsService {
     if (this.applicationsMenuShown) {
       // If the clicked product is the one that was shown, close the submenu
       if (this.selectedProductId === clickedProduct.id) {
-        this.visibilityService.dispatch('toggleApplicationsMenu');
-        this.visibilityService.dispatch('resetSelectedProduct');
+        this.stateHandlerService.dispatch('toggleApplicationsMenu');
+        this.stateHandlerService.dispatch('resetSelectedProduct');
       }
       // If not, switch to the clicked one
       else {
-        this.visibilityService.dispatch('changeSelectedProduct', clickedProduct);
+        this.stateHandlerService.dispatch('changeSelectedProduct', clickedProduct);
       }
     }
 
     // If the submenu is closed, open it and update the shown product
     else {
-      this.visibilityService.dispatch('toggleApplicationsMenu');
-      this.visibilityService.dispatch('changeSelectedProduct', clickedProduct);
+      this.stateHandlerService.dispatch('toggleApplicationsMenu');
+      this.stateHandlerService.dispatch('changeSelectedProduct', clickedProduct);
     }
   }
 }

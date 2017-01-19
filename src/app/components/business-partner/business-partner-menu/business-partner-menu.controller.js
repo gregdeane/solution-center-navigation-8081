@@ -8,11 +8,11 @@ class BusinessPartnerMenuController {
     };
   }
 
-  constructor($ngRedux, $cookies, BusinessPartnerActions, VisibilityService) {
+  constructor($ngRedux, $cookies, BusinessPartnerActions, stateHandlerService) {
     this.$ngRedux = $ngRedux;
     this.$cookies = $cookies;
     this.businessPartnerActions = BusinessPartnerActions;
-    this.visibilityService = VisibilityService;
+    this.stateHandlerService = stateHandlerService;
   }
 
   $onInit() {
@@ -27,7 +27,7 @@ class BusinessPartnerMenuController {
   selectBusinessPartner(businessPartner) {
     this.changeCurrentBusinessPartner(businessPartner);
     this.$cookies.put('SC_BUSINESS_PARTNER', businessPartner);
-    this.visibilityService.dispatch('hideBusinessPartnerMenu');
+    this.stateHandlerService.dispatch('hideBusinessPartnerMenu');
   }
 
   showLastAccessedSection() {

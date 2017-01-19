@@ -4,7 +4,7 @@ describe('Business Partner Menu Component', () => {
   let $componentController;
   let $cookies;
   let $ngRedux;
-  let visibilityService;
+  let stateHandlerService;
   let controller;
   let mock;
 
@@ -31,7 +31,7 @@ describe('Business Partner Menu Component', () => {
 
     expect($cookies.put).toHaveBeenCalledWith('SC_BUSINESS_PARTNER', mock.businessPartner);
     expect(controller.changeCurrentBusinessPartner).toHaveBeenCalledWith(mock.businessPartner);
-    expect(visibilityService.dispatch).toHaveBeenCalled();
+    expect(stateHandlerService.dispatch).toHaveBeenCalled();
   });
 
   it('should hide last accessed section', () => {
@@ -58,14 +58,14 @@ describe('Business Partner Menu Component', () => {
       $componentController = $injector.get('$componentController');
       $ngRedux = $injector.get('$ngRedux');
       $cookies = $injector.get('$cookies');
-      visibilityService = $injector.get('VisibilityService');
+      stateHandlerService = $injector.get('stateHandlerService');
     });
   }
 
   function spies() {
     spyOn($ngRedux, 'connect').and.callThrough();
     spyOn($cookies, 'put');
-    spyOn(visibilityService, 'dispatch');
+    spyOn(stateHandlerService, 'dispatch');
   }
 
   function initialize() {

@@ -1,11 +1,11 @@
-describe('Visibility Service', () => {
+describe('State handler service', () => {
   let $ngRedux;
-  let visibilityService;
+  let stateHandlerService;
 
   beforeEach(setup);
 
   it('should dispatch an action', () => {
-    visibilityService.dispatch('disableBusinessPartnerMenu', {});
+    stateHandlerService.dispatch('disableBusinessPartnerMenu', {});
     expect($ngRedux.dispatch).toHaveBeenCalledWith({
       type: 'DISABLE_BUSINESS_PARTNER_MENU'
     });
@@ -26,7 +26,7 @@ describe('Visibility Service', () => {
   function injectors() {
     angular.mock.inject($injector => {
       $ngRedux = $injector.get('$ngRedux');
-      visibilityService = $injector.get('VisibilityService');
+      stateHandlerService = $injector.get('stateHandlerService');
     });
   }
 
