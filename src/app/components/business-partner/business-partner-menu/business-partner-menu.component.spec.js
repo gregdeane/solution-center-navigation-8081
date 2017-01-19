@@ -29,7 +29,7 @@ describe('Business Partner Menu Component', () => {
 
     controller.selectBusinessPartner(mock.businessPartner);
 
-    expect($cookies.put).toHaveBeenCalledWith('SC_BUSINESS_PARTNER', JSON.stringify(mock.businessPartner));
+    expect($cookies.put).toHaveBeenCalledWith('SC_BUSINESS_PARTNER_ID', mock.businessPartner.id);
     expect(controller.changeCurrentBusinessPartner).toHaveBeenCalledWith(mock.businessPartner);
     expect(stateHandlerService.dispatch).toHaveBeenCalled();
   });
@@ -88,7 +88,9 @@ describe('Business Partner Menu Component', () => {
           businessPartnerMenuShown: false
         }
       },
-      businessPartner: {}
+      businessPartner: {
+        id: 1
+      }
     };
   }
 });
