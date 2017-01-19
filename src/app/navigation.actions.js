@@ -27,11 +27,13 @@ const NavigationActions = (moduleConnectorService) => {
   const getAccessibleProducts = () => {
     return (dispatch) => {
       moduleConnectorService.getAccessibleProducts()
-        .then(response => dispatch({
-          type: constants.UPDATE_ACCESSIBLE_PRODUCTS,
-          //accessibleProducts: response.data
-          accessibleProducts: response
-        }))
+        .then(response => {
+          dispatch({
+            type: constants.UPDATE_ACCESSIBLE_PRODUCTS,
+            //accessibleProducts: response.data
+            accessibleProducts: response
+          })
+        })
         .catch(() => dispatch({
           // TODO Log error
           type: constants.UPDATE_ACCESSIBLE_PRODUCTS,

@@ -6,6 +6,7 @@ class NavigationController {
       mobileMenuShown: state.visibility.mobileMenuShown,
       currentApplicationId: state.navigation.currentApplicationId,
       currentBusinessPartner: state.navigation.currentBusinessPartner,
+      accessibleProducts: state.navigation.accessibleProducts,
       accessibleBusinessPartners: state.businessPartners.accessibleBusinessPartners
     };
   }
@@ -35,10 +36,6 @@ class NavigationController {
       this.navigationActions
     )(this);
 
-    // TODO TEMP TEMP TEMP / remove this temp code
-    this.$cookies.put('SC_BUSINESS_PARTNER_ID', '973f100e-7088-45c9-bf8a-39e443ac7bb5');
-    // TODO TEMP TEMP TEMP / end remove this temp code
-
     this.navigationService.loadCurrentContext(this.applicationId, this.productId);
 
     // Allow mocking and skipping the backend endpoint calls only if the current environment allows override and
@@ -53,7 +50,7 @@ class NavigationController {
     // Otherwise load the stored data and require the rest of needed information from the backend
     else {
       // this.user = this.scAuthenticationService.getUser(); TODO Replace when solution-center-login handles new users
-      this.user = USER_5;
+      this.user = USER_4;
 
       this.getAccessibleProducts();
       this.getUserBusinessPartnersInApplication()
