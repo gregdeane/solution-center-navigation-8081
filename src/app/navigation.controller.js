@@ -17,8 +17,7 @@ class NavigationController {
               moduleConnectorService,
               ScAuthenticationService,
               NavigationActions,
-              stateHandlerService,
-              $cookies) {
+              stateHandlerService) {
 
     this.$ngRedux = $ngRedux;
     this.navigationService = navigationService;
@@ -27,7 +26,6 @@ class NavigationController {
     this.scAuthenticationService = ScAuthenticationService;
     this.navigationActions = NavigationActions;
     this.stateHandlerService = stateHandlerService;
-    this.$cookies = $cookies
   }
 
   $onInit() {
